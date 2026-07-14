@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="ru" class="h-dark">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta http-equiv="Content-Security-Policy"
+        content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;" />
+  <title>Nomad Setup</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body class="h-frame">
+  <!-- ============ STEP 1: SELECT ============ -->
+  <main id="view-select" class="view">
+    <header class="hero">
+      <div class="brand">
+        <div class="hmark">N</div>
+        <div>
+          <h1>Nomad Setup</h1>
+          <p class="lead">Локальный AI-агент Nomad в один клик</p>
+        </div>
+      </div>
+      <img class="mascot" src="mascot/watching.webp" alt="Nomad" title="Nomad следит, чтобы всё поставилось как надо">
+    </header>
+
+    <div class="scroll">
+      <section id="groups" class="groups"></section>
+
+      <!-- Подключение к облаку Nomad: свой ключ из кабинета -->
+      <section id="cloud-wrap">
+        <div class="group-title">Подключение к Nomad Cloud</div>
+        <div class="cloud-card">
+          <div class="cloud-desc">
+            Nomad берёт доступ к ИИ-моделям из облака <b>cp.nomadnet.ai</b> — свой ключ модели не нужен.
+            Зарегистрируйся, скопируй ключ из кабинета и вставь его сюда.
+            Облако доступно из России без VPN.
+          </div>
+          <div class="cloud-row">
+            <button type="button" id="cloud-register" class="btn-sm">🔑 Получить ключ</button>
+            <input id="cloud-key" type="text" class="cloud-input"
+                   placeholder="Вставь ключ Nomad из кабинета (cp.nomadnet.ai/cabinet/keys)"
+                   autocomplete="off" spellcheck="false" />
+          </div>
+          <div class="cloud-hint" id="cloud-hint">Без ключа агент поставится, но доступ к моделям придётся настроить позже.</div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="actions">
+      <div class="summary" id="summary">Выбрано: 0</div>
+      <button type="button" id="btn-install" class="btn btn-primary">Установить</button>
+    </footer>
+  </main>
+
+  <!-- ============ STEP 2: PROGRESS ============ -->
+  <main id="view-progress" class="view hidden">
+    <header class="hero compact">
+      <div class="brand">
+        <div class="hmark">N</div>
+        <div>
+          <h1 id="progress-title">Устанавливаю…</h1>
+          <p class="lead" id="progress-sub">Не закрывай окно до завершения.</p>
+        </div>
+      </div>
+      <img class="mascot" src="mascot/loading.webp" alt="Nomad готовит окружение">
+    </header>
+
+    <section class="progress-layout">
+      <ul id="step-list" class="step-list"></ul>
+      <div class="log-wrap">
+        <div class="log-head">Журнал</div>
+        <pre id="log" class="log"></pre>
+      </div>
+    </section>
+
+    <section id="tips" class="tips hidden">
+      <img src="mascot/thinking.webp" alt="" class="tips-mascot">
+      <div class="tips-body">
+        <div class="tips-label">Пока ставится — полезное про Nomad</div>
+        <div class="tips-text" id="tips-text"></div>
+      </div>
+    </section>
+
+    <section id="next-steps" class="next-steps hidden"></section>
+
+    <footer class="actions">
+      <div class="summary" id="progress-summary"></div>
+      <button type="button" id="btn-finish" class="btn btn-primary hidden">Готово</button>
+    </footer>
+  </main>
+
+  <script src="deps.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

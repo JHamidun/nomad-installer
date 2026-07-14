@@ -1,0 +1,67 @@
+{
+  "name": "nomad-installer",
+  "productName": "Nomad Setup",
+  "version": "0.1.0",
+  "description": "One-click installer for a local Nomad AI agent (S1 self_hosted) whose LLM access routes through the owner's cloud control-plane (cp.nomadnet.ai)",
+  "author": "Zhemal Khamidun <hamidunjemal@gmail.com>",
+  "license": "MIT",
+  "main": "src/main.js",
+  "scripts": {
+    "start": "electron .",
+    "fetch:vendor": "powershell -ExecutionPolicy Bypass -NoProfile -File tools/fetch-vendor.ps1",
+    "dist": "npm run fetch:vendor && electron-builder",
+    "dist:win": "npm run fetch:vendor && electron-builder --win",
+    "dist:mac": "electron-builder --mac",
+    "postinstall": "electron-builder install-app-deps",
+    "test": "node test/run-tests.js"
+  },
+  "devDependencies": {
+    "electron": "^32.0.0",
+    "electron-builder": "^25.0.0"
+  },
+  "build": {
+    "appId": "com.nomadnet.installer",
+    "productName": "Nomad Setup",
+    "directories": { "output": "release" },
+    "files": [
+      "src/**/*"
+    ],
+    "extraResources": [
+      { "from": "scripts", "to": "scripts" },
+      { "from": "config.json", "to": "config.json" },
+      { "from": "components.json", "to": "components.json" },
+      { "from": "packs.json", "to": "packs.json" },
+      { "from": "assets", "to": "assets" }
+    ],
+    "win": {
+      "target": [{ "target": "portable", "arch": ["x64"] }],
+      "artifactName": "Setup-Nomad-Windows.${ext}",
+      "requestedExecutionLevel": "requireAdministrator",
+      "extraResources": [
+        { "from": "vendor", "to": "vendor" }
+      ]
+    },
+    "portable": {
+      "requestExecutionLevel": "admin",
+      "artifactName": "Setup-Nomad-Windows.${ext}"
+    },
+    "afterPack": "tools/mac-adhoc-sign.js",
+    "mac": {
+      "target": [{ "target": "dmg", "arch": ["arm64"] }],
+      "category": "public.app-category.developer-tools",
+      "artifactName": "Setup-Nomad-Mac.${ext}",
+      "hardenedRuntime": true,
+      "gatekeeperAssess": false,
+      "entitlements": "build/entitlements.mac.plist",
+      "entitlementsInherit": "build/entitlements.mac.plist",
+      "notarize": true
+    },
+    "dmg": {
+      "contents": [
+        { "x": 140, "y": 260 },
+        { "x": 400, "y": 260, "type": "link", "path": "/Applications" },
+        { "x": 270, "y": 110, "type": "file", "path": "assets/mac/ПРОЧТИ ЕСЛИ ПИШЕТ ПОВРЕЖДЕНО.txt" }
+      ]
+    }
+  }
+}

@@ -1,0 +1,9 @@
+node_modules/
+release/
+release-mac/
+vendor/
+*.log
+*.dmg
+*.exe
+__pycache__/
+*.pyc

@@ -1,0 +1,5 @@
+{
+  "_comment": "Nomad-only installer has no skill packs (that was a config-pack feature of the course installer). Kept as an empty structure so the renderer's pack machinery renders nothing.",
+  "core": [],
+  "packs": []
+}
