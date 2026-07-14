@@ -43,7 +43,9 @@ if (-not (Test-Path (Join-Path $agentRepo '.git'))) {
   if ((Test-Path $tmpTar) -and ((Get-Item $tmpTar).Length -gt 0)) {
     if (Test-Path $srcOut) { Remove-Item -Recurse -Force $srcOut -ErrorAction SilentlyContinue }
     New-Item -ItemType Directory -Force $srcOut | Out-Null
-    & tar -x -f "$tmpTar" -C $srcOut
+    # Нативный Windows tar.exe (bsdtar) — понимает C:\ пути. НЕ msys /usr/bin/tar,
+    # который трактует "-f C:\..." как remote host ("Cannot connect to C:").
+    & "$env:SystemRoot\System32\tar.exe" -x -f "$tmpTar" -C "$srcOut"
     Remove-Item $tmpTar -Force -ErrorAction SilentlyContinue
     if (Test-Path (Join-Path $srcOut 'pyproject.toml')) {
       $mb = [math]::Round(((Get-ChildItem $srcOut -Recurse -File | Measure-Object Length -Sum).Sum)/1MB, 0)

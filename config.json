@@ -6,7 +6,7 @@
     "cloud": {
       "_comment": "The friend's local agent routes ALL LLM traffic through the owner's cloud control-plane (OpenAI-compatible). baseUrl is written into HERMES_HOME/config.yaml as a custom provider. defaultModel MUST be a model id that cp.nomadnet.ai/v1/models actually serves — confirm and adjust. The friend pastes their OWN cabinet key; the owner's key is NEVER embedded.",
       "baseUrl": "https://cp.nomadnet.ai/v1",
-      "defaultModel": "claude-opus-4.6",
+      "defaultModel": "claude-opus-4-6",
       "registerUrl": "https://cp.nomadnet.ai/cabinet/register",
       "keysUrl": "https://cp.nomadnet.ai/cabinet/keys",
       "cabinetUrl": "https://cp.nomadnet.ai/cabinet"
