@@ -36,6 +36,7 @@
     "win": {
       "target": [{ "target": "portable", "arch": ["x64"] }],
       "artifactName": "Setup-Nomad-Windows.${ext}",
+      "icon": "build/icon.ico",
       "requestedExecutionLevel": "requireAdministrator",
       "extraResources": [
         { "from": "vendor", "to": "vendor" }
@@ -50,6 +51,7 @@
       "target": [{ "target": "dmg", "arch": ["arm64"] }],
       "category": "public.app-category.developer-tools",
       "artifactName": "Setup-Nomad-Mac.${ext}",
+      "icon": "build/icon.icns",
       "hardenedRuntime": true,
       "gatekeeperAssess": false,
       "entitlements": "build/entitlements.mac.plist",
