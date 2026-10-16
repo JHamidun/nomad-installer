@@ -38,6 +38,9 @@
       "artifactName": "Setup-Nomad-Windows.${ext}",
       "icon": "build/icon.ico",
       "requestedExecutionLevel": "requireAdministrator",
+      "signtoolOptions": {
+        "sign": "tools/sign-win.js"
+      },
       "extraResources": [
         { "from": "vendor", "to": "vendor" }
       ]

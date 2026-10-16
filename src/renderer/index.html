@@ -1,53 +1,60 @@
 <!DOCTYPE html>
-<html lang="ru" class="h-dark">
+<html lang="ru">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;" />
-  <title>Nomad Setup</title>
+  <title>Nomad Setup — Academy & Enterprise</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="h-frame">
+  <img class="dunes-backdrop" src="nomad-dunes.svg" alt="" aria-hidden="true" />
+
   <!-- ============ STEP 1: SELECT ============ -->
   <main id="view-select" class="view">
     <header class="hero">
       <div class="brand">
         <div class="hmark">N</div>
         <div>
-          <h1>Nomad Setup</h1>
-          <p class="lead">Локальный AI-агент Nomad в один клик</p>
+          <h1>NOMAD SETUP</h1>
+          <p class="lead">Локальное рабочее место ИИ-агента, роёв субагентов и корпоративного контура РФ в один клик</p>
         </div>
       </div>
       <img class="mascot" src="mascot/watching.webp" alt="Nomad" title="Nomad следит, чтобы всё поставилось как надо">
     </header>
+
+    <div class="feature-pills">
+      <span class="feature-pill">✨ Советник Бадди: Ника & Сократ</span>
+      <span class="feature-pill">🇷🇺 GigaChat · YandexGPT · МТС Cotype · T-Pro</span>
+      <span class="feature-pill">🛡️ Гардрейлы ИБ и DLP 152-ФЗ</span>
+      <span class="feature-pill">🔌 11 коннекторов РФ: 1С, Битрикс24, Диадок, СБИС</span>
+    </div>
 
     <div class="scroll">
       <section id="groups" class="groups"></section>
 
       <!-- Подключение к облаку Nomad: свой ключ из кабинета -->
       <section id="cloud-wrap">
-        <div class="group-title">Подключение к Nomad Cloud</div>
+        <div class="group-title">Подключение к Nomad Cloud и суверенным моделям РФ</div>
         <div class="cloud-card">
           <div class="cloud-desc">
-            Nomad берёт доступ к ИИ-моделям из облака <b>cp.nomadnet.ai</b> — свой ключ модели не нужен.
-            Зарегистрируйся, скопируй ключ из кабинета и вставь его сюда.
-            Облако доступно из России без VPN.
+            Nomad поддерживает как единую подписку <b>cp.nomadnet.ai</b> (доступно из РФ без VPN), так и прямое подключение суверенных российских моделей (GigaChat, YandexGPT, МТС AI Cotype, T-Pro, Cloud.ru).
           </div>
           <div class="cloud-row">
             <button type="button" id="cloud-register" class="btn-sm">🔑 Получить ключ</button>
             <input id="cloud-key" type="text" class="cloud-input"
-                   placeholder="Вставь ключ Nomad из кабинета (cp.nomadnet.ai/cabinet/keys)"
+                   placeholder="Вставь ключ Nomad из кабинета (cp.nomadnet.ai/cabinet/keys) или оставь пустым"
                    autocomplete="off" spellcheck="false" />
           </div>
-          <div class="cloud-hint" id="cloud-hint">Без ключа агент поставится, но доступ к моделям придётся настроить позже.</div>
+          <div class="cloud-hint" id="cloud-hint">Ключи GigaChat, YandexGPT, МТС AI или Nomad Cloud можно также добавить после установки в разделе «Аккаунты».</div>
         </div>
       </section>
     </div>
 
     <footer class="actions">
       <div class="summary" id="summary">Выбрано: 0</div>
-      <button type="button" id="btn-install" class="btn btn-primary">Установить</button>
+      <button type="button" id="btn-install" class="btn btn-primary">Установить Nomad</button>
     </footer>
   </main>
 
@@ -57,8 +64,8 @@
       <div class="brand">
         <div class="hmark">N</div>
         <div>
-          <h1 id="progress-title">Устанавливаю…</h1>
-          <p class="lead" id="progress-sub">Не закрывай окно до завершения.</p>
+          <h1 id="progress-title">Устанавливаю Nomad…</h1>
+          <p class="lead" id="progress-sub">Не закрывай окно до завершения установки.</p>
         </div>
       </div>
       <img class="mascot" src="mascot/loading.webp" alt="Nomad готовит окружение">
@@ -67,7 +74,7 @@
     <section class="progress-layout">
       <ul id="step-list" class="step-list"></ul>
       <div class="log-wrap">
-        <div class="log-head">Журнал</div>
+        <div class="log-head">Журнал установки</div>
         <pre id="log" class="log"></pre>
       </div>
     </section>
@@ -75,7 +82,7 @@
     <section id="tips" class="tips hidden">
       <img src="mascot/thinking.webp" alt="" class="tips-mascot">
       <div class="tips-body">
-        <div class="tips-label">Пока ставится — полезное про Nomad</div>
+        <div class="tips-label">Пока ставится — возможности Nomad</div>
         <div class="tips-text" id="tips-text"></div>
       </div>
     </section>

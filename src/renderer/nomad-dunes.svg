@@ -1,0 +1,59 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1600 1000" fill="none" role="img" aria-label="Nomad — dunes and a camel caravan under a guiding star">
+  <!--
+    Nomad backdrop watermark. Single-hue indigo line/silhouette art meant to sit
+    at a few percent opacity behind the chat surface (see components/Backdrop.tsx).
+    Motif: desert dunes, a three-camel caravan on the ridge, and the Nomad
+    guiding star. Replaces the upstream Hermes statue (ds-assets/filler-bg0.jpg).
+  -->
+  <defs>
+    <!-- One camel silhouette, feet ~y=88, facing right. Reused along the ridge. -->
+    <g id="nomad-camel">
+      <!-- legs -->
+      <rect x="30" y="54" width="6" height="34" rx="2.5" />
+      <rect x="48" y="54" width="6" height="34" rx="2.5" />
+      <rect x="88" y="54" width="6" height="34" rx="2.5" />
+      <rect x="106" y="54" width="6" height="34" rx="2.5" />
+      <!-- body + two humps -->
+      <ellipse cx="70" cy="49" rx="45" ry="17" />
+      <ellipse cx="55" cy="33" rx="15" ry="13" />
+      <ellipse cx="84" cy="30" rx="18" ry="16" />
+      <!-- neck -->
+      <path d="M103 53 L99 40 L116 11 L127 15 L112 48 Z" />
+      <!-- head + snout + ear -->
+      <ellipse cx="127" cy="13" rx="9" ry="6.5" />
+      <path d="M134 12 L143 15 L134 18 Z" />
+      <path d="M122 6 L126 1 L128 8 Z" />
+      <!-- tail -->
+      <path d="M27 44 C 20 50 17 58 15 66" stroke="#4c6ef5" stroke-width="3" stroke-linecap="round" fill="none" />
+    </g>
+    <!-- Four-point guiding star. -->
+    <g id="nomad-star">
+      <path d="M0 -62 L11 0 L0 62 L-11 0 Z" />
+      <path d="M-62 0 L0 -11 L62 0 L0 11 Z" />
+    </g>
+  </defs>
+
+  <g fill="#4c6ef5" stroke="none">
+    <!-- Guiding star, upper right, with a faint halo and a couple of sparkles. -->
+    <g transform="translate(1188 244)">
+      <circle cx="0" cy="0" r="86" fill="none" stroke="#4c6ef5" stroke-width="1.4" opacity="0.5" />
+      <use href="#nomad-star" />
+      <g transform="translate(-150 118) scale(0.34)"><use href="#nomad-star" /></g>
+      <g transform="translate(126 -96) scale(0.24)"><use href="#nomad-star" /></g>
+    </g>
+
+    <!-- Dune layers, far to near, deepening for depth. -->
+    <path d="M0 604 C 260 540 520 566 792 604 C 1064 642 1332 660 1600 596 L1600 1000 L0 1000 Z" opacity="0.42" />
+    <path d="M0 726 C 300 654 628 700 904 726 C 1180 752 1372 772 1600 712 L1600 1000 L0 1000 Z" opacity="0.62" />
+
+    <!-- Caravan on the mid-dune ridge. -->
+    <g opacity="0.92">
+      <g transform="translate(486 614) scale(0.9)"><use href="#nomad-camel" /></g>
+      <g transform="translate(662 606) scale(1.02)"><use href="#nomad-camel" /></g>
+      <g transform="translate(844 618) scale(0.82)"><use href="#nomad-camel" /></g>
+    </g>
+
+    <!-- Foreground dune. -->
+    <path d="M0 858 C 360 806 712 846 1060 866 C 1300 880 1460 884 1600 854 L1600 1000 L0 1000 Z" />
+  </g>
+</svg>
