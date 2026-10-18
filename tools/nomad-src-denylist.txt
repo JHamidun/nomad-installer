@@ -1,0 +1,56 @@
+# nomad-src-denylist.txt — export filter for vendor/nomad-src (P0-2).
+# Applied by tools/scrub-vendor.py --denylist (called from fetch-vendor-mac.sh /
+# fetch-vendor.ps1) right after `git archive` extraction, BEFORE scrub + leak-gate.
+# One glob per line (pathlib syntax, `**` = recursive), `#` starts a comment.
+# Idempotent: paths that are already gone are skipped silently.
+#
+# SAFETY: nothing here overlaps pyproject.toml [tool.setuptools.packages.find]
+# include (agent, tools, nomad_cli, gateway, tui_gateway, cron, acp_adapter,
+# plugins, providers), data-files (locales/, optional-mcps/), package-data
+# (web_dist/tui_dist/app_dist/tg_dist, gateway/assets, plugin manifests) or
+# branding/ — `uv tool install` stays intact. `**/tests/` only removes
+# test-only subpackages (plugins/*/tests, tools/claude2hermes/tests, ...).
+
+# ── Internal dev/CI infrastructure ──
+.superpowers
+.plans
+.github
+deploy
+docker
+nix
+Dockerfile
+.dockerignore
+docker-compose.yml
+docker-compose.windows.yml
+.hadolint.yaml
+flake.nix
+flake.lock
+.envrc
+.mailmap
+
+# ── Internal reports / dev-process docs ──
+PHASE1_TENANT_PROFILE_RBAC_REPORT.md
+hermes-already-has-routines.md
+docs/superpowers
+docs/NOMAD_PRODUCT_ARCHITECTURE_AND_PLAN.md
+docs/DISTRIBUTION.md
+docs/RELEASE_CHANNEL.md
+docs/PHASE2_SAAS_PLAN.md
+docs/DEV_PROCESS_SKILLS.md
+docs/*_SKILLS.md
+docs/QUALITY_STACK.md
+docs/CODE_HEALTH_SKILLS.md
+docs/DESIGN_SKILLS.md
+
+# ── Test files / dirs (not needed for `uv tool install`; carry fixture PII:
+#    Vertex IPs, C:\Users\hamid paths, maintainer-name assertions) ──
+tests
+**/tests/
+**/*.test.ts
+**/*.test.tsx
+**/*.test.cjs
+**/test_*.py
+**/*_test.py
+
+# ── Internal course reference content (Vibe Academy) ──
+optional-skills/**/vibecoding-course/references/

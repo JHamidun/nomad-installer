@@ -5,30 +5,35 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <meta http-equiv="Content-Security-Policy"
         content="default-src 'self'; style-src 'self' 'unsafe-inline'; script-src 'self'; img-src 'self' data:;" />
-  <title>Nomad Setup — Academy & Enterprise</title>
+  <title>Установка Nomad</title>
   <link rel="stylesheet" href="styles.css" />
 </head>
 <body class="h-frame">
-  <img class="dunes-backdrop" src="nomad-dunes.svg" alt="" aria-hidden="true" />
-
   <!-- ============ STEP 1: SELECT ============ -->
   <main id="view-select" class="view">
     <header class="hero">
       <div class="brand">
-        <div class="hmark">N</div>
+        <div class="hmark" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="44" height="44" fill="none">
+            <rect x="2" y="2" width="60" height="60" rx="14" fill="#09090B" stroke="#27272A" stroke-width="1.5"/>
+            <circle cx="32" cy="32" r="21" stroke="#3F3F46" stroke-width="1" stroke-dasharray="2 3"/>
+            <path d="M19 46V18L32 32M45 18V46L32 32" stroke="#FAFAFA" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32 13L35.2 28.8L51 32L35.2 35.2L32 51L28.8 35.2L13 32L28.8 28.8L32 13Z" fill="#FAFAFA"/>
+            <circle cx="32" cy="32" r="2.6" fill="#09090B"/>
+          </svg>
+        </div>
         <div>
-          <h1>NOMAD SETUP</h1>
-          <p class="lead">Локальное рабочее место ИИ-агента, роёв субагентов и корпоративного контура РФ в один клик</p>
+          <h1>Установка Nomad</h1>
+          <p class="lead">Локальное рабочее место ИИ-агента, Совета моделей и корпоративного контура 152-ФЗ</p>
         </div>
       </div>
-      <img class="mascot" src="mascot/watching.webp" alt="Nomad" title="Nomad следит, чтобы всё поставилось как надо">
     </header>
 
     <div class="feature-pills">
-      <span class="feature-pill">✨ Советник Бадди: Ника & Сократ</span>
-      <span class="feature-pill">🇷🇺 GigaChat · YandexGPT · МТС Cotype · T-Pro</span>
-      <span class="feature-pill">🛡️ Гардрейлы ИБ и DLP 152-ФЗ</span>
-      <span class="feature-pill">🔌 11 коннекторов РФ: 1С, Битрикс24, Диадок, СБИС</span>
+      <span class="feature-pill">Умный роутер NomadNet Auto</span>
+      <span class="feature-pill">GigaChat · YandexGPT · МТС Cotype · T-Pro</span>
+      <span class="feature-pill">Локальная защита ПДн 152-ФЗ</span>
+      <span class="feature-pill">11 коннекторов РФ: 1С, Битрикс24, Диадок, СБИС</span>
     </div>
 
     <div class="scroll">
@@ -39,15 +44,15 @@
         <div class="group-title">Подключение к Nomad Cloud и суверенным моделям РФ</div>
         <div class="cloud-card">
           <div class="cloud-desc">
-            Nomad поддерживает как единую подписку <b>cp.nomadnet.ai</b> (доступно из РФ без VPN), так и прямое подключение суверенных российских моделей (GigaChat, YandexGPT, МТС AI Cotype, T-Pro, Cloud.ru).
+            Nomad поддерживает как единую подписку <b>cp.nomadnet.ai</b> (доступно из РФ без VPN), так и прямое подключение корпоративных и суверенных моделей (GigaChat, YandexGPT, МТС AI Cotype, T-Pro, Cloud.ru).
           </div>
           <div class="cloud-row">
-            <button type="button" id="cloud-register" class="btn-sm">🔑 Получить ключ</button>
+            <button type="button" id="cloud-register" class="btn-sm">Получить ключ</button>
             <input id="cloud-key" type="text" class="cloud-input"
                    placeholder="Вставь ключ Nomad из кабинета (cp.nomadnet.ai/cabinet/keys) или оставь пустым"
                    autocomplete="off" spellcheck="false" />
           </div>
-          <div class="cloud-hint" id="cloud-hint">Ключи GigaChat, YandexGPT, МТС AI или Nomad Cloud можно также добавить после установки в разделе «Аккаунты».</div>
+          <div class="cloud-hint" id="cloud-hint">Ключи провайдеров или подписку Nomad Cloud можно также подключить после установки в разделе «Настройки → Провайдеры».</div>
         </div>
       </section>
     </div>
@@ -62,13 +67,20 @@
   <main id="view-progress" class="view hidden">
     <header class="hero compact">
       <div class="brand">
-        <div class="hmark">N</div>
+        <div class="hmark" aria-hidden="true">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" width="40" height="40" fill="none">
+            <rect x="2" y="2" width="60" height="60" rx="14" fill="#09090B" stroke="#27272A" stroke-width="1.5"/>
+            <circle cx="32" cy="32" r="21" stroke="#3F3F46" stroke-width="1" stroke-dasharray="2 3"/>
+            <path d="M19 46V18L32 32M45 18V46L32 32" stroke="#FAFAFA" stroke-width="4.2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M32 13L35.2 28.8L51 32L35.2 35.2L32 51L28.8 35.2L13 32L28.8 28.8L32 13Z" fill="#FAFAFA"/>
+            <circle cx="32" cy="32" r="2.6" fill="#09090B"/>
+          </svg>
+        </div>
         <div>
           <h1 id="progress-title">Устанавливаю Nomad…</h1>
           <p class="lead" id="progress-sub">Не закрывай окно до завершения установки.</p>
         </div>
       </div>
-      <img class="mascot" src="mascot/loading.webp" alt="Nomad готовит окружение">
     </header>
 
     <section class="progress-layout">
@@ -80,9 +92,8 @@
     </section>
 
     <section id="tips" class="tips hidden">
-      <img src="mascot/thinking.webp" alt="" class="tips-mascot">
       <div class="tips-body">
-        <div class="tips-label">Пока ставится — возможности Nomad</div>
+        <div class="tips-label">Пока идёт установка — возможности Nomad</div>
         <div class="tips-text" id="tips-text"></div>
       </div>
     </section>

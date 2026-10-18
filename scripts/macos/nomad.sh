@@ -27,11 +27,37 @@ if [ -z "$DRY" ] && [ ! -f "$SRC/pyproject.toml" ]; then
   exit 0
 fi
 
-# 2. uv — менеджер Python
+# 2. uv — менеджер Python. FAIL-CLOSED, БЕЗ `curl | sh`.
+#    Раньше здесь был `curl -fsSL astral.sh/uv/install.sh | sh` — неверифицированный
+#    сетевой код в интерпретаторе, обходивший наш же инвариант целостности вшитых
+#    установщиков (verify_artifact в _lib.sh). Теперь: системный uv → вшитый uv
+#    (SHA-256 против checksums.json) → стоп. Никакой удалённый код не исполняется.
 if ! have uv; then
-  echo "Устанавливаю uv..."
-  [ -z "$DRY" ] && curl -fsSL https://astral.sh/uv/install.sh | sh
-  export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+  case "$(arch_tag)" in x64) UVTGT="x86_64-apple-darwin" ;; *) UVTGT="aarch64-apple-darwin" ;; esac
+  UVTGZ="${HM_VENDOR:-}/apps/uv-$UVTGT.tar.gz"
+  if [ -n "${HM_VENDOR:-}" ] && [ -f "$UVTGZ" ]; then
+    echo "Устанавливаю uv из встроенного пакета (офлайн, verified)..."
+    verify_artifact "$UVTGZ"                         # fail-closed SHA-256 → exit 1 при несовпадении
+    if [ -z "$DRY" ]; then
+      UVTMP="$(mktemp -d)"
+      if tar -xzf "$UVTGZ" -C "$UVTMP" 2>/dev/null; then
+        xattr -dr com.apple.quarantine "$UVTMP" 2>/dev/null || true
+        mkdir -p "$HOME/.local/bin"
+        for b in uv uvx; do
+          f="$(find "$UVTMP" -type f -name "$b" 2>/dev/null | head -n1)"
+          if [ -n "$f" ]; then cp "$f" "$HOME/.local/bin/$b" && chmod +x "$HOME/.local/bin/$b"; fi
+        done
+      fi
+      rm -rf "$UVTMP"
+      export PATH="$HOME/.local/bin:$HOME/.cargo/bin:$PATH"
+    fi
+    have uv || { echo "БЕЗОПАСНОСТЬ: вшитый uv распаковался, но не запустился. Останавливаюсь."; [ -z "$DRY" ] && exit 1; }
+  else
+    echo "БЕЗОПАСНОСТЬ: uv не найден в системе и не вшит ($UVTGZ отсутствует)."
+    echo "  Онлайн-установка через 'curl | sh' отключена намеренно (fail-closed: не исполняем неверифицированный сетевой код)."
+    echo "  Реши так: пересобери vendor (bash tools/fetch-vendor-mac.sh — он вошьёт verified uv), либо установи uv вручную: https://docs.astral.sh/uv/getting-started/installation/"
+    [ -z "$DRY" ] && exit 1
+  fi
 fi
 
 # 3. Python 3.12 (pyproject требует <3.14) + установка nomad (команды nomad/nmd/hermes)
@@ -42,11 +68,23 @@ if [ -z "$DRY" ]; then
   export PATH="$HOME/.local/bin:$PATH"
 fi
 
-# 4. Брендинг + сид config.yaml → HERMES_HOME (по умолчанию ~/.hermes)
+# 4. Брендинг + профиль Nomad (plugins/nomad, skills, mcp-servers) + сид config.yaml → HERMES_HOME (по умолчанию ~/.hermes)
 HH="${HERMES_HOME:-$HOME/.hermes}"
 CFG="$HH/config.yaml"
 if [ -z "$DRY" ]; then
-  mkdir -p "$HH/skins"
+  mkdir -p "$HH/skins" "$HH/profiles/nomad" "$HH/desktop-plugins/nomad" "$HH/profiles/nomad/desktop-plugins/nomad"
+  PROF_SRC="${HM_VENDOR:+$HM_VENDOR/nomad-profile}"
+  if [ -n "$PROF_SRC" ] && [ -f "$PROF_SRC/distribution.yaml" ]; then
+    echo "Разворачиваю профиль Nomad (плагин, суверенные модели РФ, 11 коннекторов РФ, DLP 152-ФЗ, Бадди)..."
+    cp -R "$PROF_SRC"/. "$HH/profiles/nomad/"
+    cp -R "$PROF_SRC"/. "$HH/"
+    if [ -d "$PROF_SRC/plugins/nomad/desktop" ]; then
+      cp -R "$PROF_SRC/plugins/nomad/desktop"/. "$HH/desktop-plugins/nomad/"
+      cp -R "$PROF_SRC/plugins/nomad/desktop"/. "$HH/profiles/nomad/desktop-plugins/nomad/"
+    fi
+    : > "$HH/.no-bundled-skills"
+    : > "$HH/.skip_upstream_prompt"
+  fi
   if [ -n "$SRC" ]; then
     if [ -f "$SRC/branding/SOUL.md" ]; then cp "$SRC/branding/SOUL.md" "$HH/SOUL.md"
     else echo "  [warn] branding/SOUL.md не найден — пропускаю"; fi
@@ -65,7 +103,7 @@ fi
 #    Идемпотентно: awk снимает прежний управляемый блок + top-level model:, затем префикс.
 CLOUD_KEY="${HM_NOMAD_CLOUD_KEY:-}"
 CLOUD_URL="${HM_NOMAD_CLOUD_BASEURL:-https://cp.nomadnet.ai/v1}"
-CLOUD_MODEL="${HM_NOMAD_CLOUD_MODEL:-claude-opus-4.6}"
+CLOUD_MODEL="${HM_NOMAD_CLOUD_MODEL:-nomadnet-auto}"
 # trim + вычистка кавычек/переводов строк (значение уходит в YAML в кавычках)
 CLOUD_KEY="$(printf '%s' "$CLOUD_KEY" | tr -d '"\r\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"
 CLOUD_URL="$(printf '%s' "$CLOUD_URL" | tr -d '"\r\n' | sed 's/^[[:space:]]*//;s/[[:space:]]*$//')"

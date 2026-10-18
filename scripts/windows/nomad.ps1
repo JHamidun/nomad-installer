@@ -1,8 +1,7 @@
-﻿# Nomad Agent — Windows (Python CLI via uv)
+# Nomad Agent — Windows (Python CLI via uv)
 # Continue (не Stop): нативные команды (git/uv/python) пишут в stderr → под Stop = NativeCommandError и падение.
 $ErrorActionPreference = 'Continue'
-# irm|iex ниже тянет ОФИЦИАЛЬНЫЙ установщик uv (astral.sh) по HTTPS (доверие = TLS). Форсим TLS 1.2.
-try { [Net.ServicePointManager]::SecurityProtocol = [Net.ServicePointManager]::SecurityProtocol -bor [Net.SecurityProtocolType]::Tls12 } catch {}
+. (Join-Path $PSScriptRoot '_verify.ps1')  # Confirm-HmArtifact (fail-closed SHA-256 против checksums.json)
 function Update-Path {
     $env:Path = [Environment]::GetEnvironmentVariable('Path','Machine') + ';' +
                 [Environment]::GetEnvironmentVariable('Path','User') + ';' +
@@ -45,13 +44,35 @@ if ($DRY -and (-not $src)) {
     Write-Host "  [dry-run] Источник Nomad не задан — продолжаем dry-run preview секций 2-5."
 }
 
-# 2. uv — менеджер Python
+# 2. uv — менеджер Python. FAIL-CLOSED, БЕЗ `irm | iex`.
+#    Раньше: `Invoke-RestMethod astral.sh/uv/install.ps1 | Invoke-Expression` — неверифицированный
+#    сетевой код, обходивший наш инвариант целостности вшитых установщиков (Confirm-HmArtifact).
+#    Теперь: системный uv → вшитый uv.zip (SHA-256 против checksums.json) → стоп. Удалённый код не исполняется.
 if (-not (Get-Command uv -ErrorAction SilentlyContinue)) {
-    Write-Host "Устанавливаю uv..."
-    if ($DRY) { Write-Host "  [dry-run] WOULD: irm https://astral.sh/uv/install.ps1 | iex" }
-    else {
-        try { Invoke-RestMethod https://astral.sh/uv/install.ps1 | Invoke-Expression }
-        catch { Write-Host "uv не установился: $($_.Exception.Message)"; exit 1 }
+    $uvZip = if ($env:HM_VENDOR) { Join-Path $env:HM_VENDOR 'apps\uv-x86_64-pc-windows-msvc.zip' } else { '' }
+    if ($uvZip -and (Test-Path $uvZip)) {
+        Write-Host "Устанавливаю uv из встроенного пакета (офлайн, verified)..."
+        if ($DRY) { Write-Host "  [dry-run] WOULD: Confirm-HmArtifact $uvZip; Expand-Archive → ~\.local\bin (uv.exe, uvx.exe)" }
+        else {
+            Confirm-HmArtifact $uvZip                 # fail-closed SHA-256 → exit 1 при несовпадении
+            $uvTmp  = Join-Path $env:TEMP ('nomad-uv-' + [Guid]::NewGuid().ToString('N'))
+            $binDir = Join-Path $env:USERPROFILE '.local\bin'
+            New-Item -ItemType Directory -Force $uvTmp, $binDir | Out-Null
+            try {
+                Expand-Archive -Path $uvZip -DestinationPath $uvTmp -Force
+                foreach ($exe in @('uv.exe','uvx.exe')) {
+                    $found = Get-ChildItem -Path $uvTmp -Recurse -Filter $exe -ErrorAction SilentlyContinue | Select-Object -First 1
+                    if ($found) { Copy-Item $found.FullName (Join-Path $binDir $exe) -Force }
+                }
+            } finally { Remove-Item -Recurse -Force $uvTmp -ErrorAction SilentlyContinue }
+            Update-Path
+            if (-not (Get-Command uv -ErrorAction SilentlyContinue)) { Write-Host "БЕЗОПАСНОСТЬ: вшитый uv распаковался, но не запустился. Останавливаюсь."; exit 1 }
+        }
+    } else {
+        Write-Host "БЕЗОПАСНОСТЬ: uv не найден в системе и не вшит ($uvZip отсутствует)."
+        Write-Host "  Онлайн-установка через 'irm | iex' отключена намеренно (fail-closed: не исполняем неверифицированный сетевой код)."
+        Write-Host "  Реши так: пересобери vendor (powershell -File tools\fetch-vendor.ps1 — он вошьёт verified uv), либо установи uv вручную: https://docs.astral.sh/uv/getting-started/installation/"
+        if (-not $DRY) { exit 1 }
     }
     Update-Path
 }
@@ -66,11 +87,25 @@ if ($DRY) {
     Update-Path
 }
 
-# 4. Брендинг + сид config.yaml → HERMES_HOME (по умолчанию %LOCALAPPDATA%\hermes)
+# 4. Брендинг + профиль Nomad (plugins/nomad, skills, mcp-servers) + сид config.yaml → HERMES_HOME
 $hh = if ($env:HERMES_HOME) { $env:HERMES_HOME } else { Join-Path $env:LOCALAPPDATA 'hermes' }
 $cfgY = Join-Path $hh 'config.yaml'
 if (-not $DRY) {
-    New-Item -ItemType Directory -Force -Path $hh, (Join-Path $hh 'skins') | Out-Null
+    New-Item -ItemType Directory -Force -Path $hh, (Join-Path $hh 'skins'), (Join-Path $hh 'profiles\nomad'), (Join-Path $hh 'desktop-plugins\nomad'), (Join-Path $hh 'profiles\nomad\desktop-plugins\nomad') | Out-Null
+    $profSrc = if ($env:HM_VENDOR) { Join-Path $env:HM_VENDOR 'nomad-profile' } else { '' }
+    if ($profSrc -and (Test-Path (Join-Path $profSrc 'distribution.yaml'))) {
+        Write-Host "Разворачиваю профиль Nomad (плагин, суверенные модели РФ, 11 коннекторов РФ, DLP 152-ФЗ, Бадди)..."
+        & robocopy "$profSrc" (Join-Path $hh 'profiles\nomad') /E /NFL /NDL /NJH /NJS /NP | Out-Null
+        & robocopy "$profSrc" "$hh" /E /NFL /NDL /NJH /NJS /NP | Out-Null
+        $dpSrc = Join-Path $profSrc 'plugins\nomad\desktop'
+        if (Test-Path $dpSrc) {
+            & robocopy "$dpSrc" (Join-Path $hh 'desktop-plugins\nomad') /E /NFL /NDL /NJH /NJS /NP | Out-Null
+            & robocopy "$dpSrc" (Join-Path $hh 'profiles\nomad\desktop-plugins\nomad') /E /NFL /NDL /NJH /NJS /NP | Out-Null
+        }
+        $global:LASTEXITCODE = 0
+        Set-Content -Path (Join-Path $hh '.no-bundled-skills') -Value '' -Encoding UTF8
+        Set-Content -Path (Join-Path $hh '.skip_upstream_prompt') -Value '' -Encoding UTF8
+    }
     if ($src) {
         $soulSrc = Join-Path $src 'branding\SOUL.md'
         if (Test-Path $soulSrc) { Copy-Item $soulSrc (Join-Path $hh 'SOUL.md') -Force }
@@ -92,7 +127,7 @@ if (-not $DRY) {
 #    владельца нигде не зашит. Идемпотентно (управляемый блок между маркерами).
 $cloudKey   = if ($env:HM_NOMAD_CLOUD_KEY)     { ($env:HM_NOMAD_CLOUD_KEY).Trim() }     else { '' }
 $cloudUrl   = if ($env:HM_NOMAD_CLOUD_BASEURL) { ($env:HM_NOMAD_CLOUD_BASEURL).Trim() } else { 'https://cp.nomadnet.ai/v1' }
-$cloudModel = if ($env:HM_NOMAD_CLOUD_MODEL)   { ($env:HM_NOMAD_CLOUD_MODEL).Trim() }   else { 'claude-opus-4.6' }
+$cloudModel = if ($env:HM_NOMAD_CLOUD_MODEL)   { ($env:HM_NOMAD_CLOUD_MODEL).Trim() }   else { 'nomadnet-auto' }
 if (-not $cloudKey) {
     Write-Host "Ключ Nomad Cloud не задан — облачный блок НЕ пишу (graceful). Настрой позже: nomad model → custom endpoint $cloudUrl."
 } else {

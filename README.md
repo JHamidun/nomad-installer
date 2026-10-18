@@ -49,7 +49,7 @@ Electron-приложение. Один продукт → две сборки: 
 ## Разработка
 
 ```bash
-cd C:\Vibecode\nomad-installer
+cd D:\Nomad\nomad-installer
 npm install
 npm start            # запустить GUI локально
 npm test             # smoke-тесты движка зависимостей
@@ -67,8 +67,8 @@ npm run dist:win       # -> release/Setup-Nomad-Windows.exe (portable, requireAd
 `fetch-vendor.ps1` берёт исходник Nomad из локального репо агента:
 
 ```powershell
-# по умолчанию: HM_NOMAD_AGENT_REPO = C:\Vibecode\hamidun-agent, HM_NOMAD_REF = main
-git -C C:\Vibecode\hamidun-agent archive --output nomad-src.tar main
+# по умолчанию: HM_NOMAD_AGENT_REPO = D:\Nomad\hamidun-agent, HM_NOMAD_REF = main
+git -C D:\Nomad\hamidun-agent archive --output nomad-src.tar main
 tar -x -f nomad-src.tar -C vendor\nomad-src     # tracked-файлы, БЕЗ .git (~170 МБ)
 ```
 

@@ -1,4 +1,4 @@
-﻿# Build-time: собрать vendor/ для ПОЛНОСТЬЮ ОФЛАЙН установки Nomad (Windows).
+# Build-time: собрать vendor/ для ПОЛНОСТЬЮ ОФЛАЙН установки Nomad (Windows).
 # Кладёт: (1) офлайн-установщик Git; (2) исходник Nomad (git archive merged-кода) в vendor/nomad-src;
 # (3) checksums.json (fail-closed SHA-256 для вшитых установщиков).
 # Идемпотентно: уже скачанные файлы пропускаются; nomad-src переархивируется всегда (свежий код).
@@ -24,10 +24,25 @@ try {
   if ($a) { Dl $a.browser_download_url (Join-Path $apps 'git-setup.exe') }
 } catch { Write-Host "  ! GitHub API недоступен — git уйдёт в winget/онлайн-фолбэк при установке" }
 
+# ── 1b. uv (менеджер Python, standalone) → vendor\apps (офлайн; verified при установке) ──
+# Install-скрипт (scripts/windows/nomad.ps1) ставит uv ТОЛЬКО из этого вшитого архива с
+# fail-closed SHA-256 (Confirm-HmArtifact) — никакого `irm … | iex`. Версия: HM_UV_VERSION или latest с GitHub.
+Write-Host "[vendor] uv (standalone) → vendor\apps..."
+$uvVer = $env:HM_UV_VERSION
+if (-not $uvVer) {
+  try { $uvVer = (Invoke-RestMethod "https://api.github.com/repos/astral-sh/uv/releases/latest" -Headers $UA).tag_name } catch { $uvVer = $null }
+}
+if ($uvVer) {
+  Write-Host "  uv $uvVer"
+  Dl "https://github.com/astral-sh/uv/releases/download/$uvVer/uv-x86_64-pc-windows-msvc.zip" (Join-Path $apps 'uv-x86_64-pc-windows-msvc.zip')
+} else {
+  Write-Host "  ! не удалось определить версию uv (GitHub API недоступен) — задай HM_UV_VERSION. uv не вшит → установка uv у пользователя fail-closed (стоп с инструкцией)."
+}
+
 # ── 2. Исходник Nomad: git archive merged-кода → vendor/nomad-src (tracked-файлы, БЕЗ .git) ──
 # Друзьям не нужен доступ к репозиторию: код едет офлайн внутри установщика.
 # main агента = смердженный phase2-код (на момент сборки — коммит 184fbe412).
-$agentRepo = if ($env:HM_NOMAD_AGENT_REPO) { $env:HM_NOMAD_AGENT_REPO } else { 'C:\Vibecode\hamidun-agent' }
+$agentRepo = if ($env:HM_NOMAD_AGENT_REPO) { $env:HM_NOMAD_AGENT_REPO } else { 'D:\Nomad\hamidun-agent' }
 $ref       = if ($env:HM_NOMAD_REF)        { $env:HM_NOMAD_REF }        else { 'main' }
 $srcOut    = Join-Path $root 'vendor\nomad-src'
 Write-Host "[vendor] Исходник Nomad: git archive $ref из $agentRepo → vendor\nomad-src ..."
@@ -58,6 +73,35 @@ if (-not (Test-Path (Join-Path $agentRepo '.git'))) {
   }
 }
 
+# ── 2b. Деперсонализация nomad-src (fail-closed): denylist → scrub → leak-gate ──
+# (a) tools/nomad-src-denylist.txt — вырезает внутренние dev/test-артефакты;
+# (b) tools/scrub-vendor.py — переписывает personal-identity токены на нейтральные;
+# (c) tools/leak-gate.py — если остался хоть один деанон-маркер, СБОРКА ПАДАЕТ.
+if (Test-Path (Join-Path $srcOut 'pyproject.toml')) {
+  Write-Host "[vendor] Деперсонализация vendor\nomad-src (denylist → scrub → leak-gate)..."
+  & python (Join-Path $root 'tools\scrub-vendor.py') $srcOut --denylist (Join-Path $root 'tools\nomad-src-denylist.txt')
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host "[vendor] FATAL: scrub-vendor.py упал — сборка остановлена (fail-closed)."
+    exit 1
+  }
+  & python (Join-Path $root 'tools\leak-gate.py') $srcOut --allow nomad --allow Nomad
+  if ($LASTEXITCODE -ne 0) {
+    Write-Host "[vendor] FATAL: leak-gate нашёл деанон-маркеры в vendor\nomad-src — exe с личными данными НЕ собираем."
+    Write-Host "[vendor] Расширь tools\nomad-src-denylist.txt или правила tools\scrub-vendor.py и перезапусти."
+    exit 1
+  }
+}
+
+# ── 2c. Профиль Nomad (plugins/nomad, skills, mcp-servers, desktop UI) → vendor\nomad-profile ──
+$profRepo = if ($env:HM_NOMAD_PROFILE_DIR) { $env:HM_NOMAD_PROFILE_DIR } else { 'D:\Nomad\nomad-overlay\package' }
+$profOut  = Join-Path $root 'vendor\nomad-profile'
+if (Test-Path (Join-Path $profRepo 'distribution.yaml')) {
+  Write-Host "[vendor] Профиль Nomad из $profRepo → vendor\nomad-profile..."
+  New-Item -ItemType Directory -Force $profOut | Out-Null
+  & robocopy "$profRepo" "$profOut" /MIR /NFL /NDL /NJH /NJS /NP | Out-Null
+  $global:LASTEXITCODE = 0
+}
+
 # ── 3. checksums.json — SHA-256 всех вшитых установщиков (fail-closed целостность) ──
 Write-Host "[vendor] checksums.json — SHA-256 файлов vendor\apps..."
 try {
@@ -80,6 +124,8 @@ Write-Host "[vendor] Проверка полноты..."
 $missing = @()
 $gitExe = Get-Item (Join-Path $apps 'git-setup.exe') -ErrorAction SilentlyContinue
 if (-not $gitExe -or $gitExe.Length -eq 0) { $missing += 'apps/git-setup.exe (git уйдёт в онлайн-фолбэк)' }
+$uvZip = Get-Item (Join-Path $apps 'uv-x86_64-pc-windows-msvc.zip') -ErrorAction SilentlyContinue
+if (-not $uvZip -or $uvZip.Length -eq 0) { $missing += 'apps/uv-x86_64-pc-windows-msvc.zip (без системного uv установка Nomad остановится fail-closed)' }
 if (-not (Test-Path (Join-Path $srcOut 'pyproject.toml'))) {
   Write-Host "[vendor] FATAL: нет vendor\nomad-src\pyproject.toml — исходник Nomad не вшит. Установка Nomad упадёт у пользователя."
   Write-Host "[vendor] Проверь HM_NOMAD_AGENT_REPO ($agentRepo) и HM_NOMAD_REF ($ref)."

@@ -95,7 +95,7 @@ function createWindow() {
     height: 720,
     minWidth: 820,
     minHeight: 600,
-    backgroundColor: '#F6F4EF',
+    backgroundColor: '#FFFFFF',
     icon: path.join(resourceRoot(), 'assets', 'icon.png'),
     titleBarStyle: IS_MAC ? 'hiddenInset' : 'default',
     autoHideMenuBar: true,
