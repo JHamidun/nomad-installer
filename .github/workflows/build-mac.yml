@@ -53,17 +53,34 @@ jobs:
           "$G/bin/git" clone -q --depth 1 https://github.com/desktop/dugite-native.git d && echo "https-clone OK"
           echo "ВШИТЫЙ GIT РАБОТАЕТ на $(uname -m)"
 
-      # Записываем App Store Connect API-ключ (.p8) из secret в файл для notarytool.
-      - name: Prepare notarization API key
+      # Записываем App Store Connect API-ключ (.p8) и поднимаем разблокированный keychain для подписи.
+      - name: Prepare notarization API key & Developer ID keychain
+        env:
+          APPLE_CSC_LINK: ${{ secrets.APPLE_CSC_LINK }}
+          APPLE_CSC_KEY_PASSWORD: ${{ secrets.APPLE_CSC_KEY_PASSWORD }}
         run: |
+          set -e
           mkdir -p "$RUNNER_TEMP/asc"
           echo "${{ secrets.APPLE_API_KEY_P8 }}" | base64 --decode > "$RUNNER_TEMP/asc/AuthKey.p8"
           echo "APPLE_API_KEY=$RUNNER_TEMP/asc/AuthKey.p8" >> "$GITHUB_ENV"
+          KC="$RUNNER_TEMP/dmgsign.keychain-db"
+          KP="nmpw987654321"
+          rm -f "$KC"
+          security create-keychain -p "$KP" "$KC"
+          security set-keychain-settings -lut 21600 "$KC"
+          security unlock-keychain -p "$KP" "$KC"
+          echo "$APPLE_CSC_LINK" | base64 --decode > "$RUNNER_TEMP/idcert.p12"
+          security import "$RUNNER_TEMP/idcert.p12" -k "$KC" -P "$APPLE_CSC_KEY_PASSWORD" -T /usr/bin/codesign -T /usr/bin/security -T /usr/bin/productbuild
+          security set-key-partition-list -S apple-tool:,apple:,codesign: -s -k "$KP" "$KC" >/dev/null
+          security list-keychains -d user -s "$KC" $(security list-keychains -d user | sed s/\"//g)
+          security default-keychain -s "$KC"
+          security find-identity -v -p codesigning "$KC"
+          echo "CSC_KEYCHAIN=$KC" >> "$GITHUB_ENV"
 
       - name: Build .dmg (Developer ID signed + notarized, arm64 full-offline)
         env:
-          CSC_LINK: ${{ secrets.APPLE_CSC_LINK }}
-          CSC_KEY_PASSWORD: ${{ secrets.APPLE_CSC_KEY_PASSWORD }}
+          CSC_NAME: "Developer ID Application: Jemal Mohamed Lemine (3VN93XA9DY)"
+          CSC_IDENTITY_AUTO_DISCOVERY: "true"
           APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
           APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
           APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
@@ -72,23 +89,13 @@ jobs:
       # electron-builder нотаризовал+застейплил ЧИСТЫЙ .app (без vendor). Финальный dmg
       # с офлайн-vendor собираем сами через hdiutil (том нужного размера).
       - name: Assemble final dmg (notarized app + offline vendor)
-        env:
-          APPLE_CSC_LINK: ${{ secrets.APPLE_CSC_LINK }}
-          APPLE_CSC_KEY_PASSWORD: ${{ secrets.APPLE_CSC_KEY_PASSWORD }}
         run: |
           set -e
           APP="release/mac-arm64/Nomad Setup.app"
           [ -d "$APP" ] || { echo "нет .app от electron-builder"; exit 1; }
           echo "=== staple нотаризации на .app ==="
           xcrun stapler validate "$APP" && echo "STAPLED OK" || echo "WARN: staple не подтверждён (app всё равно нотаризован в БД Apple)"
-          KC="$RUNNER_TEMP/dmgsign.keychain-db"; KP="nmpw$RANDOM"
-          security create-keychain -p "$KP" "$KC"
-          security set-keychain-settings "$KC"
-          security unlock-keychain -p "$KP" "$KC"
-          echo "$APPLE_CSC_LINK" | base64 --decode > "$RUNNER_TEMP/idcert.p12"
-          security import "$RUNNER_TEMP/idcert.p12" -k "$KC" -P "$APPLE_CSC_KEY_PASSWORD" -T /usr/bin/codesign
-          security set-key-partition-list -S apple-tool:,apple: -s -k "$KP" "$KC" >/dev/null
-          security list-keychains -d user -s "$KC" $(security list-keychains -d user | sed s/\"//g)
+          KC="$CSC_KEYCHAIN"
           ST="$RUNNER_TEMP/dmgstage"; rm -rf "$ST"; mkdir -p "$ST"
           cp -R "$APP" "$ST/"
           cp -R vendor "$ST/vendor"
