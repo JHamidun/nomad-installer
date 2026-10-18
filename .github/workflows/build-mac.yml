@@ -88,13 +88,17 @@ jobs:
 
       # electron-builder нотаризовал+застейплил ЧИСТЫЙ .app (без vendor). Финальный dmg
       # с офлайн-vendor собираем сами через hdiutil (том нужного размера).
-      - name: Assemble final dmg (notarized app + offline vendor)
+      - name: Assemble final dmg (Developer ID signed app + offline vendor + optional notarization)
+        env:
+          APPLE_API_KEY_ID: ${{ secrets.APPLE_API_KEY_ID }}
+          APPLE_API_ISSUER: ${{ secrets.APPLE_API_ISSUER }}
+          APPLE_TEAM_ID: ${{ secrets.APPLE_TEAM_ID }}
         run: |
           set -e
           APP="release/mac-arm64/Nomad Setup.app"
           [ -d "$APP" ] || { echo "нет .app от electron-builder"; exit 1; }
-          echo "=== staple нотаризации на .app ==="
-          xcrun stapler validate "$APP" && echo "STAPLED OK" || echo "WARN: staple не подтверждён (app всё равно нотаризован в БД Apple)"
+          echo "=== Проверка подписи Developer ID на .app ==="
+          codesign --verify --deep --strict --verbose=2 "$APP"
           KC="$CSC_KEYCHAIN"
           ST="$RUNNER_TEMP/dmgstage"; rm -rf "$ST"; mkdir -p "$ST"
           cp -R "$APP" "$ST/"
@@ -107,6 +111,12 @@ jobs:
           echo "=== подпись dmg Developer ID ==="
           codesign --force --timestamp --sign "Developer ID Application: Jemal Mohamed Lemine (3VN93XA9DY)" --keychain "$KC" "$OUT"
           codesign --verify --verbose "$OUT"
+          if [ -s "$APPLE_API_KEY" ] && [ -n "$APPLE_API_KEY_ID" ]; then
+            echo "=== Попытка нотаризации через notarytool ==="
+            xcrun notarytool submit "$OUT" --key "$APPLE_API_KEY" --key-id "$APPLE_API_KEY_ID" --issuer "$APPLE_API_ISSUER" --wait \
+              && xcrun stapler staple "$OUT" \
+              || echo "WARN: notarytool вернул ошибку (например, нужно принять обновлённое соглашение в developer.apple.com/account) — DMG подписан сертификатом Developer ID"
+          fi
           ls -la "$OUT"
 
       - name: Upload installer to release
