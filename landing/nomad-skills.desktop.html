@@ -1,0 +1,504 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad — навыки и инструменты (mockup)</title>
+<style>
+@font-face{font-family:'Collapse';font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2');}
+.nsk,.nsk *,.nsk *::before,.nsk *::after{box-sizing:border-box;}
+.nsk{
+  --cream:#FFFFFF; --cream-2:#F4F4F5; --card:#FFFFFF; --line:#E4E4E7; --line-2:#D4D4D8;
+  --ink:#111111; --muted:#52525B; --faint:#71717A; --terra:#111111;
+  --blue-1:#111111; --blue-2:#111111; --green:#059669;
+  --mono:ui-monospace,"JetBrains Mono","SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  position:relative; margin:0 auto; width:1150px; max-width:100%; font-family:var(--sans); color:var(--ink); background:var(--cream);
+  border-radius:12px; overflow:hidden; box-shadow:0 30px 80px -30px rgba(60,40,20,.35); width:1196px;height:862px;display:flex;flex-direction:column;
+}
+.nsk__bar{ display:flex; align-items:center; gap:14px; height:44px; padding:0 14px; background:var(--cream); border-bottom:1px solid var(--line); }
+.nsk__ic{ width:18px; height:18px; display:block; stroke:currentColor; fill:none; stroke-width:1.7; }
+.nsk__bar .t{ font-family:'Collapse',Georgia,serif; font-size:16px; background:linear-gradient(96deg,var(--blue-1),var(--blue-2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.nsk__bar .crumb{ color:var(--muted); font-size:13px; }
+.nsk__bar .r{ margin-left:auto; display:flex; gap:14px; color:var(--faint); }
+
+.nsk__body{ display:grid; grid-template-columns:262px 1fr; flex:1;min-height:0; }
+/* left settings nav */
+.nsk__side{ background:#F8F8F7; border-right:1px solid var(--line); display:flex; flex-direction:column; padding:12px 10px; overflow:hidden; }
+.nsk__label{ font:11px var(--mono); letter-spacing:.13em; color:var(--terra); padding:8px 8px 6px; }
+.nsk__nav a{ display:block; padding:9px 11px; border-radius:9px; text-decoration:none; color:#3F3F46; }
+.nsk__nav a .nt{ font-size:13.5px; font-weight:500; display:flex; align-items:center; gap:9px; }
+.nsk__nav a .nt .nsk__ic{ width:16px; height:16px; color:var(--muted); }
+.nsk__nav a .nd{ font-size:11.5px; color:var(--muted); margin-top:2px; padding-left:25px; line-height:1.35; }
+.nsk__nav a.on{ background:var(--cream-2); }
+.nsk__nav a.on .nt{ color:var(--ink); }
+.nsk__nav a.on .nt .nsk__ic{ color:var(--terra); }
+
+/* main pane */
+.nsk__main{ min-width:0; background:var(--cream); display:grid; grid-template-rows:auto auto 1fr; }
+.nsk__top{ padding:16px 26px 0; }
+.nsk__tabs{ display:flex; align-items:center; gap:20px; border-bottom:1px solid var(--line); }
+.nsk__tab{ position:relative; padding:6px 0 12px; font-size:14px; color:var(--muted); cursor:default; }
+.nsk__tab.on{ color:var(--ink); font-weight:500; }
+.nsk__tab.on::after{ content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--terra); border-radius:2px; }
+.nsk__tab .q{ margin-left:6px; color:var(--faint); }
+.nsk__help{ width:15px;height:15px;border-radius:50%;border:1px solid var(--line-2); color:var(--faint); font:10px var(--mono); display:grid; place-items:center; margin-bottom:8px; }
+
+.nsk__search{ display:flex; align-items:center; gap:10px; padding:14px 26px 4px; }
+.nsk__sbox{ flex:1; display:flex; align-items:center; gap:9px; height:36px; padding:0 12px; background:var(--card); border:1px solid var(--line-2); border-radius:10px; }
+.nsk__sbox .nsk__ic{ width:15px; height:15px; color:var(--faint); }
+.nsk__sbox .ph{ font-size:13.5px; color:var(--faint); }
+.nsk__sact{ display:flex; gap:4px; }
+.nsk__iconbtn{ width:30px;height:30px;border-radius:8px; display:grid; place-items:center; color:var(--faint); }
+.nsk__iconbtn .nsk__ic{ width:16px; height:16px; }
+.nsk__spin{ animation:nsk-spin .8s linear infinite; }
+@keyframes nsk-spin{to{transform:rotate(360deg)}}
+
+.nsk__cats{ display:flex; flex-wrap:wrap; gap:16px; padding:12px 26px 4px; }
+.nsk__cat{ font-size:12.5px; color:var(--muted); cursor:default; }
+.nsk__cat.on{ color:var(--ink); font-weight:500; }
+.nsk__cat .c{ margin-left:5px; color:var(--faint); }
+
+.nsk__scroll{ overflow-y:auto; padding:8px 26px 20px; }
+.nsk__group{ margin-bottom:14px; }
+.nsk__ghead{ font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.12em; color:var(--muted); padding:6px 0; }
+.nsk__row{ display:grid; grid-template-columns:minmax(0,1fr) auto; align-items:center; gap:12px; padding:10px 0; border-bottom:1px solid var(--line); }
+.nsk__row:last-child{ border-bottom:0; }
+.nsk__nm{ font-size:14px; font-weight:500; }
+.nsk__ds{ font-size:12px; color:var(--muted); margin-top:2px; line-height:1.4; }
+.nsk__rc{ display:flex; align-items:center; gap:10px; }
+.nsk__eye{ width:26px;height:26px; display:grid; place-items:center; color:var(--faint); }
+.nsk__eye .nsk__ic{ width:16px; height:16px; }
+
+/* switch */
+.nsk__sw{ width:36px;height:21px;border-radius:999px;background:var(--line-2);position:relative;transition:background .25s; flex:0 0 auto; }
+.nsk__sw::after{ content:"";position:absolute;top:2px;left:2px;width:17px;height:17px;border-radius:50%;background:#fff;transition:transform .25s; box-shadow:0 1px 2px rgba(0,0,0,.22);}
+.nsk__sw.on{ background:var(--terra); }
+.nsk__sw.on::after{ transform:translateX(15px); }
+
+/* toolsets panel */
+.nsk__count{ font-size:12px; color:var(--muted); padding:4px 0 6px; }
+.nsk__trow{ padding:11px 0; border-bottom:1px solid var(--line); }
+.nsk__trow:last-child{ border-bottom:0; }
+.nsk__thd{ display:flex; align-items:center; gap:10px; }
+.nsk__tlabel{ font-size:14px; font-weight:500; flex:1; min-width:0; }
+.nsk__pill{ font:10.5px var(--mono); letter-spacing:.02em; padding:3px 9px; border-radius:999px; }
+.nsk__pill.ok{ background:var(--cream-2); color:#52525B; border:1px solid var(--line-2); }
+.nsk__pill.no{ background:#F4F4F5; color:var(--terra); border:1px solid #D4D4D8; }
+.nsk__tds{ font-size:12px; color:var(--muted); margin-top:6px; line-height:1.45; }
+.nsk__chips{ display:flex; flex-wrap:wrap; gap:6px; margin-top:8px; }
+.nsk__chip{ font:11px var(--mono); color:#52525B; background:var(--cream-2); border-radius:6px; padding:2px 7px; }
+
+.nsk__pane{ display:none; }
+.nsk__pane.show{ display:block; }
+
+.nsk__status{ position:absolute; left:0; right:0; bottom:0; display:flex; align-items:center; gap:10px; height:30px; padding:0 16px; background:var(--cream); border-top:1px solid var(--line); font-size:12px; color:var(--muted); }
+.nsk__status .dot{ width:6px;height:6px;border-radius:50%;background:var(--green); }
+.nsk__status .r{ margin-left:auto; font:11px var(--mono); color:var(--faint); }
+.nsk__body{ flex:1;min-height:0; }
+
+/* toast */
+.nsk__toast{ position:absolute; right:22px; bottom:44px; z-index:8; min-width:250px; background:var(--card); border:1px solid var(--line-2); border-left:3px solid var(--green); border-radius:10px; padding:10px 13px; box-shadow:0 16px 40px -16px rgba(60,40,20,.4); opacity:0; transform:translateY(8px); transition:opacity .35s, transform .35s; pointer-events:none; }
+.nsk__toast.show{ opacity:1; transform:none; }
+.nsk__toast .tt{ font-size:12.5px; font-weight:600; display:flex; align-items:center; gap:7px; }
+.nsk__toast .tt svg{ width:14px;height:14px; color:var(--green); }
+.nsk__toast .tm{ font-size:11.5px; color:var(--muted); margin-top:3px; }
+
+/* splash */
+.nsk__splash{ position:absolute; inset:0; z-index:10; background:var(--cream); display:grid; place-items:center; transition:opacity .6s; }
+.nsk__splash.gone{ opacity:0; pointer-events:none; }
+.nsk__conn{ font:12px var(--mono); letter-spacing:.3em; color:var(--terra); display:flex; align-items:center; gap:12px; }
+.nsk__hatch{ width:13px;height:13px; background:repeating-linear-gradient(45deg,var(--terra) 0 2px,transparent 2px 4px); animation:nsk-blink 1s steps(1) infinite; }
+@keyframes nsk-blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){ .nsk__spin,.nsk__hatch{animation:none} }
+</style>
+<style>html,body{background:transparent!important;margin:0!important;padding:0!important}</style>
+<script id="hc-i18n">
+/* Языки демо (v0.21.7). Русский — исходный текст страницы; en/es/pt/fr/ar — словарь
+   ниже (русская фраза -> перевод). */
+(function(){
+  var LANGS={en:0,es:1,pt:2,fr:3,ar:4};
+  var TR={"Сред":["Med", "Med", "Méd", "Moy", "متوسط"],"⚖ Совет моделей":["⚖ Model Council", "⚖ Consejo de modelos", "⚖ Conselho de modelos", "⚖ Conseil des modèles", "⚖ مجلس النماذج"],"• Готов":["• Ready", "• Listo", "• Pronto", "• Prêt", "• جاهز"],"Готов":["Ready", "Listo", "Pronto", "Prêt", "جاهز"],"Запланированные задачи":["Scheduled tasks", "Tareas programadas", "Tarefas agendadas", "Tâches planifiées", "المهام المجدولة"],"Навыки Nomad":["Nomad Skills", "Skills de Nomad", "Skills do Nomad", "Skills Nomad", "مهارات Nomad"],"Установлена актуальная версия v0.21.7 ✓":["Up to date v0.21.7 ✓", "Versión actual v0.21.7 ✓", "Versão atual v0.21.7 ✓", "Version à jour v0.21.7 ✓", "الإصدار المحدّث v0.21.7 ✓"],"Каталог актуальных моделей (39 моделей · 10 провайдеров)":["Active Model Catalog (39 models · 10 providers)", "Catálogo de modelos (39 modelos · 10 proveedores)", "Catálogo de modelos (39 modelos · 10 provedores)", "Catalogue de modèles (39 modèles · 10 fournisseurs)", "كتالوج النماذج الحديثة (39 نموذجاً · 10 مزودين)"],"Краткое описание специализации и стоимость ($вх / $вых за 1М токенов) прямо в селекторе.":["Brief specialization summary and token pricing ($in / $out per 1M tokens) right inside the selector.", "Descripción breve y precio por 1M de tokens ($ent / $sal) directamente en el selector.", "Resumo da especialização e preço ($ent / $saí por 1M tokens) direto no seletor.", "Résumé de spécialisation et tarif ($ent / $sor par 1M tokens) directement dans le sélecteur.", "وصف مختصر للتخصص والتكلفة لكل مليون رمز مباشرة داخل القائمة."],"Безопасность, Харнес и Автообновление":["Security, Harness & Auto-Update", "Seguridad, Harness y Auto-actualización", "Segurança, Harness e Atualização automática", "Sécurité, Harness et Mise à jour auto", "الأمان والحماية والتحديث التلقائي"],"Советник":["Advisor", "Asesor", "Consultor", "Conseiller", "المستشار"],"• Советник":["• Advisor", "• Asesor", "• Consultor", "• Conseiller", "• المستشار"],"⚖ Совет моделей":["# Model Council", "# Consejo de modelos", "# Conselho de modelos", "# Conseil des modèles", "# مجلس النماذج"],"Совет моделей":["Model Council", "Consejo de modelos", "Conselho de modelos", "Conseil des modèles", "مجلس النماذج"],"Локальный сервер...":["Local server...", "Servidor local...", "Servidor local...", "Serveur local...", "خادم محلي..."],"Локальный сервер... ⌄":["Local server... ⌄", "Servidor local... ⌄", "Servidor local... ⌄", "Serveur local... ⌄", "خادم محلي... ⌄"],"+ Бэкенд готов":["+ Backend ready", "+ Backend listo", "+ Backend pronto", "+ Backend prêt", "+ الواجهة الخلفية جاهزة"],"Бэкенд готов":["Backend ready", "Backend listo", "Backend pronto", "Backend prêt", "الواجهة الخلفية جاهزة"],"Подключить тариф":["Connect plan", "Conectar plan", "Conectar plano", "Connecter un forfait", "ربط باقة"],"NomadNet Подключить тариф":["NomadNet Connect plan", "NomadNet Conectar plan", "NomadNet Conectar plano", "NomadNet Connecter un forfait", "NomadNet ربط باقة"],"Аккаунты: 8 · активен #1":["Accounts: 8 · active #1", "Cuentas: 8 · activa #1", "Contas: 8 · ativa #1", "Comptes : 8 · actif #1", "الحسابات: 8 · النشط #1"],"• Аккаунты: 8 · активен #1":["• Accounts: 8 · active #1", "• Cuentas: 8 · activa #1", "• Contas: 8 · ativa #1", "• Comptes : 8 · actif #1", "• الحسابات: 8 · النشط #1"],"Рой: 0":["Swarm: 0", "Enjambre: 0", "Enxame: 0", "Essaim : 0", "السرب: 0"],"• Рой: 0":["• Swarm: 0", "• Enjambre: 0", "• Enxame: 0", "• Essaim : 0", "• السرب: 0"],"⚡ Умный":["⚡ Smart", "⚡ Inteligente", "⚡ Inteligente", "⚡ Intelligent", "⚡ ذكي"],"Умный":["Smart", "Inteligente", "Inteligente", "Intelligent", "ذكي"],"клиент v0.21.7":["client v0.21.7", "cliente v0.21.7", "cliente v0.21.7", "client v0.21.7", "العميل v0.21.7"],"бэкенд v0.21.7":["backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "الخلفية v0.21.7"],"клиент v0.21.7 · бэкенд v0.21.7":["client v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "client v0.21.7 · backend v0.21.7", "العميل v0.21.7 · الخلفية v0.21.7"],
+    "Nomad — навыки и инструменты (mockup)":["Nomad — skills and tools (mockup)","Nomad — skills y herramientas (maqueta)","Nomad — skills e ferramentas (mockup)","Nomad — skills et outils (maquette)","Nomad — المهارات والأدوات (نموذج)"],
+    "/ Навыки и 11 RU MCP-коннекторов · v0.21.7":["/ Skills & 11 RU MCP Connectors · v0.21.7","/ Skills y 11 conectores MCP · v0.21.7","/ Skills e 11 conectores MCP · v0.21.7","/ Skills et 11 connecteurs MCP · v0.21.7","/ المهارات و11 موصّل MCP · v0.21.7"],
+    "НАСТРОЙКИ И КОННЕКТОРЫ":["SETTINGS & CONNECTORS","AJUSTES Y CONECTORES","CONFIGURAÇÕES E CONECTORES","RÉGLAGES ET CONNECTEURS","الإعدادات والموصّلات"],
+    "Навыки и коннекторы РФ":["Skills & RU Connectors","Skills y conectores RU","Skills e conectores RU","Skills et connecteurs RU","المهارات وموصّلات روسيا"],
+    "386 навыков и 11 корпоративных RU MCP":["386 skills & 11 enterprise RU MCPs","386 skills y 11 MCP corporativos","386 skills e 11 MCPs corporativos","386 skills et 11 MCP d'entreprise","386 مهارة و11 موصّل MCP مؤسسي"],
+    "Мессенджеры":["Messengers","Mensajería","Mensageiros","Messageries","المراسلة"],
+    "Telegram, MAX (VK), WhatsApp":["Telegram, MAX (VK), WhatsApp","Telegram, MAX (VK), WhatsApp","Telegram, MAX (VK), WhatsApp","Telegram, MAX (VK), WhatsApp","Telegram، MAX (VK)، WhatsApp"],
+    "Артефакты":["Artifacts","Artefactos","Artefatos","Artefacts","المخرجات"],
+    "Дашборды, сметы, экспорт PDF/PPTX":["Dashboards, estimates, PDF/PPTX export","Dashboards, presupuestos, exportar PDF/PPTX","Dashboards, orçamentos, exportar PDF/PPTX","Tableaux de bord, devis, export PDF/PPTX","لوحات البيانات، التقديرات، تصدير PDF/PPTX"],
+    "ПАНЕЛИ":["PANELS","PANELES","PAINÉIS","PANNEAUX","اللوحات"],
+    "Панель сессий":["Sessions panel","Panel de sesiones","Painel de sessões","Panneau des sessions","لوحة الجلسات"],
+    "Поиск, закрепление и чекпоинты":["Search, pin and checkpoints","Buscar, fijar y puntos de control","Buscar, fixar e checkpoints","Rechercher, épingler et checkpoints","البحث والتثبيت ونقاط الحفظ"],
+    "Защита 152-ФЗ и ИБ":["152-FZ & Security","Protección 152-FZ y Seg.","Proteção 152-FZ e Seg.","Protection 152-FZ et Sécu.","حماية 152-FZ والأمان"],
+    "Локальный PII-фильтр и Anti-SSRF":["Local PII filter & Anti-SSRF","Filtro PII local y Anti-SSRF","Filtro PII local e Anti-SSRF","Filtre PII local et Anti-SSRF","مرشح البيانات المحلي وAnti-SSRF"],
+    "Навыки и коннекторы РФ (11)":["Skills & RU Connectors (11)","Skills y conectores RU (11)","Skills e conectores RU (11)","Skills et connecteurs RU (11)","المهارات والموصّلات (11)"],
+    "Наборы инструментов":["Toolkits","Kits de herramientas","Kits de ferramentas","Kits d'outils","مجموعات الأدوات"],
+    "🛡️ Anti-SSRF · 152-ФЗ · Без wildcard (*)":["🛡️ Anti-SSRF · 152-FZ · No wildcard (*)","🛡️ Anti-SSRF · 152-FZ · Sin wildcard (*)","🛡️ Anti-SSRF · 152-FZ · Sem wildcard (*)","🛡️ Anti-SSRF · 152-FZ · Sans wildcard (*)","🛡️ Anti-SSRF · 152-FZ · بدون wildcard (*)"],
+    "Поиск навыков и MCP-коннекторов (1С, Битрикс24, Диадок, СБИС)...":["Search skills & MCP connectors (1C, Bitrix24, Diadoc, SBIS)...","Buscar skills y conectores MCP (1C, Bitrix24, Diadoc, SBIS)...","Buscar skills e conectores MCP (1C, Bitrix24, Diadoc, SBIS)...","Rechercher skills et connecteurs MCP (1C, Bitrix24, Diadoc, SBIS)...","البحث في المهارات وموصّلات MCP..."],
+    "Поиск наборов инструментов...":["Search toolkits...","Buscar kits de herramientas...","Buscar kits de ferramentas...","Rechercher des kits d'outils...","البحث في مجموعات الأدوات..."],
+    "Все":["All","Todo","Todos","Tout","الكل"],
+    "Коннекторы РФ (MCP)":["RU Connectors (MCP)","Conectores RU (MCP)","Conectores RU (MCP)","Connecteurs RU (MCP)","موصّلات روسيا (MCP)"],
+    "Офис и Аналитика":["Office & Analytics","Oficina y Analítica","Escritório e Análise","Bureau et Analytique","المكتب والتحليلات"],
+    "Автоматизация":["Automation","Automatización","Automação","Automatisation","الأتمتة"],
+    "КОРПОРАТИВНЫЕ RU MCP-КОННЕКТОРЫ (11 ИЗ КОРОБКИ)":["ENTERPRISE RU MCP CONNECTORS (11 BUILT-IN)","CONECTORES MCP CORPORATIVOS (11 INCLUIDOS)","CONECTORES MCP CORPORATIVOS (11 INTEGRADOS)","CONNECTEURS MCP D'ENTREPRISE (11 INTÉGRÉS)","موصّلات MCP المؤسسية (11 مدمجة)"],
+    "1С:Предприятие (OData)":["1C:Enterprise (OData)","1C:Enterprise (OData)","1C:Enterprise (OData)","1C:Enterprise (OData)","1C:Enterprise (OData)"],
+    "Выгрузка проводок, остатков, счетов и контрагентов через 1С 8.3 REST/OData.":["Fetch postings, stock, invoices & counterparties via 1C 8.3 REST/OData.","Extracción de asientos, saldos, facturas y contrapartes vía 1C 8.3 REST/OData.","Extração de lançamentos, estoque, faturas e clientes via 1C 8.3 REST/OData.","Extraction d'écritures, stocks, factures et tiers via 1C 8.3 REST/OData.","استخراج القيود والمخزون والفواتير عبر 1C 8.3 REST/OData."],
+    "Битрикс24 CRM":["Bitrix24 CRM","Bitrix24 CRM","Bitrix24 CRM","Bitrix24 CRM","Bitrix24 CRM"],
+    "Лиды, сделки, задачи, воронки продаж и аналитика звонков через Битрикс24 MCP.":["Leads, deals, tasks, sales funnels & call analytics via Bitrix24 MCP.","Leads, tratos, tareas, embudos de ventas y analítica vía Bitrix24 MCP.","Leads, negócios, tarefas, funis de vendas e análise via Bitrix24 MCP.","Prospects, affaires, tâches, entonnoirs et analyse via Bitrix24 MCP.","العملاء المحتملون والصفقات والمهام عبر Bitrix24 MCP."],
+    "Контур.Диадок (ЭДО)":["Kontur.Diadoc (EDO)","Kontur.Diadoc (EDO)","Kontur.Diadoc (EDO)","Kontur.Diadoc (EDO)","Kontur.Diadoc (EDO)"],
+    "Проверка УПД, актов, счетов-фактур и статусов электронного документооборота.":["Check acts, invoices and electronic document management statuses.","Verificación de actas, facturas y estados de documentos electrónicos.","Verificação de atas, faturas e status de documentos eletrônicos.","Vérification des actes, factures et statuts de documents électroniques.","التحقق من العقود والفواتير وحالات المستندات الإلكترونية."],
+    "СБИС":["SBIS (Saby)","SBIS (Saby)","SBIS (Saby)","SBIS (Saby)","SBIS (Saby)"],
+    "Сверка отчётности, ЭДО СБИС / Saby и экспресс-проверка контрагентов по ИНН.":["Reporting reconciliation, SBIS / Saby EDO & counterparty check by TIN.","Conciliación de informes, EDO SBIS / Saby y verificación por NIF.","Conciliação de relatórios, EDO SBIS / Saby e verificação de empresas.","Rapprochement de rapports, EDO SBIS / Saby et vérification de tiers.","مطابقة التقارير وفحص الشركات عبر الرقم الضريبي."],
+    "Яндекс 360 (Диск/Почта/Трекер)":["Yandex 360 (Disk/Mail/Tracker)","Yandex 360 (Disco/Correo/Tracker)","Yandex 360 (Disco/Email/Tracker)","Yandex 360 (Disque/Mail/Tracker)","Yandex 360 (قرص/بريد/متتبع)"],
+    "Поиск по письмам, таблицам на Яндекс Диске и управление задачами в Трекере.":["Search emails, spreadsheets on Yandex Disk & manage tasks in Tracker.","Búsqueda en correos, hojas en Yandex Disk y gestión de tareas en Tracker.","Busca em e-mails, planilhas no Yandex Disk e gestão no Tracker.","Recherche d'e-mails, feuilles sur Yandex Disk et tâches dans Tracker.","البحث في البريد والجداول وإدارة المهام في المتتبع."],
+    "НАВЫКИ ВАЙБКОДИНГА И АВТОМАТИЗАЦИИ":["VIBECODING & AUTOMATION SKILLS","SKILLS DE VIBECODING Y AUTOMATIZACIÓN","SKILLS DE VIBECODING E AUTOMAÇÃO","SKILLS DE VIBECODING ET AUTOMATISATION","مهارات البرمجة والأتمتة"],
+    "Telegram-дайджест":["Telegram Digest","Resumen de Telegram","Resumo do Telegram","Résumé Telegram","ملخص Telegram"],
+    "Мониторинг профильных каналов, выжимка трендов и утренняя сводка в чат.":["Monitor industry channels, extract trends & send morning summary to chat.","Monitoreo de canales, extracción de tendencias y resumen matutino.","Monitoramento de canais, extração de tendências e resumo matinal.","Suivi des canaux, synthèse des tendances et résumé matinal.","متابعة القنوات واستخلاص الاتجاهات والملخص الصباحي."],
+    "Генерация презентаций и инфографики":["Presentations & Infographics Generation","Generación de presentaciones e infografías","Geração de apresentações e infográficos","Génération de présentations et d'infographies","توليد العروض التقديمية والإنفوجرافيك"],
+    "Сборка слайдов PPTX/PDF, визуальных карточек и графиков по брендбуку компании.":["Build PPTX/PDF slide decks, visual cards & charts matching your brandbook.","Creación de diapositivas PPTX/PDF, tarjetas visuales y gráficos de marca.","Criação de slides PPTX/PDF, cartões visuais e gráficos da marca.","Création de slides PPTX/PDF, cartes visuelles et graphiques de marque.","إنشاء شرائح PPTX/PDF وبطاقات مرئية ورسوم بيانية."],
+    "Браузер-агент (Playwright)":["Browser Agent (Playwright)","Agente de navegador (Playwright)","Agente de navegador (Playwright)","Agent navigateur (Playwright)","وكيل المتصفح (Playwright)"],
+    "Фоновая навигация по сайтам, парсинг цен, заполнение форм и проверка UI.":["Background web navigation, price scraping, form filling & UI testing.","Navegación web en segundo plano, extracción de precios y pruebas UI.","Navegação web em segundo plano, coleta de preços e testes de UI.","Navigation web en arrière-plan, extraction de prix et tests UI.","تصفح الويب في الخلفية واستخراج الأسعار واختبار الواجهات."],
+    "Навык":["Skill","Skill","Skill","Skill","مهارة"],
+    "MCP · РФ":["MCP · RU","MCP · RU","MCP · RU","MCP · RU","MCP · RU"],
+    "Активно коннекторов РФ: 11/11 · Наборов: 8/8":["Active RU connectors: 11/11 · Toolkits: 8/8","Conectores RU activos: 11/11 · Kits: 8/8","Conectores RU ativos: 11/11 · Kits: 8/8","Connecteurs RU actifs : 11/11 · Kits : 8/8","الموصّلات النشطة: 11/11 · المجموعات: 8/8"],
+    "Корпоративный шлюз 1С & ЭДО":["1C & EDO Enterprise Gateway","Pasarela corporativa 1C y EDO","Gateway corporativo 1C e EDO","Passerelle d'entreprise 1C et EDO","بوابة 1C والمستندات المؤسسية"],
+    "Настроен · 152-ФЗ":["Configured · 152-FZ","Configurado · 152-FZ","Configurado · 152-FZ","Configuré · 152-FZ","مُعَدّ · 152-FZ"],
+    "Прямой коннектор к 1С:Предприятие 8.3, Контур.Диадок и СБИС с изоляцией учётных данных.":["Direct connector to 1C:Enterprise 8.3, Kontur.Diadoc & SBIS with credential isolation.","Conector directo a 1C:Enterprise 8.3, Kontur.Diadoc y SBIS con aislamiento de credenciales.","Conector direto para 1C:Enterprise 8.3, Kontur.Diadoc e SBIS com isolamento de credenciais.","Connecteur direct vers 1C:Enterprise 8.3, Kontur.Diadoc et SBIS avec isolation des accès.","موصّل مباشر لـ 1C وDiadoc وSBIS مع عزل بيانات الاعتماد."],
+    "CRM, Почта и Документы (Битрикс24 + Яндекс 360)":["CRM, Mail & Docs (Bitrix24 + Yandex 360)","CRM, Correo y Docs (Bitrix24 + Yandex 360)","CRM, E-mail e Docs (Bitrix24 + Yandex 360)","CRM, Mail et Docs (Bitrix24 + Yandex 360)","إدارة العملاء والبريد والمستندات"],
+    "Работа со сделками CRM, корпоративной почтой, календарём и таблицами на Диске.":["Work with CRM deals, corporate mail, calendar and spreadsheets on Disk.","Trabajo con tratos CRM, correo corporativo, calendario y hojas en Disco.","Trabalho com negócios CRM, e-mail corporativo, calendário e planilhas.","Travail avec les affaires CRM, le mail pro, l'agenda et les feuilles.","العمل مع صفقات CRM والبريد المؤسسي والجداول."],
+    "Браузер-агент, Терминал и Медиа-студия":["Browser Agent, Terminal & Media Studio","Agente navegador, Terminal y Estudio Media","Agente navegador, Terminal e Estúdio de Mídia","Agent navigateur, Terminal et Studio Média","وكيل المتصفح والطرفية واستوديو الوسائط"],
+    "Настроен":["Configured","Configurado","Configurado","Configuré","مُعَدّ"],
+    "Playwright-автоматизация, локальный песочница-терминал и генерация слайдов/инфографики.":["Playwright automation, local sandbox terminal & slide/infographic generation.","Automatización Playwright, terminal local aislado y generación de diapositivas.","Automação Playwright, terminal local isolado e geração de slides/infográficos.","Automatisation Playwright, terminal local isolé et génération de slides.","أتمتة Playwright وطرفية محلية وتوليد الشرائح."],
+    "Коннектор включён":["Connector enabled","Conector activado","Conector ativado","Connecteur activé","تم تفعيل الموصّل"],
+    "Контур.Диадок (ЭДО) подключён к новым сессиям по 152-ФЗ.":["Kontur.Diadoc (EDO) connected to new sessions under 152-FZ.","Kontur.Diadoc (EDO) conectado a nuevas sesiones bajo 152-FZ.","Kontur.Diadoc (EDO) conectado a novas sessões sob 152-FZ.","Kontur.Diadoc (EDO) connecté aux nouvelles sessions sous 152-FZ.","تم ربط Kontur.Diadoc بالجلسات الجديدة وفق 152-FZ."],
+    "Набор включён":["Kit enabled","Kit activado","Kit ativado","Kit activé","تم تفعيل المجموعة"],
+    "Все 11 корпоративных RU MCP-коннекторов активны.":["All 11 enterprise RU MCP connectors are active.","Los 11 conectores MCP corporativos están activos.","Todos os 11 conectores MCP corporativos estão ativos.","Les 11 connecteurs MCP d'entreprise sont actifs.","جميع موصّلات MCP الـ 11 نشطة."],
+    "Движок Nomad активен":["Nomad engine active","Motor Nomad activo","Motor Nomad ativo","Moteur Nomad actif","محرّك Nomad نشط"],
+    "Аккаунты: 8 · активен #1":["Accounts: 8 · active #1","Cuentas: 8 · activa #1","Contas: 8 · ativa #1","Comptes : 8 · actif #1","الحسابات: 8 · النشط #1"],
+    "Рой: 0":["Swarm: 0","Enjambre: 0","Enxame: 0","Essaim : 0","السرب: 0"],
+    "# клиент v0.21.7":["# client v0.21.7","# cliente v0.21.7","# cliente v0.21.7","# client v0.21.7","# العميل v0.21.7"]
+  };
+  var RX=[];
+  var TYPED=[];
+  var ATTRS=['alt','title','aria-label','placeholder'];
+  var cur='ru', idx=-1, ridx=-1, REV={}, mo=null;
+  for(var r=0;r<RX.length;r++) RX[r][0]=new RegExp(RX[r][0]);
+
+  function rev(i){
+    if(REV[i]) return REV[i];
+    var m={}; for(var k in TR) if(TR.hasOwnProperty(k) && !m.hasOwnProperty(TR[k][i])) m[TR[k][i]]=k;
+    return (REV[i]=m);
+  }
+  function line(s,i,back){
+    var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(s), c=m[2], t=null, j;
+    if(!c || i<0) return s;
+    if(back){ var R=rev(i); if(R.hasOwnProperty(c)) t=R[c]; }
+    else if(TR.hasOwnProperty(c)) t=TR[c][i];
+    else {
+      for(j=0;j<RX.length;j++) if(RX[j][0].test(c)){ t=c.replace(RX[j][0],RX[j][1][i]); break; }
+      if(t==null) for(j=0;j<TYPED.length;j++){
+        var K=TYPED[j];
+        if(K.length>c.length && K.indexOf(c)===0 && TR.hasOwnProperty(K)){
+          var F=TR[K][i]; t=F.slice(0,Math.max(1,Math.round(c.length*F.length/K.length))); break;
+        }
+      }
+    }
+    return t==null ? s : m[1]+t+m[3];
+  }
+  function tr(s,i,back){
+    if(i<0 || !s) return s;
+    if(s.indexOf('\n')<0) return line(s,i,back);
+    var ls=s.split('\n'); for(var k=0;k<ls.length;k++) ls[k]=line(ls[k],i,back);
+    return ls.join('\n');
+  }
+  function skip(n){ return !n || n.nodeName==='SCRIPT' || n.nodeName==='STYLE'; }
+  function doText(n){
+    if(skip(n.parentNode)) return;
+    var v=n.nodeValue;
+    if(n.__hcO!==v) n.__hcR=tr(v,ridx,true);
+    var o=tr(n.__hcR,idx,false);
+    n.__hcO=o; if(o!==v) n.nodeValue=o;
+  }
+  function doAttrs(el){
+    for(var a=0;a<ATTRS.length;a++){
+      var k=ATTRS[a]; if(!el.hasAttribute || !el.hasAttribute(k)) continue;
+      var v=el.getAttribute(k), O=el.__hcOA||(el.__hcOA={}), R=el.__hcRA||(el.__hcRA={});
+      if(O[k]!==v) R[k]=tr(v,ridx,true);
+      var o=tr(R[k],idx,false); O[k]=o; if(o!==v) el.setAttribute(k,o);
+    }
+  }
+  function walk(n){
+    if(n.nodeType===3){ doText(n); return; }
+    if(n.nodeType!==1 || skip(n)) return;
+    doAttrs(n);
+    for(var c=n.firstChild;c;c=c.nextSibling) walk(c);
+  }
+  function take(rs){
+    for(var i=0;i<rs.length;i++){
+      var r=rs[i];
+      if(r.type==='characterData'){ if(r.target.nodeType===3) doText(r.target); }
+      else if(r.type==='attributes') doAttrs(r.target);
+      else for(var j=0;j<r.addedNodes.length;j++) walk(r.addedNodes[j]);
+    }
+  }
+  function kids(){
+    var fs=document.getElementsByTagName('iframe');
+    for(var i=0;i<fs.length;i++){ try{ fs[i].contentWindow.postMessage({hcLang:cur},'*'); }catch(e){} }
+  }
+  function setLang(l){
+    if(l!=='ru' && !LANGS.hasOwnProperty(l)) return;
+    if(l===cur) return;
+    if(mo) take(mo.takeRecords());
+    ridx=idx; cur=l; idx=(l==='ru')?-1:LANGS[l];
+    walk(document.documentElement);
+    ridx=idx;
+    document.documentElement.setAttribute('lang',l);
+    var bd=document.getElementById('hc-i18n-bidi');
+    if(l==='ar' && !bd){ bd=document.createElement('style'); bd.id='hc-i18n-bidi';
+      bd.textContent='body,body *{unicode-bidi:plaintext}'; (document.head||document.documentElement).appendChild(bd); }
+    else if(l!=='ar' && bd) bd.parentNode.removeChild(bd);
+    if(!mo && window.MutationObserver){
+      mo=new MutationObserver(take);
+      mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+    }
+    kids();
+  }
+  window.__hcLangQ=function(){ return cur==='ru' ? '' : '&lang='+cur; };
+  window.addEventListener('message',function(e){
+    var d=e.data; if(!d || typeof d!=='object') return;
+    if(d.hcLangReq===1 && e.source && e.source!==window.parent){ try{ e.source.postMessage({hcLang:cur},'*'); }catch(x){} return; }
+    if(typeof d.hcLang==='string' && e.source===window.parent) setLang(d.hcLang);
+  });
+  var q=/[?&#]lang=([a-z]{2})\b/.exec(location.search+location.hash);
+  if(q) setLang(q[1]);
+  if(window.parent!==window){ try{ window.parent.postMessage({hcLangReq:1},'*'); }catch(e){} }
+})();
+</script>
+
+<style>[class*='__splash']{display:none!important;opacity:0!important;pointer-events:none!important}</style>
+</head>
+<body style="margin:0;background:#F4F4F5;padding:22px;">
+<div class="nsk" id="nsk">
+  <div class="nsk__bar">
+    <svg class="nsk__ic" viewBox="0 0 24 24" style="color:var(--muted)"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg>
+    <span class="t">Nomad</span><span class="crumb">/ Настройки / Навыки и инструменты</span>
+    <span class="r">
+      <svg class="nsk__ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      <svg class="nsk__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+    </span>
+  </div>
+
+  <div class="nsk__body">
+    <aside class="nsk__side">
+      <div class="nsk__label">НАСТРОЙКИ</div>
+      <nav class="nsk__nav">
+        <a class="on">
+          <span class="nt"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M12 3l2.4 4.9 5.4.8-3.9 3.8.9 5.4-4.8-2.5-4.8 2.5.9-5.4L4.2 8.7l5.4-.8z"/></svg> Навыки и инструменты</span>
+          <span class="nd">Включить навыки, наборы и провайдеров</span>
+        </a>
+        <a>
+          <span class="nt"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M21 15a2 2 0 0 1-2 2H8l-5 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg> Мессенджеры</span>
+          <span class="nd">Настроить Telegram, Slack, Discord и другие</span>
+        </a>
+        <a>
+          <span class="nt"><svg class="nsk__ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg> Артефакты</span>
+          <span class="nd">Смотреть сгенерированные результаты</span>
+        </a>
+        <div class="nsk__label">ПАНЕЛИ</div>
+        <a>
+          <span class="nt"><svg class="nsk__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg> Панель сессий</span>
+          <span class="nd">Поиск, закрепление и управление сессиями</span>
+        </a>
+        <a>
+          <span class="nt"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M4 17l6-6 4 4 6-6"/><circle cx="4" cy="17" r="1"/></svg> Панель системы</span>
+          <span class="nd">Статус гейтвея, логи, перезапуск/обновление</span>
+        </a>
+        <a>
+          <span class="nt"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M4 20V10M10 20V4M16 20v-7M22 20H2"/></svg> Панель использования</span>
+          <span class="nd">Токены, стоимость и активность навыков</span>
+        </a>
+      </nav>
+    </aside>
+
+    <div class="nsk__main">
+      <div class="nsk__top">
+        <div class="nsk__tabs">
+          <div class="nsk__tab on" id="nsk-tab-s">Навыки</div>
+          <div class="nsk__tab" id="nsk-tab-t">Наборы инструментов</div>
+          <div class="nsk__help">?</div>
+        </div>
+      </div>
+
+      <div>
+        <div class="nsk__search">
+          <div class="nsk__sbox"><svg class="nsk__ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/></svg><span class="ph" id="nsk-ph">Поиск навыков...</span></div>
+          <div class="nsk__sact">
+            <span class="nsk__iconbtn"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4z"/></svg></span>
+            <span class="nsk__iconbtn"><svg class="nsk__ic" id="nsk-refresh" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.3M21 4v5h-5"/></svg></span>
+          </div>
+        </div>
+        <div class="nsk__cats nsk__pane show" id="nsk-cats">
+          <div class="nsk__cat on">Все <span class="c">9</span></div>
+          <div class="nsk__cat">Разработка <span class="c">3</span></div>
+          <div class="nsk__cat">Исследование <span class="c">2</span></div>
+          <div class="nsk__cat">Медиа <span class="c">2</span></div>
+          <div class="nsk__cat">Данные <span class="c">2</span></div>
+        </div>
+      </div>
+
+      <div class="nsk__scroll">
+        <!-- SKILLS PANE -->
+        <div class="nsk__pane show" id="nsk-pane-s">
+          <div class="nsk__group">
+            <div class="nsk__ghead">Разработка</div>
+            <div class="nsk__row">
+              <div><div class="nsk__nm">code-review</div><div class="nsk__ds">Ревью изменений по чек-листу: баги, стиль, безопасность.</div></div>
+              <div class="nsk__rc"><span class="nsk__eye"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="nsk__sw" id="nsk-sw-cr"></span></div>
+            </div>
+            <div class="nsk__row">
+              <div><div class="nsk__nm">git-workflow</div><div class="nsk__ds">Ветки, merge-конфликты и аккуратные коммиты.</div></div>
+              <div class="nsk__rc"><span class="nsk__eye"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="nsk__sw on"></span></div>
+            </div>
+            <div class="nsk__row">
+              <div><div class="nsk__nm">systematic-debugging</div><div class="nsk__ds">Поиск корневой причины бага в четыре фазы.</div></div>
+              <div class="nsk__rc"><span class="nsk__eye"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="nsk__sw"></span></div>
+            </div>
+          </div>
+          <div class="nsk__group">
+            <div class="nsk__ghead">Исследование</div>
+            <div class="nsk__row">
+              <div><div class="nsk__nm">deep-research</div><div class="nsk__ds">Многошаговый поиск с цитатами и источниками.</div></div>
+              <div class="nsk__rc"><span class="nsk__eye"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="nsk__sw on"></span></div>
+            </div>
+            <div class="nsk__row">
+              <div><div class="nsk__nm">competitive-analysis</div><div class="nsk__ds">Разбор конкурентов и позиционирования продукта.</div></div>
+              <div class="nsk__rc"><span class="nsk__eye"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="nsk__sw"></span></div>
+            </div>
+          </div>
+          <div class="nsk__group">
+            <div class="nsk__ghead">Медиа</div>
+            <div class="nsk__row">
+              <div><div class="nsk__nm">image-generation</div><div class="nsk__ds">Промпт-инжиниринг для генерации изображений.</div></div>
+              <div class="nsk__rc"><span class="nsk__eye"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="nsk__sw on"></span></div>
+            </div>
+            <div class="nsk__row">
+              <div><div class="nsk__nm">video-editor</div><div class="nsk__ds">Локальный монтаж видео через FFmpeg и Python.</div></div>
+              <div class="nsk__rc"><span class="nsk__eye"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="nsk__sw"></span></div>
+            </div>
+          </div>
+          <div class="nsk__group">
+            <div class="nsk__ghead">Данные</div>
+            <div class="nsk__row">
+              <div><div class="nsk__nm">csv-analysis</div><div class="nsk__ds">Анализ таблиц и быстрая статистика по данным.</div></div>
+              <div class="nsk__rc"><span class="nsk__eye"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="nsk__sw on"></span></div>
+            </div>
+            <div class="nsk__row">
+              <div><div class="nsk__nm">excel-xlsx</div><div class="nsk__ds">Чтение и сборка XLSX-отчётов и таблиц.</div></div>
+              <div class="nsk__rc"><span class="nsk__eye"><svg class="nsk__ic" viewBox="0 0 24 24"><path d="M1 12s4-7 11-7 11 7 11 7-4 7-11 7-11-7-11-7z"/><circle cx="12" cy="12" r="3"/></svg></span><span class="nsk__sw"></span></div>
+            </div>
+          </div>
+        </div>
+
+        <!-- TOOLSETS PANE -->
+        <div class="nsk__pane" id="nsk-pane-t">
+          <div class="nsk__count">Включено наборов: 5/9</div>
+          <div class="nsk__trow">
+            <div class="nsk__thd"><div class="nsk__tlabel">Веб-поиск</div><span class="nsk__pill ok">Настроен</span><span class="nsk__sw on"></span></div>
+            <div class="nsk__tds">Инструменты веб-поиска и извлечения контента.</div>
+            <div class="nsk__chips"><span class="nsk__chip">web_search</span><span class="nsk__chip">web_extract</span></div>
+          </div>
+          <div class="nsk__trow">
+            <div class="nsk__thd"><div class="nsk__tlabel">Терминал</div><span class="nsk__pill ok">Настроен</span><span class="nsk__sw on"></span></div>
+            <div class="nsk__tds">Выполнение команд и управление процессами.</div>
+            <div class="nsk__chips"><span class="nsk__chip">terminal</span><span class="nsk__chip">process</span></div>
+          </div>
+          <div class="nsk__trow">
+            <div class="nsk__thd"><div class="nsk__tlabel">Файлы</div><span class="nsk__pill ok">Настроен</span><span class="nsk__sw on"></span></div>
+            <div class="nsk__tds">Чтение, запись, патч с нечётким совпадением и поиск.</div>
+            <div class="nsk__chips"><span class="nsk__chip">read_file</span><span class="nsk__chip">write_file</span><span class="nsk__chip">patch</span><span class="nsk__chip">search_files</span></div>
+          </div>
+          <div class="nsk__trow">
+            <div class="nsk__thd"><div class="nsk__tlabel">Браузер</div><span class="nsk__pill ok">Настроен</span><span class="nsk__sw on"></span></div>
+            <div class="nsk__tds">Автоматизация браузера: переход, клик, ввод, прокрутка.</div>
+            <div class="nsk__chips"><span class="nsk__chip">browser_navigate</span><span class="nsk__chip">browser_click</span><span class="nsk__chip">browser_type</span><span class="nsk__chip">browser_snapshot</span></div>
+          </div>
+          <div class="nsk__trow">
+            <div class="nsk__thd"><div class="nsk__tlabel">Генерация изображений</div><span class="nsk__pill no">Нужны ключи</span><span class="nsk__sw" id="nsk-sw-img"></span></div>
+            <div class="nsk__tds">Творческая генерация изображений по промпту.</div>
+            <div class="nsk__chips"><span class="nsk__chip">image_generate</span></div>
+          </div>
+          <div class="nsk__trow">
+            <div class="nsk__thd"><div class="nsk__tlabel">Генерация видео</div><span class="nsk__pill no">Нужны ключи</span><span class="nsk__sw"></span></div>
+            <div class="nsk__tds">Text-to-video и image-to-video — бэкенд авто-роутит.</div>
+            <div class="nsk__chips"><span class="nsk__chip">video_generate</span></div>
+          </div>
+          <div class="nsk__trow">
+            <div class="nsk__thd"><div class="nsk__tlabel">Синтез речи</div><span class="nsk__pill ok">Настроен</span><span class="nsk__sw on"></span></div>
+            <div class="nsk__tds">Озвучка текста: Edge TTS, ElevenLabs, OpenAI или xAI.</div>
+            <div class="nsk__chips"><span class="nsk__chip">text_to_speech</span></div>
+          </div>
+          <div class="nsk__trow">
+            <div class="nsk__thd"><div class="nsk__tlabel">Управление компьютером</div><span class="nsk__pill no">Нужны ключи</span><span class="nsk__sw"></span></div>
+            <div class="nsk__tds">Фоновый контроль рабочего стола: мышь, клавиатура, скриншоты.</div>
+            <div class="nsk__chips"><span class="nsk__chip">computer_use</span></div>
+          </div>
+          <div class="nsk__trow">
+            <div class="nsk__thd"><div class="nsk__tlabel">Поиск по X (Twitter)</div><span class="nsk__pill no">Нужны ключи</span><span class="nsk__sw"></span></div>
+            <div class="nsk__tds">Поиск постов и тредов X через встроенный инструмент xAI.</div>
+            <div class="nsk__chips"><span class="nsk__chip">x_search</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nsk__status"><span class="dot"></span> Движок Nomad готов · навыки применяются к новым сессиям<span class="r">клиент v0.21.7 &nbsp; бэкенд v0.21.7</span></div>
+
+  <div class="nsk__toast" id="nsk-toast">
+    <div class="tt"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> <span id="nsk-toast-t">Навык включён</span></div>
+    <div class="tm" id="nsk-toast-m">code-review применяется к новым сессиям.</div>
+  </div>
+
+  <div class="nsk__splash" id="nsk-splash"><div class="nsk__conn">CONNECTING<span class="nsk__hatch"></span></div></div>
+</div>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(id){return document.getElementById(id)};
+  var splash=$('nsk-splash');
+  var tabS=$('nsk-tab-s'), tabT=$('nsk-tab-t');
+  var paneS=$('nsk-pane-s'), paneT=$('nsk-pane-t'), cats=$('nsk-cats'), ph=$('nsk-ph');
+  var toast=$('nsk-toast'), toastT=$('nsk-toast-t'), toastM=$('nsk-toast-m');
+
+  function showToast(title,msg){ toastT.textContent=title; toastM.textContent=msg; toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, reduce?0:2600); }
+  function setTab(t){
+    var s=(t==='s');
+    tabS.classList.toggle('on',s); tabT.classList.toggle('on',!s);
+    paneS.classList.toggle('show',s); paneT.classList.toggle('show',!s);
+    cats.classList.toggle('show',s);
+    ph.textContent = s ? 'Поиск навыков...' : 'Поиск наборов...';
+  }
+
+  if(reduce){ splash.classList.add('gone'); $('nsk-sw-cr').classList.add('on'); return; }
+
+  var loop=function(){
+    var T=0, A=function(t,f){T+=t;setTimeout(f,T);};
+    // Skills tab: refresh spins, then a skill toggles on
+    A(300,function(){ $('nsk-refresh').classList.add('nsk__spin'); });
+    A(900,function(){ $('nsk-refresh').classList.remove('nsk__spin'); });
+    A(500,function(){ $('nsk-sw-cr').classList.add('on'); showToast('Навык включён','code-review применяется к новым сессиям.'); });
+    // switch to toolsets tab
+    A(2900,function(){ setTab('t'); });
+    A(700,function(){ $('nsk-sw-img').classList.add('on'); showToast('Набор включён','Генерация изображений применяется к новым сессиям.'); });
+    // reset back to skills tab
+    A(3200,function(){ setTab('s'); $('nsk-sw-cr').classList.remove('on'); $('nsk-sw-img').classList.remove('on'); });
+    A(1400,function(){ loop(); });
+  };
+  setTimeout(function(){ splash.classList.add('gone'); loop(); }, 80);
+})();
+</script>
+</body>
+</html>

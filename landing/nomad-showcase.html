@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad — интерфейс приложения</title>
+<style>
+*,*::before,*::after{box-sizing:border-box;}
+:root{
+  --ink:#111111; --line:#E4E4E7; --cream:#F4F4F5; --bezel:#10121f; --screen-bg:#FFFFFF;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+}
+html,body{margin:0;height:100%;overflow:hidden;background:transparent;}
+body{font-family:var(--sans);display:flex;align-items:center;justify-content:center;}
+
+.stagewrap{position:relative;width:100%;display:flex;flex-direction:column;align-items:center;}
+.stage{display:flex;align-items:flex-start;justify-content:center;gap:clamp(18px,3vw,38px);width:100%;padding:0 60px;}
+
+/* ── ноутбук: тёмный бэзел как у мокапа установщика ── */
+.laptop{width:min(680px,54vw);}
+.laptop__screen{border:10px solid var(--bezel);border-bottom-width:14px;border-radius:16px 16px 0 0;
+  overflow:hidden;background:var(--screen-bg);
+  box-shadow:0 18px 44px -26px rgba(7,9,38,.45),0 0 0 1px rgba(255,255,255,.07);}
+.laptop__base{height:15px;background:linear-gradient(#212539,#0d0f1c);border-radius:0 0 14px 14px;
+  margin:0 -22px;position:relative;box-shadow:0 10px 22px -14px rgba(7,9,38,.45);}
+.laptop__base::after{content:"";position:absolute;left:50%;top:0;transform:translateX(-50%);
+  width:104px;height:6px;border-radius:0 0 8px 8px;background:#0a0c16;}
+
+/* ── смартфон: экраны Nomad уже с собственной рамкой телефона — без второго бэзеля ── */
+.phone{width:min(270px,22vw);}
+.phone__frame{border:none;border-radius:0;overflow:visible;background:transparent;box-shadow:none;}
+
+/* scaled iframes (desk native 1196x862, phone 344x700) */
+.scaler{overflow:hidden;background:var(--screen-bg);}
+.scaler.phone{background:transparent;}
+.scaler iframe{border:0;display:block;transform-origin:top left;background:transparent;}
+.scaler.desk iframe{width:1196px;height:862px;}
+.scaler.phone iframe{width:440px;height:740px;}
+
+/* стрелки */
+.navarrow{position:absolute;top:44%;transform:translateY(-50%);z-index:6;
+  width:44px;height:44px;border-radius:50%;border:1px solid var(--line);background:#fff;
+  color:var(--ink);font-size:24px;line-height:1;cursor:pointer;display:flex;
+  align-items:center;justify-content:center;box-shadow:0 6px 16px rgba(70,45,20,.16);
+  transition:transform .15s ease,background .15s ease;-webkit-user-select:none;user-select:none;}
+.navarrow:hover{background:var(--cream);transform:translateY(-50%) scale(1.07);}
+.navarrow--prev{left:16px;}
+.navarrow--next{right:16px;}
+
+/* вкладки-пункты */
+.tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin:0 56px 16px;}
+.tab{font-size:14px;padding:8px 16px;border-radius:22px;border:1px solid #D4D4D8;background:#FFFFFF;
+  color:#52525B;cursor:pointer;transition:.18s;-webkit-user-select:none;user-select:none;font-family:var(--sans);}
+.tab:hover{border-color:#111111;color:var(--ink);}
+.tab.on{background:var(--ink);color:var(--cream);border-color:var(--ink);}
+@media(max-width:680px){.tab{font-size:12.5px;padding:6px 12px;}}
+
+.hidden{display:none !important;}
+
+@media(max-width:680px){
+  /* мобила: обе версии стопкой — ноутбук сверху, телефон под ним */
+  .stage{padding:0 44px;flex-direction:column;align-items:center;gap:20px;}
+  .laptop{width:calc(100% - 8px);}
+  .phone{width:min(60vw, 240px);}
+  .navarrow{width:36px;height:36px;font-size:20px;top:30%;}
+}
+</style>
+<script id="hc-i18n">
+
+/* Языки демо (24.09). Русский — исходный текст страницы; en/es/pt/fr/ar — словарь
+
+   ниже (русская фраза -> перевод). Язык приходит от страницы-хозяина сообщением
+
+   {hcLang:'en'} или параметром ?lang=en; без них демо остаётся русским и этот
+
+   скрипт в документе ничего не меняет. Переводит текстовые узлы и alt/title/
+
+   aria-label/placeholder, в том числе то, что анимация дописывает потом
+
+   (печать по буквам — пропорциональным началом перевода). */
+
+(function(){
+
+  var LANGS={en:0,es:1,pt:2,fr:3,ar:4};
+
+  var TR={"Сред":["Med", "Med", "Méd", "Moy", "متوسط"],"⚖ Совет моделей":["⚖ Model Council", "⚖ Consejo de modelos", "⚖ Conselho de modelos", "⚖ Conseil des modèles", "⚖ مجلس النماذج"],"• Готов":["• Ready", "• Listo", "• Pronto", "• Prêt", "• جاهز"],"Готов":["Ready", "Listo", "Pronto", "Prêt", "جاهز"],"Запланированные задачи":["Scheduled tasks", "Tareas programadas", "Tarefas agendadas", "Tâches planifiées", "المهام المجدولة"],"Навыки Nomad":["Nomad Skills", "Skills de Nomad", "Skills do Nomad", "Skills Nomad", "مهارات Nomad"],"Установлена актуальная версия v0.21.7 ✓":["Up to date v0.21.7 ✓", "Versión actual v0.21.7 ✓", "Versão atual v0.21.7 ✓", "Version à jour v0.21.7 ✓", "الإصدار المحدّث v0.21.7 ✓"],"Каталог актуальных моделей (39 моделей · 10 провайдеров)":["Active Model Catalog (39 models · 10 providers)", "Catálogo de modelos (39 modelos · 10 proveedores)", "Catálogo de modelos (39 modelos · 10 provedores)", "Catalogue de modèles (39 modèles · 10 fournisseurs)", "كتالوج النماذج الحديثة (39 نموذجاً · 10 مزودين)"],"Краткое описание специализации и стоимость ($вх / $вых за 1М токенов) прямо в селекторе.":["Brief specialization summary and token pricing ($in / $out per 1M tokens) right inside the selector.", "Descripción breve y precio por 1M de tokens ($ent / $sal) directamente en el selector.", "Resumo da especialização e preço ($ent / $saí por 1M tokens) direto no seletor.", "Résumé de spécialisation et tarif ($ent / $sor par 1M tokens) directement dans le sélecteur.", "وصف مختصر للتخصص والتكلفة لكل مليون رمز مباشرة داخل القائمة."],"Безопасность, Харнес и Автообновление":["Security, Harness & Auto-Update", "Seguridad, Harness y Auto-actualización", "Segurança, Harness e Atualização automática", "Sécurité, Harness et Mise à jour auto", "الأمان والحماية والتحديث التلقائي"],"Советник":["Advisor", "Asesor", "Consultor", "Conseiller", "المستشار"],"• Советник":["• Advisor", "• Asesor", "• Consultor", "• Conseiller", "• المستشار"],"# Совет моделей":["# Model Council", "# Consejo de modelos", "# Conselho de modelos", "# Conseil des modèles", "# مجلس النماذج"],"Совет моделей":["Model Council", "Consejo de modelos", "Conselho de modelos", "Conseil des modèles", "مجلس النماذج"],"Локальный сервер...":["Local server...", "Servidor local...", "Servidor local...", "Serveur local...", "خادم محلي..."],"Локальный сервер... ⌄":["Local server... ⌄", "Servidor local... ⌄", "Servidor local... ⌄", "Serveur local... ⌄", "خادم محلي... ⌄"],"+ Бэкенд готов":["+ Backend ready", "+ Backend listo", "+ Backend pronto", "+ Backend prêt", "+ الواجهة الخلفية جاهزة"],"Бэкенд готов":["Backend ready", "Backend listo", "Backend pronto", "Backend prêt", "الواجهة الخلفية جاهزة"],"Подключить тариф":["Connect plan", "Conectar plan", "Conectar plano", "Connecter un forfait", "ربط باقة"],"NomadNet Подключить тариф":["NomadNet Connect plan", "NomadNet Conectar plan", "NomadNet Conectar plano", "NomadNet Connecter un forfait", "NomadNet ربط باقة"],"Аккаунты: 8 · активен #1":["Accounts: 8 · active #1", "Cuentas: 8 · activa #1", "Contas: 8 · ativa #1", "Comptes : 8 · actif #1", "الحسابات: 8 · النشط #1"],"• Аккаунты: 8 · активен #1":["• Accounts: 8 · active #1", "• Cuentas: 8 · activa #1", "• Contas: 8 · ativa #1", "• Comptes : 8 · actif #1", "• الحسابات: 8 · النشط #1"],"Рой: 0":["Swarm: 0", "Enjambre: 0", "Enxame: 0", "Essaim : 0", "السرب: 0"],"• Рой: 0":["• Swarm: 0", "• Enjambre: 0", "• Enxame: 0", "• Essaim : 0", "• السرب: 0"],"⚡ Умный":["⚡ Smart", "⚡ Inteligente", "⚡ Inteligente", "⚡ Intelligent", "⚡ ذكي"],"Умный":["Smart", "Inteligente", "Inteligente", "Intelligent", "ذكي"],"клиент v0.21.7":["client v0.21.7", "cliente v0.21.7", "cliente v0.21.7", "client v0.21.7", "العميل v0.21.7"],"бэкенд v0.21.7":["backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "الخلفية v0.21.7"],"клиент v0.21.7 · бэкенд v0.21.7":["client v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "client v0.21.7 · backend v0.21.7", "العميل v0.21.7 · الخلفية v0.21.7"],"Nomad — интерфейс приложения":["Nomad — app interface","Nomad — interfaz de la aplicación","Nomad — interface do aplicativo","Nomad — interface de l'application","Nomad — واجهة التطبيق"],"Агент в работе":["Agent at work","Agente en acción","Agente em ação","Agent au travail","الوكيل أثناء العمل"],"Артефакты":["Artifacts","Artefactos","Artefatos","Artefacts","المخرجات"],"Главный":["Home","Inicio","Início","Accueil","الرئيسية"],"Мессенджеры":["Messengers","Mensajería","Mensageiros","Messageries","المراسلة"],"Навыки":["Skills","Skills","Skills","Skills","المهارات"],"Настройки":["Settings","Ajustes","Configurações","Réglages","الإعدادات"],"Предыдущий экран":["Previous screen","Pantalla anterior","Tela anterior","Écran précédent","الشاشة السابقة"],"С чего начать":["Getting started","Por dónde empezar","Por onde começar","Par où commencer","من أين تبدأ"],"Симулятор ИИ":["AI simulator","Simulador de IA","Simulador de IA","Simulateur IA","محاكي الذكاء الاصطناعي"],"Следующий экран":["Next screen","Pantalla siguiente","Próxima tela","Écran suivant","الشاشة التالية"]};
+
+  var RX=[];
+
+  var TYPED=[];
+
+  var ATTRS=['alt','title','aria-label','placeholder'];
+
+  var cur='ru', idx=-1, ridx=-1, REV={}, mo=null;
+
+  for(var r=0;r<RX.length;r++) RX[r][0]=new RegExp(RX[r][0]);
+
+
+
+  function rev(i){
+
+    if(REV[i]) return REV[i];
+
+    var m={}; for(var k in TR) if(TR.hasOwnProperty(k) && !m.hasOwnProperty(TR[k][i])) m[TR[k][i]]=k;
+
+    return (REV[i]=m);
+
+  }
+
+  function line(s,i,back){
+
+    var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(s), c=m[2], t=null, j;
+
+    if(!c || i<0) return s;
+
+    if(back){ var R=rev(i); if(R.hasOwnProperty(c)) t=R[c]; }
+
+    else if(TR.hasOwnProperty(c)) t=TR[c][i];
+
+    else {
+
+      for(j=0;j<RX.length;j++) if(RX[j][0].test(c)){ t=c.replace(RX[j][0],RX[j][1][i]); break; }
+
+      if(t==null) for(j=0;j<TYPED.length;j++){
+
+        var K=TYPED[j];
+
+        if(K.length>c.length && K.indexOf(c)===0 && TR.hasOwnProperty(K)){
+
+          var F=TR[K][i]; t=F.slice(0,Math.max(1,Math.round(c.length*F.length/K.length))); break;
+
+        }
+
+      }
+
+    }
+
+    return t==null ? s : m[1]+t+m[3];
+
+  }
+
+  function tr(s,i,back){
+
+    if(i<0 || !s) return s;
+
+    if(s.indexOf('\n')<0) return line(s,i,back);
+
+    var ls=s.split('\n'); for(var k=0;k<ls.length;k++) ls[k]=line(ls[k],i,back);
+
+    return ls.join('\n');
+
+  }
+
+  function skip(n){ return !n || n.nodeName==='SCRIPT' || n.nodeName==='STYLE'; }
+
+  function doText(n){
+
+    if(skip(n.parentNode)) return;
+
+    var v=n.nodeValue;
+
+    if(n.__hcO!==v) n.__hcR=tr(v,ridx,true);   /* написано страницей: запомнить по-русски */
+
+    var o=tr(n.__hcR,idx,false);
+
+    n.__hcO=o; if(o!==v) n.nodeValue=o;
+
+  }
+
+  function doAttrs(el){
+
+    for(var a=0;a<ATTRS.length;a++){
+
+      var k=ATTRS[a]; if(!el.hasAttribute || !el.hasAttribute(k)) continue;
+
+      var v=el.getAttribute(k), O=el.__hcOA||(el.__hcOA={}), R=el.__hcRA||(el.__hcRA={});
+
+      if(O[k]!==v) R[k]=tr(v,ridx,true);
+
+      var o=tr(R[k],idx,false); O[k]=o; if(o!==v) el.setAttribute(k,o);
+
+    }
+
+  }
+
+  function walk(n){
+
+    if(n.nodeType===3){ doText(n); return; }
+
+    if(n.nodeType!==1 || skip(n)) return;
+
+    doAttrs(n);
+
+    for(var c=n.firstChild;c;c=c.nextSibling) walk(c);
+
+  }
+
+  function take(rs){
+
+    for(var i=0;i<rs.length;i++){
+
+      var r=rs[i];
+
+      if(r.type==='characterData'){ if(r.target.nodeType===3) doText(r.target); }
+
+      else if(r.type==='attributes') doAttrs(r.target);
+
+      else for(var j=0;j<r.addedNodes.length;j++) walk(r.addedNodes[j]);
+
+    }
+
+  }
+
+  function kids(){
+
+    var fs=document.getElementsByTagName('iframe');
+
+    for(var i=0;i<fs.length;i++){ try{ fs[i].contentWindow.postMessage({hcLang:cur},'*'); }catch(e){} }
+
+  }
+
+  function setLang(l){
+
+    if(l!=='ru' && !LANGS.hasOwnProperty(l)) return;
+
+    if(l===cur) return;
+
+    if(mo) take(mo.takeRecords());
+
+    ridx=idx; cur=l; idx=(l==='ru')?-1:LANGS[l];
+
+    walk(document.documentElement);
+
+    ridx=idx;
+
+    document.documentElement.setAttribute('lang',l);
+
+    /* арабский: раскладка демо остаётся как есть, а направление строки берётся
+
+       по её тексту — иначе точки и скобки уезжают не на ту сторону */
+
+    var bd=document.getElementById('hc-i18n-bidi');
+
+    if(l==='ar' && !bd){ bd=document.createElement('style'); bd.id='hc-i18n-bidi';
+
+      bd.textContent='body,body *{unicode-bidi:plaintext}'; (document.head||document.documentElement).appendChild(bd); }
+
+    else if(l!=='ar' && bd) bd.parentNode.removeChild(bd);
+
+    if(!mo && window.MutationObserver){
+
+      mo=new MutationObserver(take);
+
+      mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+
+    }
+
+    kids();
+
+  }
+
+  /* для вложенных рамок: язык в адрес новой страницы, чтобы она не мигнула русским */
+
+  window.__hcLangQ=function(){ return cur==='ru' ? '' : '&lang='+cur; };
+
+  window.addEventListener('message',function(e){
+
+    var d=e.data; if(!d || typeof d!=='object') return;
+
+    if(d.hcLangReq===1 && e.source && e.source!==window.parent){ try{ e.source.postMessage({hcLang:cur},'*'); }catch(x){} return; }
+
+    if(typeof d.hcLang==='string' && e.source===window.parent) setLang(d.hcLang);
+
+  });
+
+  var q=/[?&#]lang=([a-z]{2})\b/.exec(location.search+location.hash);
+
+  if(q) setLang(q[1]);
+
+  if(window.parent!==window){ try{ window.parent.postMessage({hcLangReq:1},'*'); }catch(e){} }
+
+})();
+
+</script>
+</head>
+<body>
+<div class="stagewrap">
+  <nav class="tabs" id="tabs"></nav>
+  <button class="navarrow navarrow--prev" id="navPrev" type="button" aria-label="Предыдущий экран">‹</button>
+  <div class="stage">
+    <div class="laptop">
+      <div class="laptop__screen"><div class="scaler desk" id="scalerD"><iframe id="if-desk" title="Nomad desktop" loading="lazy"></iframe></div></div>
+      <div class="laptop__base"></div>
+    </div>
+    <div class="phone" id="phoneWrap">
+      <div class="phone__frame"><div class="scaler phone" id="scalerP"><iframe id="if-phone" title="Nomad mobile" loading="lazy"></iframe></div></div>
+    </div>
+  </div>
+  <button class="navarrow navarrow--next" id="navNext" type="button" aria-label="Следующий экран">›</button>
+</div>
+
+<script>
+(function(){
+  var SCREENS = [
+    { k:'onboard',   name:'С чего начать',  desk:'nomad-onboarding.desktop.html', phone:'nomad-onboarding.mobile.html' },
+    { k:'home',      name:'Главный',        desk:'nomad-app.desktop.html',        phone:'nomad-app.mobile.html' },
+    { k:'session',   name:'Агент в работе', desk:'nomad-session.desktop.html',    phone:'nomad-session.mobile.html' },
+    { k:'simulator', name:'Симулятор ИИ',   desk:'nomad-simulator.desktop.html',  phone:'nomad-simulator.mobile.html' },
+    { k:'settings',  name:'Настройки',      desk:'nomad-settings.desktop.html',   phone:'nomad-settings.mobile.html' },
+    { k:'messaging', name:'Мессенджеры',    desk:'nomad-messaging.desktop.html',  phone:'nomad-messaging.mobile.html' },
+    { k:'skills',    name:'Навыки',         desk:'nomad-skills.desktop.html',     phone:'nomad-skills.mobile.html' },
+    { k:'artifacts', name:'Артефакты',      desk:'nomad-artifacts.desktop.html',  phone:'nomad-artifacts.mobile.html' }
+  ];
+  var ifD=document.getElementById('if-desk'), ifP=document.getElementById('if-phone');
+  var sD=document.getElementById('scalerD'), sP=document.getElementById('scalerP');
+  var phoneWrap=document.getElementById('phoneWrap');
+  var tabs=document.getElementById('tabs');
+
+  function fit(){
+    var s1=sD.clientWidth/1196; sD.style.height=(862*s1)+'px'; ifD.style.transform='scale('+s1+')';
+    // Канвас телефона 440x740: устройство 300x656 центрировано (flex в mobile-файле),
+    // поля ~70px по бокам + низ — под ambient-тень (раньше тень резалась краем iframe,
+    // а устройство было прижато влево → «смещение»). Высоту устройства (656) привязываем
+    // к высоте ноутбука; масштаб — аналитически, без чтения layout (гонки со stale).
+    var PCW=440, PCH=740;
+    var lap=document.querySelector('.laptop');
+    var s2;
+    if(lap && lap.offsetParent!==null){
+      var lapH=lap.getBoundingClientRect().height;
+      s2=lapH/656;
+      // скейлер тоже несёт класс .phone (=min(270px,22vw)) — на широком канвасе
+      // он бы обрезал правый край, поэтому ширину задаём явно = ширине iframe*s2.
+      phoneWrap.style.width=(PCW*s2)+'px';
+      sP.style.width=(PCW*s2)+'px';
+    } else {
+      phoneWrap.style.width=''; sP.style.width='';
+      s2=sP.clientWidth/PCW;
+    }
+    sP.style.height=(PCH*s2)+'px'; ifP.style.transform='scale('+s2+')';
+  }
+
+  var V='?v=218'; // cache-bust экранов (mobile-файлы обновлены: центрирование устройства)
+  var curIdx=0;
+  function show(i){
+    curIdx=((i%SCREENS.length)+SCREENS.length)%SCREENS.length;
+    var s=SCREENS[curIdx];
+    ifD.src=s.desk+V;
+    if(s.phone){ phoneWrap.classList.remove('hidden'); ifP.src=s.phone+V; }
+    else { phoneWrap.classList.add('hidden'); ifP.removeAttribute('src'); }
+    [].forEach.call(tabs.children,function(t,j){ t.classList.toggle('on',j===curIdx); });
+    fit();
+  }
+  SCREENS.forEach(function(s,i){
+    var t=document.createElement('div'); t.className='tab'; t.textContent=s.name;
+    t.onclick=function(){ show(i); }; tabs.appendChild(t);
+  });
+  document.getElementById('navPrev').onclick=function(){ show(curIdx-1); };
+  document.getElementById('navNext').onclick=function(){ show(curIdx+1); };
+  window.addEventListener('keydown',function(e){
+    if(e.key==='ArrowLeft') show(curIdx-1); else if(e.key==='ArrowRight') show(curIdx+1);
+  });
+  window.addEventListener('resize',fit);
+  show(0);
+})();
+</script>
+</body>
+</html>

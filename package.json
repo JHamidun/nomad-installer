@@ -1,7 +1,7 @@
 {
   "name": "nomad-installer",
   "productName": "Nomad Setup",
-  "version": "0.1.0",
+  "version": "0.21.7",
   "description": "One-click installer for a local Nomad AI agent (S1 self_hosted) whose LLM access routes through the owner's cloud control-plane (cp.nomadnet.ai)",
   "author": "Zhemal Khamidun <hamidunjemal@gmail.com>",
   "license": "MIT",

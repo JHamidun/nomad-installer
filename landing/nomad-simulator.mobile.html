@@ -1,0 +1,341 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad — Симулятор ИИ (mockup)</title>
+<style>
+@font-face{font-family:'Collapse';font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2');}
+.nsimm,.nsimm *,.nsimm *::before,.nsimm *::after{box-sizing:border-box;}
+.nsimm{
+  --cream:#FFFFFF; --cream-2:#F4F4F5; --card:#FFFFFF; --line:#E4E4E7; --line-2:#D4D4D8;
+  --ink:#111111; --muted:#52525B; --faint:#71717A; --terra:#111111;
+  --blue-1:#111111; --blue-2:#111111; --green:#059669;
+  --mono:ui-monospace,"JetBrains Mono","SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:var(--sans); color:var(--ink); display:inline-block;
+}
+.nsimm__device{ width:300px; border-radius:44px; padding:12px; background:linear-gradient(160deg,#2b2620,#0e0c09);
+  box-shadow:0 40px 90px -30px rgba(50,35,15,.6), 0 8px 30px -12px rgba(0,0,0,.4); }
+.nsimm__screen{ position:relative; border-radius:33px; overflow:hidden; background:var(--cream); height:632px; display:flex; flex-direction:column; }
+.nsimm__island{ position:absolute; top:10px; left:50%; transform:translateX(-50%); width:88px; height:22px; background:#000; border-radius:13px; z-index:6; }
+.nsimm__ic{ display:block; stroke:currentColor; fill:none; stroke-width:1.7; }
+
+.nsimm__status{ display:flex; justify-content:space-between; align-items:center; padding:9px 20px 3px; font:11px var(--mono); color:var(--muted); }
+.nsimm__head{ display:flex; align-items:center; gap:9px; padding:8px 15px 10px; border-bottom:1px solid var(--line); }
+.nsimm__head .bk{ width:18px; height:18px; color:var(--muted); }
+.nsimm__head .nm{ font-family:'Collapse',Georgia,serif; font-size:16px; letter-spacing:.01em; }
+.nsimm__head .r{ margin-left:auto; display:flex; gap:12px; color:var(--muted); }
+.nsimm__head .r .nsimm__ic{ width:18px; height:18px; }
+
+.nsimm__body{ flex:1; overflow:hidden; display:flex; flex-direction:column; padding:14px 14px 8px; gap:12px; }
+.nsimm__u{ align-self:flex-end; max-width:82%; background:#F4F4F5; border:1px solid #E4E4E7; color:#111111; padding:9px 12px; border-radius:13px 13px 4px 13px; font-size:12.5px; line-height:1.4; opacity:0; transform:translateY(6px); transition:.4s; }
+.nsimm__u.show{ opacity:1; transform:none; }
+.nsimm__a{ display:flex; gap:9px; opacity:0; transform:translateY(6px); transition:.45s; }
+.nsimm__a.show{ opacity:1; transform:none; }
+.nsimm__av{ width:24px;height:24px;border-radius:7px;flex:0 0 auto; display:grid; place-items:center; background:#111111; border:1px solid #111111; color:#FFFFFF; }
+.nsimm__av svg{ width:15px; height:15px; }
+.nsimm__aname{ font:10px var(--mono); letter-spacing:.05em; color:var(--terra); margin:0 0 5px; }
+.nsimm__abody{ min-width:0; font-size:12.5px; line-height:1.5; }
+.nsimm__cursor{ display:inline-block; width:6px;height:13px; background:var(--terra); vertical-align:-2px; margin-left:2px; animation:nsimm-blink 1s steps(1) infinite; }
+@keyframes nsimm-blink{50%{opacity:0}}
+
+.nsimm__tracks{ display:flex; flex-wrap:wrap; gap:6px; margin:10px 0 2px; }
+.nsimm__trk{ font-size:11px; padding:5px 10px; border-radius:999px; border:1px solid var(--line-2); background:var(--card); color:#3F3F46;
+  opacity:0; transform:translateY(4px) scale(.97); transition:.3s; }
+.nsimm__trk.show{ opacity:1; transform:none; }
+.nsimm__trk.sel{ background:color-mix(in srgb,var(--terra) 12%,var(--card)); border-color:color-mix(in srgb,var(--terra) 45%,transparent); color:var(--terra); font-weight:500; box-shadow:0 0 0 3px color-mix(in srgb,var(--terra) 12%,transparent); }
+
+.nsimm__mission{ margin-top:6px; opacity:0; transform:translateY(6px); transition:.45s; }
+.nsimm__mission.show{ opacity:1; transform:none; }
+.nsimm__mcard{ margin-top:8px; border:1px solid var(--line); border-radius:10px; background:var(--card); padding:9px 11px; }
+.nsimm__mtag{ font:9.5px var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--terra); margin:0 0 4px; }
+.nsimm__mtxt{ font-size:11.5px; line-height:1.5; color:#3F3F46; }
+.nsimm__prog{ display:flex; align-items:center; gap:8px; margin-top:8px; }
+.nsimm__bar-t{ flex:1; height:5px; border-radius:3px; background:var(--cream-2); overflow:hidden; }
+.nsimm__bar-t i{ display:block; height:100%; width:16%; background:linear-gradient(90deg,var(--blue-1),var(--blue-2)); border-radius:3px; }
+.nsimm__prog span{ font:10px var(--mono); color:var(--muted); }
+
+.nsimm__composer{ margin:auto 8px 8px; border:1.5px solid var(--line-2); border-radius:16px; background:var(--card); padding:10px 12px 8px; box-shadow:0 8px 22px -16px rgba(80,50,20,.4); }
+.nsimm__cin{ font-size:12.5px; color:var(--faint); }
+.nsimm__crow{ display:flex; align-items:center; gap:9px; margin-top:8px; color:var(--muted); }
+.nsimm__chip{ font:10.5px var(--mono); color:#52525B; display:flex; align-items:center; gap:5px; }
+.nsimm__chip .nsimm__ic{ width:12px; height:12px; color:var(--terra); }
+.nsimm__crow .send{ margin-left:auto; width:30px; height:30px; border-radius:50%; background:var(--ink); color:var(--cream); display:grid; place-items:center; }
+.nsimm__crow .send .nsimm__ic{ width:14px; height:14px; stroke-width:2; }
+
+.nsimm__foot{ display:flex; align-items:center; justify-content:center; gap:7px; padding:7px 0 9px; font:10px var(--mono); color:var(--muted); border-top:1px solid var(--line); }
+.nsimm__foot .dot{ width:6px;height:6px;border-radius:50%;background:var(--green); animation:nsimm-pulse 2.4s infinite; box-shadow:0 0 0 0 rgba(57,176,106,.5); }
+@keyframes nsimm-pulse{70%{box-shadow:0 0 0 6px rgba(57,176,106,0)}100%{box-shadow:0 0 0 0 rgba(57,176,106,0)}}
+
+/* entry sheet (bottom dialog) */
+.nsimm__scrim{ position:absolute; inset:0; z-index:8; background:rgba(42,38,32,.32); display:flex; align-items:flex-end;
+  opacity:0; pointer-events:none; transition:.4s; }
+.nsimm__scrim.show{ opacity:1; }
+.nsimm__sheet{ width:100%; background:var(--card); border-top:1px solid var(--line); border-radius:20px 20px 0 0; padding:16px 15px 18px;
+  transform:translateY(100%); transition:.42s cubic-bezier(.2,.8,.2,1); box-shadow:0 -20px 50px -22px rgba(40,26,10,.4); }
+.nsimm__scrim.show .nsimm__sheet{ transform:none; }
+.nsimm__grab{ width:38px; height:4px; border-radius:3px; background:var(--line-2); margin:0 auto 12px; }
+.nsimm__sheet h3{ font-family:'Collapse',Georgia,serif; font-size:16px; font-weight:600; margin:0 0 5px; }
+.nsimm__sheet .desc{ font-size:11.5px; line-height:1.5; color:var(--muted); margin:0 0 14px; }
+.nsimm__opt{ display:flex; flex-direction:column; gap:2px; text-align:left; width:100%; padding:11px 12px; border:1px solid var(--line); border-radius:12px; background:var(--cream); margin-bottom:8px; transition:.25s; }
+.nsimm__opt .h{ font-size:12.5px; font-weight:600; color:var(--ink); }
+.nsimm__opt .s{ font-size:11px; line-height:1.4; color:var(--muted); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.nsimm__opt.press{ border-color:color-mix(in srgb,var(--terra) 45%,transparent); background:color-mix(in srgb,var(--terra) 9%,var(--cream)); box-shadow:0 0 0 3px color-mix(in srgb,var(--terra) 12%,transparent); }
+.nsimm__opt.dis{ opacity:.55; }
+.nsimm__cancel{ display:block; width:100%; text-align:center; font-size:12px; padding:9px; margin-top:4px; border:1px solid var(--line-2); border-radius:10px; background:var(--card); color:#3F3F46; }
+
+/* splash */
+.nsimm__splash{ position:absolute; inset:0; z-index:12; background:var(--cream); display:grid; place-items:center; transition:opacity .6s; }
+.nsimm__splash.gone{ opacity:0; pointer-events:none; }
+.nsimm__conn{ font:11px var(--mono); letter-spacing:.32em; color:var(--terra); display:flex; align-items:center; gap:10px; }
+.nsimm__hatch{ width:12px;height:12px; background:repeating-linear-gradient(45deg,var(--terra) 0 2px,transparent 2px 4px); animation:nsimm-blink 1s steps(1) infinite; }
+@media (prefers-reduced-motion:reduce){ .nsimm__cursor,.nsimm__hatch,.nsimm__foot .dot{ animation:none; } }
+</style>
+<style>html,body{background:transparent!important;margin:0!important;padding:0!important}body{display:flex;justify-content:center;align-items:flex-start}</style>
+<style>.nob__device{box-shadow:none!important}</style><script id="hc-i18n">
+(function(){
+  var LANGS={en:0,es:1,pt:2,fr:3,ar:4};
+  var TR={"Сред":["Med", "Med", "Méd", "Moy", "متوسط"],"⚖ Совет моделей":["⚖ Model Council", "⚖ Consejo de modelos", "⚖ Conselho de modelos", "⚖ Conseil des modèles", "⚖ مجلس النماذج"],"• Готов":["• Ready", "• Listo", "• Pronto", "• Prêt", "• جاهز"],"Готов":["Ready", "Listo", "Pronto", "Prêt", "جاهز"],"Запланированные задачи":["Scheduled tasks", "Tareas programadas", "Tarefas agendadas", "Tâches planifiées", "المهام المجدولة"],"Навыки Nomad":["Nomad Skills", "Skills de Nomad", "Skills do Nomad", "Skills Nomad", "مهارات Nomad"],"Установлена актуальная версия v0.21.7 ✓":["Up to date v0.21.7 ✓", "Versión actual v0.21.7 ✓", "Versão atual v0.21.7 ✓", "Version à jour v0.21.7 ✓", "الإصدار المحدّث v0.21.7 ✓"],"Каталог актуальных моделей (39 моделей · 10 провайдеров)":["Active Model Catalog (39 models · 10 providers)", "Catálogo de modelos (39 modelos · 10 proveedores)", "Catálogo de modelos (39 modelos · 10 provedores)", "Catalogue de modèles (39 modèles · 10 fournisseurs)", "كتالوج النماذج الحديثة (39 نموذجاً · 10 مزودين)"],"Краткое описание специализации и стоимость ($вх / $вых за 1М токенов) прямо в селекторе.":["Brief specialization summary and token pricing ($in / $out per 1M tokens) right inside the selector.", "Descripción breve y precio por 1M de tokens ($ent / $sal) directamente en el selector.", "Resumo da especialização e preço ($ent / $saí por 1M tokens) direto no seletor.", "Résumé de spécialisation et tarif ($ent / $sor par 1M tokens) directement dans le sélecteur.", "وصف مختصر للتخصص والتكلفة لكل مليون رمز مباشرة داخل القائمة."],"Безопасность, Харнес и Автообновление":["Security, Harness & Auto-Update", "Seguridad, Harness y Auto-actualización", "Segurança, Harness e Atualização automática", "Sécurité, Harness et Mise à jour auto", "الأمان والحماية والتحديث التلقائي"],"Советник":["Advisor", "Asesor", "Consultor", "Conseiller", "المستشار"],"• Советник":["• Advisor", "• Asesor", "• Consultor", "• Conseiller", "• المستشار"],"⚖ Совет моделей":["# Model Council", "# Consejo de modelos", "# Conselho de modelos", "# Conseil des modèles", "# مجلس النماذج"],"Совет моделей":["Model Council", "Consejo de modelos", "Conselho de modelos", "Conseil des modèles", "مجلس النماذج"],"Локальный сервер...":["Local server...", "Servidor local...", "Servidor local...", "Serveur local...", "خادم محلي..."],"Локальный сервер... ⌄":["Local server... ⌄", "Servidor local... ⌄", "Servidor local... ⌄", "Serveur local... ⌄", "خادم محلي... ⌄"],"+ Бэкенд готов":["+ Backend ready", "+ Backend listo", "+ Backend pronto", "+ Backend prêt", "+ الواجهة الخلفية جاهزة"],"Бэкенд готов":["Backend ready", "Backend listo", "Backend pronto", "Backend prêt", "الواجهة الخلفية جاهزة"],"Подключить тариф":["Connect plan", "Conectar plan", "Conectar plano", "Connecter un forfait", "ربط باقة"],"NomadNet Подключить тариф":["NomadNet Connect plan", "NomadNet Conectar plan", "NomadNet Conectar plano", "NomadNet Connecter un forfait", "NomadNet ربط باقة"],"Аккаунты: 8 · активен #1":["Accounts: 8 · active #1", "Cuentas: 8 · activa #1", "Contas: 8 · ativa #1", "Comptes : 8 · actif #1", "الحسابات: 8 · النشط #1"],"• Аккаунты: 8 · активен #1":["• Accounts: 8 · active #1", "• Cuentas: 8 · activa #1", "• Contas: 8 · ativa #1", "• Comptes : 8 · actif #1", "• الحسابات: 8 · النشط #1"],"Рой: 0":["Swarm: 0", "Enjambre: 0", "Enxame: 0", "Essaim : 0", "السرب: 0"],"• Рой: 0":["• Swarm: 0", "• Enjambre: 0", "• Enxame: 0", "• Essaim : 0", "• السرب: 0"],"⚡ Умный":["⚡ Smart", "⚡ Inteligente", "⚡ Inteligente", "⚡ Intelligent", "⚡ ذكي"],"Умный":["Smart", "Inteligente", "Inteligente", "Intelligent", "ذكي"],"клиент v0.21.7":["client v0.21.7", "cliente v0.21.7", "cliente v0.21.7", "client v0.21.7", "العميل v0.21.7"],"бэкенд v0.21.7":["backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "الخلفية v0.21.7"],"клиент v0.21.7 · бэкенд v0.21.7":["client v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "client v0.21.7 · backend v0.21.7", "العميل v0.21.7 · الخلفية v0.21.7"],
+    "Nomad Симулятор ИИ mobile":["Nomad AI simulator mobile","Nomad Simulador de IA móvil","Nomad Simulador de IA mobile","Nomad Simulateur IA mobile","Nomad محاكي الذكاء الاصطناعي للجوال"],
+    "Nomad — Симулятор ИИ (mockup)":["Nomad — AI simulator (mockup)","Nomad — Simulador de IA (maqueta)","Nomad — Simulador de IA (mockup)","Nomad — Simulateur IA (maquette)","Nomad — محاكي الذكاء الاصطناعي (نموذج)"],
+    "Симулятор ИИ":["AI Simulator","Simulador de IA","Simulador de IA","Simulateur IA","محاكي الذكاء الاصطناعي"],
+    "2/6 уроков":["2/6 lessons","2/6 lecciones","2/6 aulas","2/6 leçons","2/6 دروس"],
+    "Привет! Запускаем курс-симулятор вайбкодинга?":["Hi! Shall we start the vibecoding simulator course?","¡Hola! ¿Empezamos el curso simulador de vibecoding?","Oi! Vamos começar o curso simulador de vibecoding?","Salut ! On lance le cours simulateur de vibecoding ?","مرحباً! هل نبدأ دورة محاكي الفايب كودينغ؟"],
+    "БАДДИ НИКА · НАСТАВНИК":["BUDDY NIKA · MENTOR","BUDDY NIKA · MENTORA","BUDDY NIKA · MENTORA","BUDDY NIKA · MENTOR","المرافقة نيكا · المرشدة"],
+    "Привет! Я Ника, а ревью ведёт Сократ. Выбери роль для практики:":["Hi! I'm Nika, and Socrates leads code review. Pick your role:","¡Hola! Soy Nika y Sócrates revisa el código. Elige tu rol:","Oi! Sou a Nika e o Sócrates revisa o código. Escolha seu papel:","Salut ! Je suis Nika et Socrate vérifie le code. Choisis ton rôle :","مرحباً! أنا نيكا وسقراط يراجع الشيفرة. اختر دورك:"],
+    "Основатель":["Founder","Fundador","Fundador","Fondateur","المؤسِّس"],
+    "Маркетолог":["Marketer","Marketing","Marketing","Marketeur","مسوّق"],
+    "Продакт":["Product","Producto","Produto","Produit","مدير منتج"],
+    "Аналитик":["Analyst","Analista","Analista","Analyste","محلّل"],
+    "Разработчик":["Developer","Desarrollador","Desenvolvedor","Développeur","مطوّر"],
+    "Дизайнер":["Designer","Diseñador","Designer","Designer","مصمّم"],
+    "Операционист":["Operations","Operaciones","Operações","Opérations","العمليات"],
+    "Контент":["Content","Contenido","Conteúdo","Contenu","المحتوى"],
+    "Урок 1 · Смоук-тест лендинга":["Lesson 1 · Landing smoke test","Lección 1 · Smoke test de landing","Aula 1 · Smoke test da landing","Leçon 1 · Smoke test de landing","الدرس 1 · اختبار صفحة الهبوط"],
+    "Собери Hero-секцию acme-app: заголовок, оффер и кнопку CTA.":["Build the acme-app Hero section: headline, offer, and CTA button.","Crea la sección Hero de acme-app: título, oferta y botón CTA.","Monte a seção Hero do acme-app: título, oferta e botão CTA.","Crée la section Hero d'acme-app : titre, offre et bouton CTA.","ابنِ قسم الواجهة لـ acme-app: العنوان والعرض وزر الطلب."],
+    "✓ Шаг 1–2 проверены в реальном проекте":["✓ Steps 1–2 verified in real project","✓ Pasos 1–2 verificados en el proyecto","✓ Passos 1–2 validados no projeto real","✓ Étapes 1–2 vérifiées dans le projet","✓ تم التحقق من الخطوتين 1–2 في المشروع"],
+    "🧐 Сократ: «Код чистый, переходим к уроку 2!»":["🧐 Socrates: “Clean code, let's move to Lesson 2!”","🧐 Sócrates: «Código limpio, ¡pasemos a la lección 2!»","🧐 Sócrates: «Código limpo, vamos para a aula 2!»","🧐 Socrate : « Code propre, passons à la leçon 2 ! »","🧐 سقراط: «الشيفرة نظيفة، لننتقل إلى الدرس 2!»"],
+    "2 из 6":["2 of 6","2 de 6","2 de 6","2 sur 6","2 من 6"],
+    "Ника + Сократ":["Nika + Socrates","Nika + Sócrates","Nika + Sócrates","Nika + Socrate","نيكا + سقراط"],
+    "Ответ наставнику…":["Reply to mentor…","Respuesta al mentor…","Resposta ao mentor…","Réponse au mentor…","ردّ على المرشد…"],
+    "Курс-симулятор вайбкодинга":["Vibecoding Simulator Course","Curso Simulador de Vibecoding","Curso Simulador de Vibecoding","Cours Simulateur de Vibecoding","دورة محاكي الفايب كودينغ"],
+    "Уроки и проверка шагов вместе с Бадди Никой и Сократом.":["Lessons and live step verification with Buddy Nika & Socrates.","Lecciones y validación de pasos con Buddy Nika y Sócrates.","Aulas e validação de passos com Buddy Nika e Sócrates.","Leçons et vérification des étapes avec Buddy Nika et Socrate.","دروس وتحقق من الخطوات مع نيكا وسقراط."],
+    "Начать курс":["Start course","Empezar curso","Começar curso","Démarrer le cours","ابدأ الدورة"],
+    "9 ролевых треков и живая проверка кода":["9 role tracks & live code check","9 rutas por rol y revisión en vivo","9 trilhas por papel e revisão ao vivo","9 parcours métiers et revue en direct","9 مسارات مهنية وفحص مباشر للشيفرة"],
+    "Продолжить сессию (2/6)":["Continue session (2/6)","Continuar sesión (2/6)","Continuar sessão (2/6)","Continuer la session (2/6)","متابعة الجلسة (2/6)"],
+    "Лендинг для acme-app · трек «Основатель»":["Landing page for acme-app · “Founder” track","Landing para acme-app · ruta «Fundador»","Landing page para acme-app · trilha «Fundador»","Landing page pour acme-app · parcours « Fondateur »","صفحة هبوط لـ acme-app · مسار «المؤسِّس»"],
+    "Отмена":["Cancel","Cancelar","Cancelar","Annuler","إلغاء"],
+    "Движок Nomad активен · v0.21.7":["Nomad engine active · v0.21.7","Motor de Nomad activo · v0.21.7","Motor do Nomad ativo · v0.21.7","Moteur Nomad actif · v0.21.7","محرّك Nomad نشط · v0.21.7"]
+  };
+  var RX=[];
+  var TYPED=["Привет! Я Ника, а ревью ведёт Сократ. Выбери роль для практики:"];
+  var ATTRS=['alt','title','aria-label','placeholder'];
+  var cur='ru', idx=-1, ridx=-1, REV={}, mo=null;
+  for(var r=0;r<RX.length;r++) RX[r][0]=new RegExp(RX[r][0]);
+
+  function rev(i){
+    if(REV[i]) return REV[i];
+    var m={}; for(var k in TR) if(TR.hasOwnProperty(k) && !m.hasOwnProperty(TR[k][i])) m[TR[k][i]]=k;
+    return (REV[i]=m);
+  }
+  function line(s,i,back){
+    var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(s), c=m[2], t=null, j;
+    if(!c || i<0) return s;
+    if(back){ var R=rev(i); if(R.hasOwnProperty(c)) t=R[c]; }
+    else if(TR.hasOwnProperty(c)) t=TR[c][i];
+    else {
+      for(j=0;j<RX.length;j++) if(RX[j][0].test(c)){ t=c.replace(RX[j][0],RX[j][1][i]); break; }
+      if(t==null) for(j=0;j<TYPED.length;j++){
+        var K=TYPED[j];
+        if(K.length>c.length && K.indexOf(c)===0 && TR.hasOwnProperty(K)){
+          var F=TR[K][i]; t=F.slice(0,Math.max(1,Math.round(c.length*F.length/K.length))); break;
+        }
+      }
+    }
+    return t==null ? s : m[1]+t+m[3];
+  }
+  function tr(s,i,back){
+    if(i<0 || !s) return s;
+    if(s.indexOf('\n')<0) return line(s,i,back);
+    var ls=s.split('\n'); for(var k=0;k<ls.length;k++) ls[k]=line(ls[k],i,back);
+    return ls.join('\n');
+  }
+  function skip(n){ return !n || n.nodeName==='SCRIPT' || n.nodeName==='STYLE'; }
+  function doText(n){
+    if(skip(n.parentNode)) return;
+    var v=n.nodeValue;
+    if(n.__hcO!==v) n.__hcR=tr(v,ridx,true);
+    var o=tr(n.__hcR,idx,false);
+    n.__hcO=o; if(o!==v) n.nodeValue=o;
+  }
+  function doAttrs(el){
+    for(var a=0;a<ATTRS.length;a++){
+      var k=ATTRS[a]; if(!el.hasAttribute || !el.hasAttribute(k)) continue;
+      var v=el.getAttribute(k), O=el.__hcOA||(el.__hcOA={}), R=el.__hcRA||(el.__hcRA={});
+      if(O[k]!==v) R[k]=tr(v,ridx,true);
+      var o=tr(R[k],idx,false); O[k]=o; if(o!==v) el.setAttribute(k,o);
+    }
+  }
+  function walk(n){
+    if(n.nodeType===3){ doText(n); return; }
+    if(n.nodeType!==1 || skip(n)) return;
+    doAttrs(n);
+    for(var c=n.firstChild;c;c=c.nextSibling) walk(c);
+  }
+  function take(rs){
+    for(var i=0;i<rs.length;i++){
+      var r=rs[i];
+      if(r.type==='characterData'){ if(r.target.nodeType===3) doText(r.target); }
+      else if(r.type==='attributes') doAttrs(r.target);
+      else for(var j=0;j<r.addedNodes.length;j++) walk(r.addedNodes[j]);
+    }
+  }
+  function kids(){
+    var fs=document.getElementsByTagName('iframe');
+    for(var i=0;i<fs.length;i++){ try{ fs[i].contentWindow.postMessage({hcLang:cur},'*'); }catch(e){} }
+  }
+  function setLang(l){
+    if(l!=='ru' && !LANGS.hasOwnProperty(l)) return;
+    if(l===cur) return;
+    if(mo) take(mo.takeRecords());
+    ridx=idx; cur=l; idx=(l==='ru')?-1:LANGS[l];
+    walk(document.documentElement);
+    ridx=idx;
+    document.documentElement.setAttribute('lang',l);
+    var bd=document.getElementById('hc-i18n-bidi');
+    if(l==='ar' && !bd){ bd=document.createElement('style'); bd.id='hc-i18n-bidi';
+      bd.textContent='body,body *{unicode-bidi:plaintext}'; (document.head||document.documentElement).appendChild(bd); }
+    else if(l!=='ar' && bd) bd.parentNode.removeChild(bd);
+    if(!mo && window.MutationObserver){
+      mo=new MutationObserver(take);
+      mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+    }
+    kids();
+  }
+  window.__hcLangQ=function(){ return cur==='ru' ? '' : '&lang='+cur; };
+  window.addEventListener('message',function(e){
+    var d=e.data; if(!d || typeof d!=='object') return;
+    if(d.hcLangReq===1 && e.source && e.source!==window.parent){ try{ e.source.postMessage({hcLang:cur},'*'); }catch(x){} return; }
+    if(typeof d.hcLang==='string' && e.source===window.parent) setLang(d.hcLang);
+  });
+  var q=/[?&#]lang=([a-z]{2})\b/.exec(location.search+location.hash);
+  if(q) setLang(q[1]);
+  if(window.parent!==window){ try{ window.parent.postMessage({hcLangReq:1},'*'); }catch(e){} }
+})();
+</script>
+
+<style>[class*='__splash']{display:none!important;opacity:0!important;pointer-events:none!important}</style>
+</head>
+<body style="margin:0;background:#F4F4F5;padding:22px;display:flex;justify-content:center;">
+<div class="nsimm" id="nsimm" aria-label="Nomad Симулятор ИИ mobile">
+  <div class="nsimm__device"><div class="nsimm__screen">
+    <div class="nsimm__island"></div>
+    <div class="nsimm__status"><span>9:41</span><span>Nomad ● 5G</span></div>
+    <div class="nsimm__head">
+      <svg class="nsimm__ic bk" viewBox="0 0 24 24"><path d="M15 5l-7 7 7 7"/></svg>
+      <span class="nm">Симулятор ИИ</span>
+      <span class="r">
+        <svg class="nsimm__ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      </span>
+    </div>
+    <div class="nsimm__body">
+      <div class="nsimm__u" id="nsimm-user">Привет! Я в разделе «Симулятор ИИ». С чего начнём?</div>
+      <div class="nsimm__a" id="nsimm-mentor">
+        <div class="nsimm__av"><svg viewBox="0 0 24 24" style="stroke:none"><path d="M6.5 17.5V6.5l7 8.5V6.5M13.5 17.5h4.2" stroke="#ffffff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M18 5.5l.65 1.6L20.3 7.7l-1.65.65-.65 1.65-.65-1.65-1.65-.65 1.65-.6z" fill="#ffffff"/></svg></div>
+        <div class="nsimm__abody">
+          <p class="nsimm__aname">ВЕДУЩИЙ КУРСА</p>
+          <div id="nsimm-greet"></div>
+          <div class="nsimm__tracks" id="nsimm-tracks">
+            <span class="nsimm__trk">Основатель</span>
+            <span class="nsimm__trk">Маркетолог</span>
+            <span class="nsimm__trk">Продакт</span>
+            <span class="nsimm__trk">Проджект</span>
+            <span class="nsimm__trk">Аналитик</span>
+            <span class="nsimm__trk">Дизайнер</span>
+            <span class="nsimm__trk">HR</span>
+            <span class="nsimm__trk">Продажи</span>
+            <span class="nsimm__trk">Операции</span>
+          </div>
+          <div class="nsimm__mission" id="nsimm-mission">
+            <div style="margin-top:10px">Отлично, трек <b>«Основатель»</b>. Сценарий готов — я веду.</div>
+            <div class="nsimm__mcard">
+              <p class="nsimm__mtag">Миссия 1 · Смоук-тест лендинга</p>
+              <div class="nsimm__mtxt">Собери секцию лендинга <code>acme-app</code>: заголовок, подзаголовок, одна кнопка. Опиши в одной фразе, что продаёт продукт.</div>
+              <div class="nsimm__prog"><div class="nsimm__bar-t"><i></i></div><span>шаг 1 из 6</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nsimm__composer">
+        <div class="nsimm__cin">Сообщение ведущему…</div>
+        <div class="nsimm__crow">
+          <span class="nsimm__chip"><svg class="nsimm__ic" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg> claude-sonnet-5-5</span>
+          <span class="send"><svg class="nsimm__ic" viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><path d="M6 11l6-6 6 6"/></svg></span>
+        </div>
+      </div>
+    </div>
+    <div class="nsimm__foot"><span class="dot"></span> Симулятор ИИ · v0.21.7</div>
+
+    <!-- entry sheet -->
+    <div class="nsimm__scrim" id="nsimm-scrim">
+      <div class="nsimm__sheet">
+        <div class="nsimm__grab"></div>
+        <h3>Симулятор ИИ</h3>
+        <p class="desc">Практический курс вайбкодинга: ведущий подберёт трек и проведёт по микро-миссиям.</p>
+        <button class="nsimm__opt" id="nsimm-start"><span class="h">Начать</span><span class="s">Свежий сценарий с ведущим курса</span></button>
+        <button class="nsimm__opt dis"><span class="h">Продолжить</span><span class="s">Лендинг для acme-app · трек «Основатель»</span></button>
+        <span class="nsimm__cancel">Отмена</span>
+      </div>
+    </div>
+
+    <div class="nsimm__splash" id="nsimm-splash"><div class="nsimm__conn">CONNECTING<span class="nsimm__hatch"></span></div></div>
+  </div></div>
+</div>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s){return document.querySelector(s)};
+  var splash=$('#nsimm-splash'), scrim=$('#nsimm-scrim'), start=$('#nsimm-start');
+  var user=$('#nsimm-user'), mentor=$('#nsimm-mentor'), greet=$('#nsimm-greet');
+  var tracks=[].slice.call(document.querySelectorAll('.nsimm__trk')), mission=$('#nsimm-mission');
+  var GREET='Привет! Я твой инструктор по вайбкодингу. Соберём рабочую штуку под твою роль. Выбери трек:';
+
+  function reset(){
+    scrim.classList.remove('show'); start.classList.remove('press');
+    user.classList.remove('show'); mentor.classList.remove('show');
+    greet.textContent=''; mission.classList.remove('show');
+    tracks.forEach(function(t){t.classList.remove('show','sel');});
+  }
+  function typeGreet(done){
+    if(reduce){ greet.innerHTML=GREET; done(); return; }
+    var i=0;(function tk(){
+      if(i<=GREET.length){ greet.innerHTML=GREET.slice(0,i)+'<span class="nsimm__cursor"></span>'; i++; setTimeout(tk,22); }
+      else { greet.innerHTML=GREET; done(); }
+    })();
+  }
+  function full(){
+    splash.classList.add('gone'); user.classList.add('show'); mentor.classList.add('show');
+    greet.innerHTML=GREET; tracks.forEach(function(t){t.classList.add('show');});
+    tracks[0].classList.add('sel'); mission.classList.add('show');
+  }
+  function run(){
+    reset();
+    var T=0, A=function(t,f){setTimeout(f,t)};
+    A(T+=1300,function(){ splash.classList.add('gone'); });
+    A(T+=350,function(){ scrim.classList.add('show'); });
+    A(T+=1500,function(){ start.classList.add('press'); });
+    A(T+=650,function(){ scrim.classList.remove('show'); });
+    A(T+=350,function(){ user.classList.add('show'); });
+    A(T+=600,function(){ mentor.classList.add('show'); typeGreet(function(){
+        tracks.forEach(function(t,k){ setTimeout(function(){ t.classList.add('show'); }, k*65); });
+        setTimeout(function(){ tracks[0].classList.add('sel'); }, tracks.length*65+450);
+        setTimeout(function(){ mission.classList.add('show'); }, tracks.length*65+1050);
+        setTimeout(run, tracks.length*65+5000);
+    }); });
+  }
+  if(reduce){ full(); } else { run(); }
+})();
+</script>
+</body>
+</html>

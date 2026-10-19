@@ -1,0 +1,475 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad — Артефакты (mockup)</title>
+<style>
+@font-face{font-family:'Collapse';font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2');}
+.nart,.nart *,.nart *::before,.nart *::after{box-sizing:border-box;}
+.nart{
+  --cream:#FFFFFF; --cream-2:#F4F4F5; --card:#FFFFFF; --line:#E4E4E7; --line-2:#D4D4D8;
+  --quinary:#F4F4F5; --tertiary-bg:#F4F4F5;
+  --ink:#111111; --muted:#52525B; --faint:#71717A; --terra:#111111;
+  --blue-1:#111111; --blue-2:#111111; --green:#059669; --rose:#DC2626;
+  --mono:ui-monospace,"JetBrains Mono","SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  position:relative; margin:0; font-family:var(--sans); color:var(--ink); background:var(--cream);
+  border-radius:12px; overflow:hidden; box-shadow:0 30px 80px -30px rgba(60,40,20,.35); width:1196px;height:862px;display:flex;flex-direction:column;
+  width:1150px;
+}
+.nart__bar{ display:flex; align-items:center; gap:14px; height:44px; padding:0 14px; background:var(--cream); border-bottom:1px solid var(--line); }
+.nart__ic{ width:18px; height:18px; display:block; stroke:currentColor; fill:none; stroke-width:1.7; }
+.nart__bar .t{ font-family:'Collapse',Georgia,serif; font-size:16px; background:linear-gradient(96deg,var(--blue-1),var(--blue-2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.nart__bar .crumb{ color:var(--muted); font-size:13px; }
+.nart__bar .r{ margin-left:auto; display:flex; gap:14px; color:var(--faint); }
+
+.nart__body{ display:grid; grid-template-columns:236px 1fr; flex:1;min-height:0; }
+/* sidebar nav */
+.nart__side{ background:#F8F8F7; border-right:1px solid var(--line); display:flex; flex-direction:column; padding:12px 10px; }
+.nart__new{ display:flex; align-items:center; gap:9px; padding:9px 11px; border:1px solid var(--line-2); border-radius:10px; background:var(--card); font-size:13.5px; font-weight:500; }
+.nart__new .kbd{ margin-left:auto; font:11px var(--mono); color:var(--muted); border:1px solid var(--line-2); border-radius:5px; padding:1px 6px; }
+.nart__label{ font:11px var(--mono); letter-spacing:.13em; color:var(--terra); padding:16px 6px 6px; }
+.nart__nav a{ display:flex; align-items:center; gap:10px; padding:8px 9px; border-radius:8px; font-size:13px; color:#3F3F46; text-decoration:none; }
+.nart__nav a .nart__ic{ width:16px; height:16px; color:var(--faint); }
+.nart__nav a.on{ background:var(--cream-2); color:var(--ink); font-weight:500; }
+.nart__nav a.on .nart__ic{ color:var(--terra); }
+
+/* main artifacts column */
+.nart__main{ display:flex; flex-direction:column; min-width:0; background:var(--cream); }
+.nart__search{ display:flex; align-items:center; gap:10px; margin:16px 22px 0; padding:9px 13px; border:1px solid var(--line-2); border-radius:11px; background:var(--card); }
+.nart__search .si{ width:16px; height:16px; color:var(--faint); }
+.nart__search .sp{ font-size:13.5px; color:var(--faint); flex:1; }
+.nart__search .sp b{ color:var(--ink); font-weight:400; }
+.nart__search .scur{ display:inline-block; width:2px; height:15px; background:var(--terra); vertical-align:-2px; animation:nart-blink 1.1s steps(1) infinite; }
+.nart__refresh{ width:26px; height:26px; display:grid; place-items:center; color:var(--faint); border-radius:7px; }
+.nart__refresh .nart__ic{ width:15px; height:15px; }
+.nart__refresh.spin .nart__ic{ animation:nart-spin .7s linear infinite; }
+
+.nart__tabs{ display:flex; align-items:center; gap:20px; margin:14px 22px 0; padding-bottom:11px; border-bottom:1px solid var(--line); }
+.nart__tab{ font-size:13px; color:var(--muted); position:relative; padding-bottom:11px; margin-bottom:-12px; white-space:nowrap; }
+.nart__tab .m{ color:var(--faint); }
+.nart__tab.on{ color:var(--ink); font-weight:500; }
+.nart__tab.on::after{ content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--terra); border-radius:2px; }
+
+.nart__scroll{ flex:1; overflow-y:auto; padding:14px 22px 22px; }
+.nart__prange{ display:flex; align-items:center; justify-content:flex-end; gap:12px; height:22px; font-size:11px; color:var(--muted); }
+.nart__prange .pg{ display:flex; gap:3px; }
+.nart__prange .pg span{ min-width:19px; height:19px; display:grid; place-items:center; border-radius:5px; font:11px var(--mono); color:var(--muted); }
+.nart__prange .pg span.a{ background:var(--cream-2); color:var(--ink); border:1px solid var(--line-2); }
+
+.nart__grid{ display:grid; grid-template-columns:repeat(auto-fill,minmax(178px,1fr)); gap:10px; padding-top:8px; align-items:start; }
+.nart__acard{ overflow:hidden; border-radius:11px; border:1px solid var(--line); background:var(--card); opacity:0; transform:translateY(8px); transition:.45s; }
+.nart__acard.show{ opacity:1; transform:none; }
+.nart__thumb{ height:128px; display:grid; place-items:center; border-bottom:1px solid var(--line); background:var(--quinary); padding:8px; }
+.nart__thumb svg{ max-width:100%; max-height:100%; border-radius:6px; }
+.nart__ameta{ padding:9px 10px 10px; }
+.nart__kind{ display:flex; align-items:center; gap:5px; font:10px var(--mono); letter-spacing:.09em; text-transform:uppercase; color:var(--terra); margin-bottom:4px; }
+.nart__kind .nart__ic{ width:12px; height:12px; }
+.nart__aname{ font-size:12.5px; font-weight:500; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.nart__apath{ font-size:10.5px; color:var(--faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:2px; }
+.nart__asess{ font-size:10.5px; color:var(--faint); white-space:nowrap; overflow:hidden; text-overflow:ellipsis; margin-top:6px; }
+.nart__chat{ display:inline-flex; align-items:center; gap:5px; margin-top:9px; font-size:12px; font-weight:500; color:var(--ink); }
+.nart__chat .nart__ic{ width:13px; height:13px; color:var(--terra); }
+
+.nart__tablewrap{ margin-top:8px; border:1px solid var(--line); border-radius:10px; overflow:hidden; background:var(--card); }
+table.nart__table{ width:100%; border-collapse:collapse; text-align:left; font-size:12.5px; table-layout:fixed; }
+.nart__table thead th{ font:10px var(--mono); letter-spacing:.08em; text-transform:uppercase; color:var(--faint); font-weight:500; padding:9px 12px; background:var(--quinary); border-bottom:1px solid var(--line); }
+.nart__table tbody tr{ border-bottom:1px solid var(--line); opacity:0; transform:translateY(6px); transition:.4s; }
+.nart__table tbody tr:last-child{ border-bottom:0; }
+.nart__table tbody tr.show{ opacity:1; transform:none; }
+.nart__table td{ padding:9px 12px; vertical-align:middle; color:#3F3F46; }
+.nart__pcell{ display:flex; align-items:center; gap:9px; min-width:0; }
+.nart__picon{ width:24px; height:24px; flex:0 0 auto; display:grid; place-items:center; border-radius:7px; background:var(--tertiary-bg); color:var(--muted); }
+.nart__picon .nart__ic{ width:14px; height:14px; }
+.nart__pcell .lbl{ min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--ink); }
+.nart__pcell .lbl.link{ color:#3F3F46; }
+.nart__lx{ color:var(--faint); margin-left:4px; }
+.nart__loc{ display:flex; align-items:center; gap:8px; min-width:0; }
+.nart__loc .v{ min-width:0; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:var(--faint); }
+.nart__loc .v.mono{ font:11.5px var(--mono); }
+.nart__loc .cp{ width:20px;height:20px; display:grid; place-items:center; color:var(--faint); flex:0 0 auto; }
+.nart__loc .cp .nart__ic{ width:13px; height:13px; }
+.nart__scell{ display:flex; flex-direction:column; min-width:0; }
+.nart__scell .st{ white-space:nowrap; overflow:hidden; text-overflow:ellipsis; color:#3F3F46; }
+.nart__scell .ti{ font-size:10.5px; color:var(--faint); margin-top:1px; }
+
+/* indexing loader */
+.nart__loader{ position:absolute; inset:44px 0 0 236px; display:grid; place-items:center; background:var(--cream); z-index:8; transition:opacity .5s; }
+.nart__loader.gone{ opacity:0; pointer-events:none; }
+.nart__loader .box{ display:flex; align-items:center; gap:11px; color:var(--muted); font-size:13px; }
+.nart__lspin{ width:16px;height:16px;border-radius:50%;border:2px solid var(--line-2); border-top-color:var(--terra); animation:nart-spin .7s linear infinite; }
+
+.nart__status{ display:flex; align-items:center; gap:18px; height:30px; padding:0 16px; background:var(--cream); border-top:1px solid var(--line); font-size:12px; color:var(--muted); }
+.nart__status .dot{ width:6px;height:6px;border-radius:50%;background:var(--green); }
+.nart__status .r{ margin-left:auto; font:11px var(--mono); color:var(--faint); }
+
+.nart__splash{ position:absolute; inset:0; z-index:12; background:var(--cream); display:grid; place-items:center; transition:opacity .6s; }
+.nart__splash.gone{ opacity:0; pointer-events:none; }
+.nart__conn{ font:12px var(--mono); letter-spacing:.32em; color:var(--terra); display:flex; align-items:center; gap:11px; }
+.nart__hatch{ width:13px;height:13px; background:repeating-linear-gradient(45deg,var(--terra) 0 2px,transparent 2px 4px); animation:nart-blink 1s steps(1) infinite; }
+
+@keyframes nart-spin{to{transform:rotate(360deg)}}
+@keyframes nart-blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){
+  .nart__refresh.spin .nart__ic,.nart__lspin,.nart__hatch,.nart__scur{ animation:none; }
+  .nart__acard,.nart__table tbody tr{ opacity:1; transform:none; transition:none; }
+  .nart__splash,.nart__loader{ display:none; }
+}
+</style>
+<style>html,body{background:transparent!important;margin:0!important;padding:0!important}</style>
+<script id="hc-i18n">
+/* Языки демо (v0.21.7). Русский — исходный текст страницы; en/es/pt/fr/ar — словарь
+   ниже (русская фраза -> перевод). */
+(function(){
+  var LANGS={en:0,es:1,pt:2,fr:3,ar:4};
+  var TR={"Сред":["Med", "Med", "Méd", "Moy", "متوسط"],"⚖ Совет моделей":["⚖ Model Council", "⚖ Consejo de modelos", "⚖ Conselho de modelos", "⚖ Conseil des modèles", "⚖ مجلس النماذج"],"• Готов":["• Ready", "• Listo", "• Pronto", "• Prêt", "• جاهز"],"Готов":["Ready", "Listo", "Pronto", "Prêt", "جاهز"],"Запланированные задачи":["Scheduled tasks", "Tareas programadas", "Tarefas agendadas", "Tâches planifiées", "المهام المجدولة"],"Навыки Nomad":["Nomad Skills", "Skills de Nomad", "Skills do Nomad", "Skills Nomad", "مهارات Nomad"],"Установлена актуальная версия v0.21.7 ✓":["Up to date v0.21.7 ✓", "Versión actual v0.21.7 ✓", "Versão atual v0.21.7 ✓", "Version à jour v0.21.7 ✓", "الإصدار المحدّث v0.21.7 ✓"],"Каталог актуальных моделей (39 моделей · 10 провайдеров)":["Active Model Catalog (39 models · 10 providers)", "Catálogo de modelos (39 modelos · 10 proveedores)", "Catálogo de modelos (39 modelos · 10 provedores)", "Catalogue de modèles (39 modèles · 10 fournisseurs)", "كتالوج النماذج الحديثة (39 نموذجاً · 10 مزودين)"],"Краткое описание специализации и стоимость ($вх / $вых за 1М токенов) прямо в селекторе.":["Brief specialization summary and token pricing ($in / $out per 1M tokens) right inside the selector.", "Descripción breve y precio por 1M de tokens ($ent / $sal) directamente en el selector.", "Resumo da especialização e preço ($ent / $saí por 1M tokens) direto no seletor.", "Résumé de spécialisation et tarif ($ent / $sor par 1M tokens) directement dans le sélecteur.", "وصف مختصر للتخصص والتكلفة لكل مليون رمز مباشرة داخل القائمة."],"Безопасность, Харнес и Автообновление":["Security, Harness & Auto-Update", "Seguridad, Harness y Auto-actualización", "Segurança, Harness e Atualização automática", "Sécurité, Harness et Mise à jour auto", "الأمان والحماية والتحديث التلقائي"],"Советник":["Advisor", "Asesor", "Consultor", "Conseiller", "المستشار"],"• Советник":["• Advisor", "• Asesor", "• Consultor", "• Conseiller", "• المستشار"],"⚖ Совет моделей":["# Model Council", "# Consejo de modelos", "# Conselho de modelos", "# Conseil des modèles", "# مجلس النماذج"],"Совет моделей":["Model Council", "Consejo de modelos", "Conselho de modelos", "Conseil des modèles", "مجلس النماذج"],"Локальный сервер...":["Local server...", "Servidor local...", "Servidor local...", "Serveur local...", "خادم محلي..."],"Локальный сервер... ⌄":["Local server... ⌄", "Servidor local... ⌄", "Servidor local... ⌄", "Serveur local... ⌄", "خادم محلي... ⌄"],"+ Бэкенд готов":["+ Backend ready", "+ Backend listo", "+ Backend pronto", "+ Backend prêt", "+ الواجهة الخلفية جاهزة"],"Бэкенд готов":["Backend ready", "Backend listo", "Backend pronto", "Backend prêt", "الواجهة الخلفية جاهزة"],"Подключить тариф":["Connect plan", "Conectar plan", "Conectar plano", "Connecter un forfait", "ربط باقة"],"NomadNet Подключить тариф":["NomadNet Connect plan", "NomadNet Conectar plan", "NomadNet Conectar plano", "NomadNet Connecter un forfait", "NomadNet ربط باقة"],"Аккаунты: 8 · активен #1":["Accounts: 8 · active #1", "Cuentas: 8 · activa #1", "Contas: 8 · ativa #1", "Comptes : 8 · actif #1", "الحسابات: 8 · النشط #1"],"• Аккаунты: 8 · активен #1":["• Accounts: 8 · active #1", "• Cuentas: 8 · activa #1", "• Contas: 8 · ativa #1", "• Comptes : 8 · actif #1", "• الحسابات: 8 · النشط #1"],"Рой: 0":["Swarm: 0", "Enjambre: 0", "Enxame: 0", "Essaim : 0", "السرب: 0"],"• Рой: 0":["• Swarm: 0", "• Enjambre: 0", "• Enxame: 0", "• Essaim : 0", "• السرب: 0"],"⚡ Умный":["⚡ Smart", "⚡ Inteligente", "⚡ Inteligente", "⚡ Intelligent", "⚡ ذكي"],"Умный":["Smart", "Inteligente", "Inteligente", "Intelligent", "ذكي"],"клиент v0.21.7":["client v0.21.7", "cliente v0.21.7", "cliente v0.21.7", "client v0.21.7", "العميل v0.21.7"],"бэкенд v0.21.7":["backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "الخلفية v0.21.7"],"клиент v0.21.7 · бэкенд v0.21.7":["client v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "client v0.21.7 · backend v0.21.7", "العميل v0.21.7 · الخلفية v0.21.7"],
+    "Nomad — Артефакты (mockup)":["Nomad — Artifacts (mockup)","Nomad — Artefactos (maqueta)","Nomad — Artefatos (mockup)","Nomad — Artefacts (maquette)","Nomad — المخرجات (نموذج)"],
+    "/ Живая панель артефактов · v0.21.7":["/ Live Artifacts Panel · v0.21.7","/ Panel de artefactos en vivo · v0.21.7","/ Painel de artefatos ao vivo · v0.21.7","/ Panneau d'artefacts en direct · v0.21.7","/ لوحة المخرجات الحية · v0.21.7"],
+    "🛡️ Проверено Бадди Сократом · 152-ФЗ ок":["🛡️ Verified by Buddy Socrates · 152-FZ OK","🛡️ Verificado por Buddy Sócrates · 152-FZ OK","🛡️ Verificado por Buddy Sócrates · 152-FZ OK","🛡️ Vérifié par Buddy Socrate · 152-FZ OK","🛡️ تم التحقق بواسطة سقراط · 152-FZ آمن"],
+    "Новая сессия":["New session","Nueva sesión","Nova sessão","Nouvelle session","جلسة جديدة"],
+    "НАВИГАЦИЯ":["NAVIGATION","NAVEGACIÓN","NAVEGAÇÃO","NAVIGATION","التنقّل"],
+    "Навыки и 11 RU MCP":["Skills & 11 RU MCP","Skills y 11 MCP RU","Skills e 11 MCP RU","Skills et 11 MCP RU","المهارات و11 MCP"],
+    "Совет моделей (MoA)":["Model Council (MoA)","Consejo de modelos (MoA)","Conselho de modelos (MoA)","Conseil des modèles (MoA)","مجلس النماذج (MoA)"],
+    "Симулятор ИИ":["AI simulator","Simulador de IA","Simulador de IA","Simulateur IA","محاكي الذكاء الاصطناعي"],
+    "Мессенджеры":["Messengers","Mensajería","Mensageiros","Messageries","المراسلة"],
+    "Артефакты и Память":["Artifacts & Memory","Artefactos y Memoria","Artefatos e Memória","Artefacts et Mémoire","المخرجات والذاكرة"],
+    "Поиск дашбордов, таблиц юнит-экономики и презентаций…":["Search dashboards, unit economics tables & presentations…","Buscar dashboards, tablas de economía unitaria y presentaciones…","Buscar dashboards, tabelas de unit economics e apresentações…","Rechercher tableaux de bord, unit economics et présentations…","البحث في لوحات البيانات وجداول الاقتصاد والعروض…"],
+    "Обновить артефакты":["Refresh artifacts","Actualizar artefactos","Atualizar artefatos","Actualiser les artefacts","تحديث المخرجات"],
+    "Экспорт в 1 клик:":["1-Click Export:","Exportar en 1 clic:","Exportar em 1 clique:","Export en 1 clic :","تصدير بنقرة واحدة:"],
+    "Превью и Дашборды":["Previews & Dashboards","Vistas previas y Dashboards","Previews e Dashboards","Aperçus et Tableaux de bord","المعاينات ولوحات البيانات"],
+    "Юнит-экономика и сметы":["Unit Economics & Estimates","Economía unitaria y presupuestos","Unit Economics e orçamentos","Unit Economics et devis","اقتصاديات الوحدة والتقديرات"],
+    "Презентации (PPTX/PDF)":["Presentations (PPTX/PDF)","Presentaciones (PPTX/PDF)","Apresentações (PPTX/PDF)","Présentations (PPTX/PDF)","العروض التقديمية (PPTX/PDF)"],
+    "Память & Граф":["Memory & Graph","Memoria y Grafo","Memória e Grafo","Mémoire et Graphe","الذاكرة والرسم"],
+    "Откатить к чекпоинту":["Rollback to checkpoint","Revertir al punto de control","Reverter para checkpoint","Revenir au checkpoint","العودة لنقطة الحفظ"],
+    "ИНТЕРАКТИВНЫЙ ДАШБОРД":["INTERACTIVE DASHBOARD","DASHBOARD INTERACTIVO","DASHBOARD INTERATIVO","TABLEAU DE BORD INTERACTIF","لوحة بيانات تفاعلية"],
+    "Дашборд выручки и KPI (1С + CRM)":["Revenue & KPI Dashboard (1C + CRM)","Dashboard de ingresos y KPI (1C + CRM)","Dashboard de receita e KPI (1C + CRM)","Tableau de bord revenus & KPI (1C + CRM)","لوحة الإيرادات ومؤشرات الأداء (1C + CRM)"],
+    "Выгрузка 1С:OData · проверено Сократом":["1C:OData export · verified by Socrates","Exportación 1C:OData · verificado por Sócrates","Exportação 1C:OData · verificado por Sócrates","Export 1C:OData · vérifié par Socrate","تصدير 1C:OData · تم التحقق بواسطة سقراط"],
+    "ЖИВОЙ ЛЕНДИНГ":["LIVE LANDING PAGE","LANDING EN VIVO","LANDING AO VIVO","LANDING EN DIRECT","صفحة هبوط حية"],
+    "Промо-лендинг продукта v3":["Product Promo Landing v3","Landing promocional v3","Landing promocional v3","Landing promo produit v3","صفحة الهبوط الترويجية v3"],
+    "Адаптивная вёрстка · готов к деплою":["Responsive layout · ready to deploy","Diseño adaptable · listo para desplegar","Layout responsivo · pronto para deploy","Design responsive · prêt à déployer","تصميم متجاوب · جاهز للنشر"],
+    "ПРЕЗЕНТАЦИЯ СОВЕТА":["COUNCIL DECK","PRESENTACIÓN DEL CONSEJO","APRESENTAÇÃO DO CONSELHO","PRÉSENTATION DU CONSEIL","عرض المجلس"],
+    "Стратегия Q4 · Инвест-дек":["Q4 Strategy · Investor Deck","Estrategia Q4 · Deck de inversión","Estratégia Q4 · Pitch Deck","Stratégie T4 · Deck investisseurs","استراتيجية الربع الرابع · عرض المستثمرين"],
+    "14 слайдов · экспорт в PPTX и PDF":["14 slides · PPTX & PDF export","14 diapositivas · exportar a PPTX y PDF","14 slides · exportação PPTX e PDF","14 slides · export PPTX et PDF","14 شريحة · تصدير PPTX وPDF"],
+    "Таблица расчёта юнит-экономики и сметы (Q4 2026)":["Unit Economics & Cost Estimate Table (Q4 2026)","Tabla de economía unitaria y presupuesto (Q4 2026)","Tabela de unit economics e orçamento (Q4 2026)","Tableau d'unit economics et budget (T4 2026)","جدول اقتصاديات الوحدة والميزانية (الربع الرابع 2026)"],
+    "Канал / Статья сметы":["Channel / Cost Item","Canal / Partida","Canal / Item de custo","Canal / Poste de coût","القناة / بند التكلفة"],
+    "CAC / Бюджет":["CAC / Budget","CAC / Presupuesto","CAC / Orçamento","CAC / Budget","تكلفة الاستحواذ / الميزانية"],
+    "LTV / Выручка":["LTV / Revenue","LTV / Ingresos","LTV / Receita","LTV / Revenus","القيمة الدائمة / الإيرادات"],
+    "ROMI / Статус":["ROMI / Status","ROMI / Estado","ROMI / Status","ROMI / Statut","العائد / الحالة"],
+    "B2B Корпоративный (1С + Диадок)":["B2B Enterprise (1C + Diadoc)","B2B Corporativo (1C + Diadoc)","B2B Corporativo (1C + Diadoc)","B2B Entreprise (1C + Diadoc)","قطاع الأعمال (1C + Diadoc)"],
+    "Telegram & MAX (Авто-воронка)":["Telegram & MAX (Auto-funnel)","Telegram y MAX (Auto-embudo)","Telegram e MAX (Auto-funil)","Telegram et MAX (Auto-tunnel)","Telegram وMAX (قمع تلقائي)"],
+    "Инфраструктура NomadNet + РФ LLM":["NomadNet + RU LLM Infrastructure","Infraestructura NomadNet + LLM RU","Infraestrutura NomadNet + LLM RU","Infrastructure NomadNet + LLM RU","بنية NomadNet ونماذج روسيا"],
+    "180 000 ₽ / мес":["180,000 ₽ / mo","180 000 ₽ / mes","180 000 ₽ / mês","180 000 ₽ / mois","180,000 ₽ / شهر"],
+    "Экономия 68%":["68% Savings","Ahorro 68%","Economia 68%","Économie 68%","توفير 68%"],
+    "Индексирую артефакты и проверяю 152-ФЗ…":["Indexing artifacts & verifying 152-FZ…","Indexando artefactos y verificando 152-FZ…","Indexando artefatos e verificando 152-FZ…","Indexation des artefacts et vérification 152-FZ…","جارٍ فهرسة المخرجات والتحقق من 152-FZ…"],
+    "Движок Nomad активен":["Nomad engine active","Motor Nomad activo","Motor Nomad ativo","Moteur Nomad actif","محرّك Nomad نشط"],
+    "Аккаунты: 8 · активен #1":["Accounts: 8 · active #1","Cuentas: 8 · activa #1","Contas: 8 · ativa #1","Comptes : 8 · actif #1","الحسابات: 8 · النشط #1"],
+    "Рой: 0":["Swarm: 0","Enjambre: 0","Enxame: 0","Essaim : 0","السرب: 0"],
+    "# клиент v0.21.7":["# client v0.21.7","# cliente v0.21.7","# cliente v0.21.7","# client v0.21.7","# العميل v0.21.7"]
+  };
+  var RX=[];
+  var TYPED=[];
+  var ATTRS=['alt','title','aria-label','placeholder'];
+  var cur='ru', idx=-1, ridx=-1, REV={}, mo=null;
+  for(var r=0;r<RX.length;r++) RX[r][0]=new RegExp(RX[r][0]);
+
+  function rev(i){
+    if(REV[i]) return REV[i];
+    var m={}; for(var k in TR) if(TR.hasOwnProperty(k) && !m.hasOwnProperty(TR[k][i])) m[TR[k][i]]=k;
+    return (REV[i]=m);
+  }
+  function line(s,i,back){
+    var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(s), c=m[2], t=null, j;
+    if(!c || i<0) return s;
+    if(back){ var R=rev(i); if(R.hasOwnProperty(c)) t=R[c]; }
+    else if(TR.hasOwnProperty(c)) t=TR[c][i];
+    else {
+      for(j=0;j<RX.length;j++) if(RX[j][0].test(c)){ t=c.replace(RX[j][0],RX[j][1][i]); break; }
+      if(t==null) for(j=0;j<TYPED.length;j++){
+        var K=TYPED[j];
+        if(K.length>c.length && K.indexOf(c)===0 && TR.hasOwnProperty(K)){
+          var F=TR[K][i]; t=F.slice(0,Math.max(1,Math.round(c.length*F.length/K.length))); break;
+        }
+      }
+    }
+    return t==null ? s : m[1]+t+m[3];
+  }
+  function tr(s,i,back){
+    if(i<0 || !s) return s;
+    if(s.indexOf('\n')<0) return line(s,i,back);
+    var ls=s.split('\n'); for(var k=0;k<ls.length;k++) ls[k]=line(ls[k],i,back);
+    return ls.join('\n');
+  }
+  function skip(n){ return !n || n.nodeName==='SCRIPT' || n.nodeName==='STYLE'; }
+  function doText(n){
+    if(skip(n.parentNode)) return;
+    var v=n.nodeValue;
+    if(n.__hcO!==v) n.__hcR=tr(v,ridx,true);
+    var o=tr(n.__hcR,idx,false);
+    n.__hcO=o; if(o!==v) n.nodeValue=o;
+  }
+  function doAttrs(el){
+    for(var a=0;a<ATTRS.length;a++){
+      var k=ATTRS[a]; if(!el.hasAttribute || !el.hasAttribute(k)) continue;
+      var v=el.getAttribute(k), O=el.__hcOA||(el.__hcOA={}), R=el.__hcRA||(el.__hcRA={});
+      if(O[k]!==v) R[k]=tr(v,ridx,true);
+      var o=tr(R[k],idx,false); O[k]=o; if(o!==v) el.setAttribute(k,o);
+    }
+  }
+  function walk(n){
+    if(n.nodeType===3){ doText(n); return; }
+    if(n.nodeType!==1 || skip(n)) return;
+    doAttrs(n);
+    for(var c=n.firstChild;c;c=c.nextSibling) walk(c);
+  }
+  function take(rs){
+    for(var i=0;i<rs.length;i++){
+      var r=rs[i];
+      if(r.type==='characterData'){ if(r.target.nodeType===3) doText(r.target); }
+      else if(r.type==='attributes') doAttrs(r.target);
+      else for(var j=0;j<r.addedNodes.length;j++) walk(r.addedNodes[j]);
+    }
+  }
+  function kids(){
+    var fs=document.getElementsByTagName('iframe');
+    for(var i=0;i<fs.length;i++){ try{ fs[i].contentWindow.postMessage({hcLang:cur},'*'); }catch(e){} }
+  }
+  function setLang(l){
+    if(l!=='ru' && !LANGS.hasOwnProperty(l)) return;
+    if(l===cur) return;
+    if(mo) take(mo.takeRecords());
+    ridx=idx; cur=l; idx=(l==='ru')?-1:LANGS[l];
+    walk(document.documentElement);
+    ridx=idx;
+    document.documentElement.setAttribute('lang',l);
+    var bd=document.getElementById('hc-i18n-bidi');
+    if(l==='ar' && !bd){ bd=document.createElement('style'); bd.id='hc-i18n-bidi';
+      bd.textContent='body,body *{unicode-bidi:plaintext}'; (document.head||document.documentElement).appendChild(bd); }
+    else if(l!=='ar' && bd) bd.parentNode.removeChild(bd);
+    if(!mo && window.MutationObserver){
+      mo=new MutationObserver(take);
+      mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+    }
+    kids();
+  }
+  window.__hcLangQ=function(){ return cur==='ru' ? '' : '&lang='+cur; };
+  window.addEventListener('message',function(e){
+    var d=e.data; if(!d || typeof d!=='object') return;
+    if(d.hcLangReq===1 && e.source && e.source!==window.parent){ try{ e.source.postMessage({hcLang:cur},'*'); }catch(x){} return; }
+    if(typeof d.hcLang==='string' && e.source===window.parent) setLang(d.hcLang);
+  });
+  var q=/[?&#]lang=([a-z]{2})\b/.exec(location.search+location.hash);
+  if(q) setLang(q[1]);
+  if(window.parent!==window){ try{ window.parent.postMessage({hcLangReq:1},'*'); }catch(e){} }
+})();
+</script>
+
+<style>[class*='__splash']{display:none!important;opacity:0!important;pointer-events:none!important}</style>
+</head>
+<body style="margin:0;background:#F4F4F5;padding:22px;">
+<div class="nart" id="nart">
+  <div class="nart__bar">
+    <svg class="nart__ic" viewBox="0 0 24 24" style="color:var(--muted)"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg>
+    <span class="t">Nomad</span><span class="crumb">/ Артефакты</span>
+    <span class="r">
+      <svg class="nart__ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      <svg class="nart__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+    </span>
+  </div>
+
+  <div class="nart__body">
+    <aside class="nart__side">
+      <div class="nart__new">Новая сессия <span class="kbd">Ctrl N</span></div>
+      <div class="nart__label">НАВИГАЦИЯ</div>
+      <nav class="nart__nav">
+        <a><svg class="nart__ic" viewBox="0 0 24 24"><path d="M8 8l-4 4 4 4M16 8l4 4-4 4"/></svg>Навыки и инструменты</a>
+        <a><svg class="nart__ic" viewBox="0 0 24 24"><path d="M12 3l1.9 5.6L20 9l-5 4 1.7 6L12 16l-4.7 3L9 13 4 9l6.1-.4z"/></svg>Что умеет Nomad</a>
+        <a><svg class="nart__ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M10 9l5 3-5 3z" fill="currentColor" stroke="none"/></svg>Симулятор ИИ</a>
+        <a><svg class="nart__ic" viewBox="0 0 24 24"><path d="M21 12a8 8 0 0 1-11.6 7.1L4 20l1-5.2A8 8 0 1 1 21 12z"/></svg>Мессенджеры</a>
+        <a class="on"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/></svg>Артефакты</a>
+      </nav>
+    </aside>
+
+    <div class="nart__main">
+      <div class="nart__search">
+        <svg class="nart__ic si" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/></svg>
+        <div class="sp" id="nart-sp"><span style="color:var(--faint)">Поиск артефактов…</span><span class="scur nart__scur"></span></div>
+        <div class="nart__refresh" id="nart-rf" title="Обновить артефакты"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M21 12a9 9 0 1 1-2.6-6.4M21 4v5h-5"/></svg></div>
+      </div>
+
+      <div class="nart__tabs">
+        <span class="nart__tab on">Все <span class="m" data-c="all">(0)</span></span>
+        <span class="nart__tab">Изображения <span class="m" data-c="image">(0)</span></span>
+        <span class="nart__tab">Файлы <span class="m" data-c="file">(0)</span></span>
+        <span class="nart__tab">Ссылки <span class="m" data-c="link">(0)</span></span>
+      </div>
+
+      <div class="nart__scroll">
+        <!-- Image section -->
+        <div class="nart__prange">
+          <span>1–6 из 6 изображения</span>
+          <span class="pg"><span>‹</span><span class="a">1</span><span>›</span></span>
+        </div>
+        <div class="nart__grid" id="nart-grid">
+          <!-- cards injected pattern below; static markup for fidelity -->
+          <article class="nart__acard" data-i="0">
+            <div class="nart__thumb"><svg viewBox="0 0 160 120"><rect width="160" height="120" fill="#fff"/><rect x="16" y="70" width="16" height="34" fill="#111111"/><rect x="40" y="52" width="16" height="52" fill="#111111"/><rect x="64" y="60" width="16" height="44" fill="#111111"/><rect x="88" y="38" width="16" height="66" fill="#111111"/><rect x="112" y="58" width="16" height="46" fill="#111111"/><rect x="136" y="46" width="12" height="58" fill="#111111"/><line x1="12" y1="104" x2="150" y2="104" stroke="#d8d1c0"/></svg></div>
+            <div class="nart__ameta">
+              <div class="nart__kind"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/><path d="M21 15l-5-5L5 21"/></svg>изображение</div>
+              <div class="nart__aname">report-chart.png</div>
+              <div class="nart__apath">/acme-app/out/report-chart.png</div>
+              <div class="nart__asess">Проанализировать метрики · 14 июл, 18:20</div>
+              <span class="nart__chat"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Чат</span>
+            </div>
+          </article>
+          <article class="nart__acard" data-i="1">
+            <div class="nart__thumb"><svg viewBox="0 0 160 120"><rect width="160" height="120" fill="#eef2ff"/><rect x="0" y="0" width="160" height="46" fill="#111111"/><circle cx="128" cy="24" r="14" fill="#111111"/><rect x="16" y="62" width="86" height="9" rx="4" fill="#c9d4f2"/><rect x="16" y="80" width="120" height="7" rx="3" fill="#dfe6f7"/><rect x="16" y="94" width="104" height="7" rx="3" fill="#dfe6f7"/></svg></div>
+            <div class="nart__ameta">
+              <div class="nart__kind"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/><path d="M21 15l-5-5L5 21"/></svg>изображение</div>
+              <div class="nart__aname">landing-hero.webp</div>
+              <div class="nart__apath">~/acme-app/assets/landing-hero.webp</div>
+              <div class="nart__asess">Свёрстать лендинг · 14 июл, 16:05</div>
+              <span class="nart__chat"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Чат</span>
+            </div>
+          </article>
+          <article class="nart__acard" data-i="2">
+            <div class="nart__thumb"><svg viewBox="0 0 160 120"><rect width="160" height="120" fill="#fbfaf6"/><rect x="20" y="18" width="34" height="22" rx="3" fill="none" stroke="#111111" stroke-width="2"/><rect x="106" y="18" width="34" height="22" rx="3" fill="none" stroke="#111111" stroke-width="2"/><rect x="63" y="80" width="34" height="22" rx="3" fill="none" stroke="#111111" stroke-width="2"/><path d="M37 40 L37 60 L80 60 L80 80 M123 40 L123 60 L80 60" fill="none" stroke="#b4562e" stroke-width="2"/></svg></div>
+            <div class="nart__ameta">
+              <div class="nart__kind"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/><path d="M21 15l-5-5L5 21"/></svg>изображение</div>
+              <div class="nart__aname">architecture.svg</div>
+              <div class="nart__apath">./docs/architecture.svg</div>
+              <div class="nart__asess">Написать документацию API · 14 июл, 12:48</div>
+              <span class="nart__chat"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Чат</span>
+            </div>
+          </article>
+          <article class="nart__acard" data-i="3">
+            <div class="nart__thumb"><svg viewBox="0 0 160 120"><rect width="160" height="120" fill="#1e1b16"/><rect x="46" y="16" width="68" height="88" rx="4" fill="#b4562e"/><rect x="46" y="16" width="68" height="88" rx="4" fill="none" stroke="#e0a94a" stroke-width="1.5"/><rect x="56" y="34" width="48" height="6" rx="3" fill="#f4f1ea"/><rect x="56" y="46" width="34" height="5" rx="2.5" fill="#e0a94a"/><circle cx="80" cy="80" r="10" fill="none" stroke="#f4f1ea" stroke-width="2"/></svg></div>
+            <div class="nart__ameta">
+              <div class="nart__kind"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/><path d="M21 15l-5-5L5 21"/></svg>изображение</div>
+              <div class="nart__aname">cover-v3.png</div>
+              <div class="nart__apath">/acme-app/out/cover-v3.png</div>
+              <div class="nart__asess">Обложка отчёта · 14 июл, 11:10</div>
+              <span class="nart__chat"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Чат</span>
+            </div>
+          </article>
+          <article class="nart__acard" data-i="4">
+            <div class="nart__thumb"><svg viewBox="0 0 160 120"><rect width="160" height="120" fill="#fff"/><g fill="#2a2620"><rect x="54" y="30" width="10" height="10"/><rect x="70" y="30" width="10" height="10"/><rect x="96" y="30" width="10" height="10"/><rect x="54" y="46" width="10" height="10"/><rect x="86" y="46" width="10" height="10"/><rect x="106" y="46" width="10" height="10"/><rect x="54" y="62" width="10" height="10"/><rect x="70" y="62" width="10" height="10"/><rect x="96" y="62" width="10" height="10"/><rect x="86" y="78" width="10" height="10"/><rect x="106" y="78" width="10" height="10"/></g></svg></div>
+            <div class="nart__ameta">
+              <div class="nart__kind"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/><path d="M21 15l-5-5L5 21"/></svg>изображение</div>
+              <div class="nart__aname">qr-checkout.png</div>
+              <div class="nart__apath">./public/qr-checkout.png</div>
+              <div class="nart__asess">Настроить оплату · 13 июл, 20:32</div>
+              <span class="nart__chat"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Чат</span>
+            </div>
+          </article>
+          <article class="nart__acard" data-i="5">
+            <div class="nart__thumb"><svg viewBox="0 0 160 120"><rect width="160" height="120" fill="#f2f6ff"/><circle cx="80" cy="60" r="8" fill="#111111"/><circle cx="34" cy="30" r="6" fill="#111111"/><circle cx="126" cy="34" r="6" fill="#111111"/><circle cx="40" cy="92" r="6" fill="#111111"/><circle cx="120" cy="90" r="6" fill="#111111"/><g stroke="#b9c8ee" stroke-width="2"><line x1="80" y1="60" x2="34" y2="30"/><line x1="80" y1="60" x2="126" y2="34"/><line x1="80" y1="60" x2="40" y2="92"/><line x1="80" y1="60" x2="120" y2="90"/></g></svg></div>
+            <div class="nart__ameta">
+              <div class="nart__kind"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2"/><circle cx="8.5" cy="8.5" r="1.5" fill="currentColor" stroke="none"/><path d="M21 15l-5-5L5 21"/></svg>изображение</div>
+              <div class="nart__aname">flow-diagram.png</div>
+              <div class="nart__apath">/acme-app/out/flow-diagram.png</div>
+              <div class="nart__asess">Автоматизировать пайплайн · 13 июл, 18:14</div>
+              <span class="nart__chat"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M3 7a2 2 0 0 1 2-2h4l2 2h8a2 2 0 0 1 2 2v8a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/></svg>Чат</span>
+            </div>
+          </article>
+        </div>
+
+        <!-- Files & links table -->
+        <div class="nart__prange" style="margin-top:22px">
+          <span>1–7 из 7 элементы</span>
+        </div>
+        <div class="nart__tablewrap">
+          <table class="nart__table">
+            <colgroup><col style="width:35%"><col style="width:41%"><col style="width:24%"></colgroup>
+            <thead><tr><th>Заголовок / имя</th><th>Расположение</th><th>Сессия</th></tr></thead>
+            <tbody id="nart-rows">
+              <tr data-r="0">
+                <td><div class="nart__pcell"><span class="nart__picon"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M14 2v6h6"/></svg></span><span class="lbl">report.pdf</span></div></td>
+                <td><div class="nart__loc"><span class="v mono">/acme-app/out/report.pdf</span><span class="cp"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></span></div></td>
+                <td><div class="nart__scell"><span class="st">Проанализировать метрики</span><span class="ti">14 июл, 18:22</span></div></td>
+              </tr>
+              <tr data-r="1">
+                <td><div class="nart__pcell"><span class="nart__picon"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M14 2v6h6"/></svg></span><span class="lbl">metrics.csv</span></div></td>
+                <td><div class="nart__loc"><span class="v mono">/acme-app/data/metrics.csv</span><span class="cp"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></span></div></td>
+                <td><div class="nart__scell"><span class="st">Проанализировать метрики</span><span class="ti">14 июл, 18:19</span></div></td>
+              </tr>
+              <tr data-r="2">
+                <td><div class="nart__pcell"><span class="nart__picon"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M14 2v6h6"/></svg></span><span class="lbl">summary.md</span></div></td>
+                <td><div class="nart__loc"><span class="v mono">./docs/summary.md</span><span class="cp"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></span></div></td>
+                <td><div class="nart__scell"><span class="st">Написать документацию API</span><span class="ti">14 июл, 12:50</span></div></td>
+              </tr>
+              <tr data-r="3">
+                <td><div class="nart__pcell"><span class="nart__picon"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M14 2v6h6"/></svg></span><span class="lbl">bundle-stats.json</span></div></td>
+                <td><div class="nart__loc"><span class="v mono">/acme-app/dist/bundle-stats.json</span><span class="cp"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></span></div></td>
+                <td><div class="nart__scell"><span class="st">Оптимизировать бандл</span><span class="ti">13 июл, 21:40</span></div></td>
+              </tr>
+              <tr data-r="4">
+                <td><div class="nart__pcell"><span class="nart__picon"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M6 2h9l5 5v13a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V3a1 1 0 0 1 1-1z"/><path d="M14 2v6h6"/></svg></span><span class="lbl">export.zip</span></div></td>
+                <td><div class="nart__loc"><span class="v mono">~/Downloads/export.zip</span><span class="cp"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></span></div></td>
+                <td><div class="nart__scell"><span class="st">Собрать релиз</span><span class="ti">13 июл, 19:02</span></div></td>
+              </tr>
+              <tr data-r="5">
+                <td><div class="nart__pcell"><span class="nart__picon" style="color:var(--terra)"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg></span><span class="lbl link">Деплой — acme-app · Production<span class="nart__lx">↗</span></span></div></td>
+                <td><div class="nart__loc"><span class="v">vercel.com/acme-app/deployments</span><span class="cp"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></span></div></td>
+                <td><div class="nart__scell"><span class="st">Настроить деплой</span><span class="ti">13 июл, 15:26</span></div></td>
+              </tr>
+              <tr data-r="6">
+                <td><div class="nart__pcell"><span class="nart__picon" style="color:var(--terra)"><svg class="nart__ic" viewBox="0 0 24 24"><path d="M10 13a5 5 0 0 0 7 0l2-2a5 5 0 0 0-7-7l-1 1"/><path d="M14 11a5 5 0 0 0-7 0l-2 2a5 5 0 0 0 7 7l1-1"/></svg></span><span class="lbl link">Fix checkout total · Pull Request #204<span class="nart__lx">↗</span></span></div></td>
+                <td><div class="nart__loc"><span class="v">github.com/acme/acme-app/pull/204</span><span class="cp"><svg class="nart__ic" viewBox="0 0 24 24"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h8"/></svg></span></div></td>
+                <td><div class="nart__scell"><span class="st">Ревью PR #204</span><span class="ti">13 июл, 10:03</span></div></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="nart__status"><span class="dot"></span> Движок Nomad готов · артефактов: 13<span class="r">клиент v0.21.7 &nbsp; бэкенд v0.21.7</span></div>
+
+  <!-- indexing loader over content area -->
+  <div class="nart__loader" id="nart-loader"><div class="box"><span class="nart__lspin"></span> Индексирую артефакты недавних сессий</div></div>
+  <!-- connecting splash -->
+  <div class="nart__splash" id="nart-splash"><div class="nart__conn">CONNECTING<span class="nart__hatch"></span></div></div>
+</div>
+
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var splash=document.getElementById('nart-splash'), loader=document.getElementById('nart-loader'),
+      rf=document.getElementById('nart-rf'),
+      counts={all:13,image:6,file:5,link:2};
+  var cards=[].slice.call(document.querySelectorAll('.nart__acard')),
+      rows=[].slice.call(document.querySelectorAll('#nart-rows tr'));
+  function setCounts(v){ document.querySelectorAll('.nart__tab .m').forEach(function(m){ m.textContent='('+(v[m.dataset.c]||0)+')'; }); }
+
+  if(reduce){ setCounts(counts); cards.forEach(function(c){c.classList.add('show')}); rows.forEach(function(r){r.classList.add('show')}); return; }
+
+  function reset(){
+    setCounts({all:0,image:0,file:0,link:0});
+    cards.forEach(function(c){c.classList.remove('show')});
+    rows.forEach(function(r){r.classList.remove('show')});
+    loader.classList.remove('gone'); rf.classList.add('spin');
+  }
+  function populate(){
+    setCounts(counts);
+    loader.classList.add('gone'); rf.classList.remove('spin');
+    cards.forEach(function(c,i){ setTimeout(function(){ c.classList.add('show'); }, 120*i); });
+    var base=120*cards.length+150;
+    rows.forEach(function(r,i){ setTimeout(function(){ r.classList.add('show'); }, base+90*i); });
+  }
+  function cycle(){
+    reset();
+    setTimeout(populate, 900);
+    var total=900 + 120*cards.length+150 + 90*rows.length + 4200;
+    setTimeout(cycle, total);
+  }
+  // first run: splash -> indexing -> populate
+  setTimeout(function(){ splash.classList.add('gone'); }, 1300);
+  setTimeout(function(){ populate(); }, 2200);
+  var firstTotal=2200 + 120*cards.length+150 + 90*rows.length + 4200;
+  setTimeout(cycle, firstTotal);
+})();
+</script>
+</body>
+</html>

@@ -1,0 +1,387 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad — с чего начать (mockup)</title>
+<style>
+@font-face{font-family:'Collapse';font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2');}
+.nob,.nob *,.nob *::before,.nob *::after{box-sizing:border-box;}
+.nob{
+  --cream:#FFFFFF; --cream-2:#F4F4F5; --card:#FFFFFF; --line:#E4E4E7; --line-2:#D4D4D8;
+  --ink:#111111; --muted:#52525B; --faint:#71717A;
+  --terra:#111111; --terra-soft:#F4F4F5;
+  --blue-1:#111111; --blue-2:#111111; --green:#059669;
+  --mono:ui-monospace,"JetBrains Mono","SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  position:relative; margin:0 auto; max-width:1150px; font-family:var(--sans); color:var(--ink); background:var(--cream);
+  border-radius:12px; overflow:hidden; box-shadow:0 30px 80px -30px rgba(60,40,20,.35); width:1196px;height:862px;display:flex;flex-direction:column;
+}
+/* window top bar */
+.nob__bar{ display:flex; align-items:center; gap:14px; height:44px; padding:0 14px; background:var(--cream); border-bottom:1px solid var(--line); }
+.nob__bar .grp{ display:flex; align-items:center; gap:12px; color:var(--faint); }
+.nob__bar .grp.r{ margin-left:auto; }
+.nob__ic{ width:18px; height:18px; display:block; stroke:currentColor; fill:none; stroke-width:1.7; }
+.nob__win{ display:flex; gap:8px; margin-left:6px; }
+.nob__win i{ width:12px;height:12px;border-radius:3px;display:block; color:var(--faint); }
+.nob__win i svg{ width:12px; height:12px; stroke:currentColor; stroke-width:1.5; }
+
+/* stage: ghosted app behind + veil + centered onboarding card (mirrors OnboardingOverlay) */
+.nob__stage{ position:relative; flex:1;min-height:0; background:var(--cream); overflow:hidden; }
+.nob__ghost{ position:absolute; inset:0; display:grid; grid-template-columns:290px 1fr; opacity:.5; pointer-events:none; }
+.nob__gside{ border-right:1px solid var(--line); padding:14px 12px; display:flex; flex-direction:column; gap:8px; }
+.nob__gbtn{ height:38px; border:1px solid var(--line-2); border-radius:10px; background:var(--card); }
+.nob__gline{ height:11px; border-radius:6px; background:var(--cream-2); }
+.nob__gline.w1{ width:78%; } .nob__gline.w2{ width:62%; } .nob__gline.w3{ width:70%; } .nob__gline.w4{ width:54%; }
+.nob__glabel{ height:9px; width:40%; border-radius:5px; background:var(--terra-soft); margin-top:10px; }
+.nob__gmain{ position:relative; }
+.nob__gcomposer{ position:absolute; left:50%; bottom:24px; transform:translateX(-50%); width:620px; height:84px; border:1.5px solid var(--line-2); border-radius:16px; background:var(--card); }
+.nob__veil{ position:absolute; inset:0; background:rgba(255,255,255,.76); backdrop-filter:blur(1.5px); }
+.nob__overlay{ position:absolute; inset:0; display:grid; place-items:center; padding:26px; }
+
+/* onboarding card */
+.nob__panel{ width:100%; max-width:690px; border:1px solid var(--line); border-radius:14px; background:var(--card);
+  box-shadow:0 24px 60px -28px rgba(80,50,20,.35); padding:34px 38px 26px; text-align:center; }
+.nob__wordmark{ font-family:'Collapse',Georgia,serif; font-size:56px; line-height:.95; letter-spacing:.08em; text-transform:uppercase;
+  background:linear-gradient(96deg,var(--blue-1) 8%,var(--blue-2)); -webkit-background-clip:text; background-clip:text; color:transparent;
+  margin:0 0 14px; }
+.nob__title{ font-size:19px; font-weight:600; letter-spacing:-.01em; margin:0 0 8px; }
+.nob__tagline{ max-width:480px; margin:0 auto 24px; color:var(--muted); font-size:13.5px; line-height:1.55; }
+.nob__label{ font:11px var(--mono); letter-spacing:.16em; text-transform:uppercase; color:var(--terra); margin:0 0 14px; }
+
+/* 3 steps */
+.nob__steps{ display:flex; align-items:stretch; gap:0; text-align:left; }
+.nob__step{ flex:1; border:1px solid var(--line); border-radius:12px; background:var(--card); padding:14px 14px 15px;
+  display:flex; flex-direction:column; gap:9px; opacity:0; transform:translateY(10px);
+  transition:opacity .5s ease, transform .5s ease, border-color .35s, box-shadow .35s, background .35s; }
+.nob__step.in{ opacity:1; transform:translateY(0); }
+.nob__step.on{ border-color:var(--terra); background:#F4F4F5; box-shadow:0 12px 26px -16px rgba(17,17,17,.12); }
+.nob__step .hd{ display:flex; align-items:center; gap:9px; }
+.nob__step .num{ font:11px var(--mono); letter-spacing:.1em; color:var(--faint); transition:color .35s; }
+.nob__step.on .num{ color:var(--terra); }
+.nob__step .nob__ic{ width:21px; height:21px; color:var(--muted); transition:color .35s; margin-left:auto; }
+.nob__step.on .nob__ic{ color:var(--terra); }
+.nob__step .t{ font-size:14px; font-weight:600; line-height:1.3; }
+.nob__step .d{ font-size:12.5px; line-height:1.45; color:var(--muted); }
+.nob__arrow{ align-self:center; padding:0 9px; color:var(--faint); font-size:15px; flex:0 0 auto; transition:color .35s; }
+.nob__arrow.on{ color:var(--terra); }
+
+/* progress dots */
+.nob__dots{ display:flex; justify-content:center; gap:8px; margin:20px 0 6px; }
+.nob__dots i{ width:6px; height:6px; border-radius:50%; background:var(--line-2); transition:background .35s, transform .35s; }
+.nob__dots i.on{ background:var(--terra); transform:scale(1.25); }
+
+.nob__reassure{ font-size:12px; color:var(--faint); margin:8px 0 16px; }
+.nob__ctarow{ display:flex; align-items:center; justify-content:center; gap:18px; }
+.nob__cta{ display:inline-flex; align-items:center; gap:9px; padding:11px 30px; border:none; border-radius:11px;
+  background:var(--ink); color:var(--cream); font-family:var(--sans); font-size:14.5px; font-weight:600; letter-spacing:.01em; cursor:pointer; }
+.nob__cta .nob__ic{ width:16px; height:16px; stroke-width:2; }
+@keyframes nob-cta{ 0%{ box-shadow:0 0 0 0 rgba(17,17,17,.14); } 100%{ box-shadow:0 0 0 15px rgba(180,86,46,0); } }
+.nob__cta.pulse{ animation:nob-cta 1s ease-out 2; }
+.nob__skip{ font-size:13px; color:var(--muted); text-decoration:none; border-bottom:1px dotted var(--faint); padding-bottom:1px; cursor:pointer; }
+
+/* status bar */
+.nob__status{ display:flex; align-items:center; gap:18px; height:30px; padding:0 16px; background:var(--cream); border-top:1px solid var(--line); font-size:12px; color:var(--muted); }
+.nob__status .s{ display:flex; align-items:center; gap:6px; }
+.nob__status .dot{ width:6px; height:6px; border-radius:50%; background:var(--green); box-shadow:0 0 0 0 rgba(57,176,106,.5); animation:nob-pulse 2.4s infinite; }
+@keyframes nob-pulse{70%{box-shadow:0 0 0 6px rgba(57,176,106,0)}100%{box-shadow:0 0 0 0 rgba(57,176,106,0)}}
+.nob__status .r{ margin-left:auto; display:flex; align-items:center; gap:16px; }
+.nob__ver{ font:11px var(--mono); color:var(--faint); }
+
+/* splash */
+.nob__splash{ position:absolute; inset:0; z-index:20; background:var(--cream); display:grid; place-items:center; transition:opacity .6s; }
+.nob__splash.gone{ opacity:0; pointer-events:none; }
+.nob__conn{ font:13px var(--mono); letter-spacing:.32em; color:var(--terra); display:flex; align-items:center; gap:12px; }
+.nob__hatch{ width:14px; height:14px; background:repeating-linear-gradient(45deg,var(--terra) 0 2px,transparent 2px 4px); animation:nob-blink 1s steps(1) infinite; }
+@keyframes nob-blink{50%{opacity:0}}
+
+@media (prefers-reduced-motion:reduce){
+  .nob__hatch,.nob__status .dot,.nob__cta.pulse{ animation:none; }
+  .nob__splash{ display:none; }
+  .nob__step{ opacity:1; transform:none; transition:none; }
+}
+</style>
+<style>html,body{background:transparent!important;margin:0!important;padding:0!important}</style>
+<script id="hc-i18n">
+(function(){
+  var LANGS={en:0,es:1,pt:2,fr:3,ar:4};
+  var TR={"Сред":["Med", "Med", "Méd", "Moy", "متوسط"],"⚖ Совет моделей":["⚖ Model Council", "⚖ Consejo de modelos", "⚖ Conselho de modelos", "⚖ Conseil des modèles", "⚖ مجلس النماذج"],"• Готов":["• Ready", "• Listo", "• Pronto", "• Prêt", "• جاهز"],"Готов":["Ready", "Listo", "Pronto", "Prêt", "جاهز"],"Запланированные задачи":["Scheduled tasks", "Tareas programadas", "Tarefas agendadas", "Tâches planifiées", "المهام المجدولة"],"Навыки Nomad":["Nomad Skills", "Skills de Nomad", "Skills do Nomad", "Skills Nomad", "مهارات Nomad"],"Установлена актуальная версия v0.21.7 ✓":["Up to date v0.21.7 ✓", "Versión actual v0.21.7 ✓", "Versão atual v0.21.7 ✓", "Version à jour v0.21.7 ✓", "الإصدار المحدّث v0.21.7 ✓"],"Каталог актуальных моделей (39 моделей · 10 провайдеров)":["Active Model Catalog (39 models · 10 providers)", "Catálogo de modelos (39 modelos · 10 proveedores)", "Catálogo de modelos (39 modelos · 10 provedores)", "Catalogue de modèles (39 modèles · 10 fournisseurs)", "كتالوج النماذج الحديثة (39 نموذجاً · 10 مزودين)"],"Краткое описание специализации и стоимость ($вх / $вых за 1М токенов) прямо в селекторе.":["Brief specialization summary and token pricing ($in / $out per 1M tokens) right inside the selector.", "Descripción breve y precio por 1M de tokens ($ent / $sal) directamente en el selector.", "Resumo da especialização e preço ($ent / $saí por 1M tokens) direto no seletor.", "Résumé de spécialisation et tarif ($ent / $sor par 1M tokens) directement dans le sélecteur.", "وصف مختصر للتخصص والتكلفة لكل مليون رمز مباشرة داخل القائمة."],"Безопасность, Харнес и Автообновление":["Security, Harness & Auto-Update", "Seguridad, Harness y Auto-actualización", "Segurança, Harness e Atualização automática", "Sécurité, Harness et Mise à jour auto", "الأمان والحماية والتحديث التلقائي"],"Советник":["Advisor", "Asesor", "Consultor", "Conseiller", "المستشار"],"• Советник":["• Advisor", "• Asesor", "• Consultor", "• Conseiller", "• المستشار"],"⚖ Совет моделей":["# Model Council", "# Consejo de modelos", "# Conselho de modelos", "# Conseil des modèles", "# مجلس النماذج"],"Совет моделей":["Model Council", "Consejo de modelos", "Conselho de modelos", "Conseil des modèles", "مجلس النماذج"],"Локальный сервер...":["Local server...", "Servidor local...", "Servidor local...", "Serveur local...", "خادم محلي..."],"Локальный сервер... ⌄":["Local server... ⌄", "Servidor local... ⌄", "Servidor local... ⌄", "Serveur local... ⌄", "خادم محلي... ⌄"],"• Готов":["+ Backend ready", "+ Backend listo", "+ Backend pronto", "+ Backend prêt", "+ الواجهة الخلفية جاهزة"],"Бэкенд готов":["Backend ready", "Backend listo", "Backend pronto", "Backend prêt", "الواجهة الخلفية جاهزة"],"Подключить тариф":["Connect plan", "Conectar plan", "Conectar plano", "Connecter un forfait", "ربط باقة"],"NomadNet Подключить тариф":["NomadNet Connect plan", "NomadNet Conectar plan", "NomadNet Conectar plano", "NomadNet Connecter un forfait", "NomadNet ربط باقة"],"Аккаунты: 8 · активен #1":["Accounts: 8 · active #1", "Cuentas: 8 · activa #1", "Contas: 8 · ativa #1", "Comptes : 8 · actif #1", "الحسابات: 8 · النشط #1"],"• Аккаунты: 8 · активен #1":["• Accounts: 8 · active #1", "• Cuentas: 8 · activa #1", "• Contas: 8 · ativa #1", "• Comptes : 8 · actif #1", "• الحسابات: 8 · النشط #1"],"Рой: 0":["Swarm: 0", "Enjambre: 0", "Enxame: 0", "Essaim : 0", "السرب: 0"],"• Рой: 0":["• Swarm: 0", "• Enjambre: 0", "• Enxame: 0", "• Essaim : 0", "• السرب: 0"],"⚡ Умный":["⚡ Smart", "⚡ Inteligente", "⚡ Inteligente", "⚡ Intelligent", "⚡ ذكي"],"Умный":["Smart", "Inteligente", "Inteligente", "Intelligent", "ذكي"],"клиент v0.21.7":["client v0.21.7", "cliente v0.21.7", "cliente v0.21.7", "client v0.21.7", "العميل v0.21.7"],"бэкенд v0.21.7":["backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "الخلفية v0.21.7"],"клиент v0.21.7 · бэкенд v0.21.7":["client v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "client v0.21.7 · backend v0.21.7", "العميل v0.21.7 · الخلفية v0.21.7"],
+    "Nomad — с чего начать (mockup)":["Nomad — getting started (mockup)","Nomad — por dónde empezar (maqueta)","Nomad — por onde começar (mockup)","Nomad — par où commencer (maquette)","Nomad — من أين تبدأ (نموذج)"],
+    "Nomad — первый запуск":["Nomad — first launch","Nomad — primer inicio","Nomad — primeira execução","Nomad — premier lancement","Nomad — التشغيل الأول"],
+    "Spotlight-тур · Шаг 1 из 6":["Spotlight tour · Step 1 of 6","Tour Spotlight · Paso 1 de 6","Tour Spotlight · Passo 1 de 6","Tour Spotlight · Étape 1 sur 6","جولة Spotlight · الخطوة 1 من 6"],
+    "Советник · Ника":["Advisor · Nika","Asesora · Nika","Consultora · Nika","Conseillère · Nika","المستشارة · نيكا"],
+    "Нажми, если нужна подсказка по экрану":["Click if you need a screen hint","Haz clic si necesitas una pista","Clique se precisar de uma dica","Clique si tu as besoin d'un indice","انقر إذا كنت بحاجة إلى تلميح"],
+    "Шаг 1/6: Выбор Бадди и старт":["Step 1/6: Choose Buddy & start","Paso 1/6: Elige Buddy y empieza","Passo 1/6: Escolha seu Buddy e comece","Étape 1/6 : Choisir son Buddy et démarrer","الخطوة 1/6: اختر المرافق وابدأ"],
+    "Добро пожаловать в Nomad v0.21.7":["Welcome to Nomad v0.21.7","Bienvenido a Nomad v0.21.7","Bem-vindo ao Nomad v0.21.7","Bienvenue dans Nomad v0.21.7","مرحباً بك في Nomad v0.21.7"],
+    "Автономный ИИ-напарник на вашем ПК с управлением из Telegram и MAX, Советом моделей и локальной защитой ПДн по 152-ФЗ.":["Autonomous AI copilot on your PC controlled from Telegram and MAX, with Model Council and local PII protection (152-FZ).","Compañero de IA autónomo en tu PC controlado desde Telegram y MAX, con Consejo de Modelos y protección local de datos (152-FZ).","Parceiro de IA autônomo no seu PC controlado pelo Telegram e MAX, com Conselho de Modelos e proteção local de dados (152-FZ).","Copilote IA autonome sur ton PC contrôlé depuis Telegram et MAX, avec Conseil des modèles et protection locale des données (152-FZ).","شريك ذكاء اصطناعي مستقل على حاسوبك يُدار عبر Telegram وMAX، مع مجلس النماذج وحماية البيانات المحلية (152-ФЗ)."],
+    "ВЫБЕРИТЕ БАДДИ-НАСТАВНИКА (ЖИВОЕ ПЕРЕКЛЮЧЕНИЕ РЕЖИМА)":["CHOOSE YOUR BUDDY MENTOR (LIVE MODE SWITCH)","ELIGE TU MENTOR BUDDY (CAMBIO DE MODO EN VIVO)","ESCOLHA SEU MENTOR BUDDY (TROCA DE MODO AO VIVO)","CHOISIS TON MENTOR BUDDY (CHANGEMENT DE MODE EN DIRECT)","اختر المرافق المرشد (تبديل الوضع مباشرة)"],
+    "Ника":["Nika","Nika","Nika","Nika","نيكا"],
+    "· тёплая поддержка":["· warm support","· apoyo cercano","· apoio acolhedor","· soutien bienveillant","· دعم دافئ"],
+    "😊 Тёплая поддержка":["😊 Warm support","😊 Apoyo cálido","😊 Apoio caloroso","😊 Soutien chaleureux","😊 دعم دافئ"],
+    "✨ Пошаговый разбор":["✨ Step-by-step guide","✨ Guía paso a paso","✨ Guia passo a passo","✨ Guide pas à pas","✨ شرح خطوة بخطوة"],
+    "Пошаговые подсказки по интерфейсу, разбор ошибок без стресса и идеи первых проектов.":["Step-by-step UI hints, stress-free error walkthroughs, and first project ideas.","Pistas paso a paso por la interfaz, revisión de errores sin estrés e ideas de proyectos.","Dicas passo a passo da interface, correção de erros sem estresse e ideias de projetos.","Astuces pas à pas sur l'interface, résolution d'erreurs sans stress et idées de projets.","تلميحات خطوة بخطوة للواجهة، وحل الأخطاء بهدوء، وأفكار للمشاريع الأولى."],
+    "«Привет! Я рядом в сайдбаре — подскажу, какую кнопку нажать и с чего начать проект.»":["“Hi! I'm right in the sidebar — I'll show you which button to press and how to start.”","«¡Hola! Estoy en la barra lateral: te diré qué botón pulsar y por dónde empezar.»","«Oi! Estou aqui na barra lateral — mostro qual botão apertar e por onde começar.»","« Salut ! Je suis dans la barre latérale — je te montre sur quoi cliquer pour démarrer. »","«مرحباً! أنا هنا في الشريط الجانبي — سأرشدك من أين تبدأ المشروع.»"],
+    "«Отлично! Давай разобьём задачу на 3 простых шага и проверим результат в превью.»":["“Great! Let's break the task into 3 simple steps and check the live preview.”","«¡Genial! Dividamos la tarea en 3 pasos sencillos y veamos la vista previa.»","«Ótimo! Vamos dividir a tarefa em 3 passos simples e ver a prévia.»","« Super ! Découpons la tâche en 3 étapes simples et vérifions l'aperçu. »","«رائع! لنقسّم المهمة إلى 3 خطوات بسيطة ونتحقق من المعاينة.»"],
+    "Сократ":["Socrates","Sócrates","Sócrates","Socrate","سقراط"],
+    "· ментор и ревью":["· mentor & review","· mentor y revisión","· mentor e revisão","· mentor et revue","· مرشد ومراجعة"],
+    "🧐 Вопросы на понимание":["🧐 Deep questions","🧐 Preguntas clave","🧐 Perguntas de compreensão","🧐 Questions de fond","🧐 أسئلة للفهم"],
+    "🔍 Строгое код-ревью":["🔍 Strict code review","🔍 Revisión de código","🔍 Code review rigoroso","🔍 Revue de code stricte","🔍 مراجعة دقيقة للشيفرة"],
+    "Вопросы на понимание архитектуры, проверка гипотез и вдумчивое код-ревью перед деплоем.":["Architecture comprehension questions, hypothesis testing, and thoughtful pre-deploy code review.","Preguntas sobre arquitectura, validación de hipótesis y revisión de código antes del despliegue.","Perguntas sobre arquitetura, validação de hipóteses e code review antes do deploy.","Questions d'architecture, validation d'hypothèses et revue de code avant déploiement.","أسئلة لفهم البنية البرمجية، واختبار الفرضيات، ومراجعة الشيفرة قبل النشر."],
+    "«Прежде чем мёрджить: что произойдёт с корзиной, если токен сессии истечёт в момент оплаты?»":["“Before merging: what happens to the cart if the session token expires during payment?”","«Antes de fusionar: ¿qué pasa con el carrito si el token expira durante el pago?»","«Antes do merge: o que acontece com o carrinho se o token expirar no pagamento?»","« Avant de merger : que se passe-t-il si le jeton expire pendant le paiement ? »","«قبل الدمج: ماذا يحدث للسلة إذا انتهت صلاحية الجلسة أثناء الدفع؟»"],
+    "«Проверил дифф: логика чистая, но давай добавим граничный тест на пустой ответ API.»":["“Checked the diff: clean logic, but let's add an edge-case test for an empty API response.”","«Revisé el diff: lógica limpia, pero añadamos un test para respuesta vacía de la API.»","«Revisei o diff: lógica limpa, mas vamos adicionar um teste para resposta vazia da API.»","« Diff vérifié : logique propre, mais ajoutons un test pour une réponse API vide. »","«فحصت الفروقات: المنطق سليم، لكن لنضف اختباراً لحالة استجابة API الفارغة.»"],
+    "КАК УСТРОЕН СТАРТ · 3 ШАГА":["HOW TO START · 3 STEPS","CÓMO EMPEZAR · 3 PASOS","COMO COMEÇAR · 3 PASSOS","COMMENT DÉMARRER · 3 ÉTAPES","كيف تبدأ · 3 خطوات"],
+    "01. Выберите Бадди (Ника или Сократ)":["01. Choose your Buddy (Nika or Socrates)","01. Elige tu Buddy (Nika o Sócrates)","01. Escolha seu Buddy (Nika ou Sócrates)","01. Choisis ton Buddy (Nika ou Socrate)","01. اختر مرافقك (نيكا أو سقراط)"],
+    "Тёплая пошаговая поддержка Ники или архитектурный разбор и код-ревью от Сократа.":["Warm step-by-step support from Nika or architectural review from Socrates.","Apoyo paso a paso de Nika o revisión arquitectónica de Sócrates.","Apoio passo a passo da Nika ou revisão de arquitetura do Sócrates.","Soutien pas à pas de Nika ou revue d'architecture avec Socrate.","دعم خطوة بخطوة من نيكا أو مراجعة معمارية من سقراط."],
+    "02. Подключите модель (NomadNet / Сбер ID / Яндекс ID / Т-ID в 1 клик)":["02. Connect a model (NomadNet / Sber ID / Yandex ID / T-ID in 1 click)","02. Conecta un modelo (NomadNet / Sber ID / Yandex ID / T-ID en 1 clic)","02. Conecte um modelo (NomadNet / Sber ID / Yandex ID / T-ID em 1 clique)","02. Connecte un modèle (NomadNet / Sber ID / Yandex ID / T-ID en 1 clic)","02. اربط نموذجاً (NomadNet / Sber ID / Yandex ID / T-ID بنقرة واحدة)"],
+    "Работа без VPN через NomadNet или суверенный контур РФ с пулом из 8 аккаунтов.":["Work without VPN via NomadNet or sovereign RU contour with an 8-account pool.","Sin VPN con NomadNet o entorno soberano con grupo de 8 cuentas.","Sem VPN via NomadNet ou contorno soberano com pool de 8 contas.","Sans VPN via NomadNet ou contour souverain avec pool de 8 comptes.","اعمل بدون VPN عبر NomadNet أو النطاق السيادي مع مجموعة من 8 حسابات."],
+    "03. Ставьте задачи голосом, в чате или с телефона":["03. Give tasks by voice, in chat, or from your phone","03. Da tareas por voz, en el chat o desde el móvil","03. Dê tarefas por voz, no chat ou pelo celular","03. Donne des tâches à la voix, dans le chat ou depuis ton téléphone","03. أعطِ المهام بالصوت أو في المحادثة أو من هاتفك"],
+    "Управляйте агентом из Telegram и MAX — Совет моделей и Рой вернут готовый результат.":["Control the agent from Telegram and MAX — Model Council and Swarm deliver the result.","Controla el agente desde Telegram y MAX: el Consejo de Modelos y el Enjambre entregan el resultado.","Controle o agente pelo Telegram e MAX — o Conselho de Modelos e o Enxame entregam o resultado.","Contrôle l'agent depuis Telegram et MAX — le Conseil des modèles et l'Essaim livrent le résultat.","تحكّم بالوكيل من Telegram وMAX — مجلس النماذج والسرب يعيدان النتيجة الجاهزة."],
+    "Локальный фильтр 152-ФЗ маскирует ПДн до отправки в облако. Настройку можно изменить в любой момент.":["Local 152-FZ DLP masks personal data before cloud calls. You can change settings anytime.","El filtro local 152-FZ enmascara datos personales antes de enviarlos. Puedes cambiarlo cuando quieras.","O filtro local 152-FZ mascara dados pessoais antes da nuvem. Você pode mudar tudo depois.","Le filtre local 152-FZ masque les données personnelles avant l'envoi. Modifiable à tout moment.","يقوم مرشح 152-ФЗ المحلي بإخفاء البيانات الشخصية قبل الإرسال. يمكنك تغيير الإعدادات في أي وقت."],
+    "Начать работу":["Get started","Empezar ahora","Começar agora","Commencer","ابدأ العمل"],
+    "Пройти Spotlight-тур (6 шагов)":["Take Spotlight tour (6 steps)","Hacer tour Spotlight (6 pasos)","Fazer tour Spotlight (6 passos)","Lancer le tour Spotlight (6 étapes)","بدء جولة Spotlight (6 خطوات)"],
+    "Движок Nomad активен":["Nomad engine active","Motor de Nomad activo","Motor do Nomad ativo","Moteur Nomad actif","محرّك Nomad نشط"],
+    "Аккаунты: 8 · активен #1":["Accounts: 8 · active #1","Cuentas: 8 · activa #1","Contas: 8 · ativa #1","Comptes : 8 · actif #1","الحسابات: 8 · النشط #1"],
+    "Рой: 0":["Swarm: 0","Enjambre: 0","Enxame: 0","Essaim : 0","السرب: 0"],
+    "# клиент v0.21.7":["# client v0.21.7","# cliente v0.21.7","# cliente v0.21.7","# client v0.21.7","# العميل v0.21.7"]
+  };
+  var RX=[];
+  var TYPED=[];
+  var ATTRS=['alt','title','aria-label','placeholder'];
+  var cur='ru', idx=-1, ridx=-1, REV={}, mo=null;
+  for(var r=0;r<RX.length;r++) RX[r][0]=new RegExp(RX[r][0]);
+
+  function rev(i){
+    if(REV[i]) return REV[i];
+    var m={}; for(var k in TR) if(TR.hasOwnProperty(k) && !m.hasOwnProperty(TR[k][i])) m[TR[k][i]]=k;
+    return (REV[i]=m);
+  }
+  function line(s,i,back){
+    var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(s), c=m[2], t=null, j;
+    if(!c || i<0) return s;
+    if(back){ var R=rev(i); if(R.hasOwnProperty(c)) t=R[c]; }
+    else if(TR.hasOwnProperty(c)) t=TR[c][i];
+    else {
+      for(j=0;j<RX.length;j++) if(RX[j][0].test(c)){ t=c.replace(RX[j][0],RX[j][1][i]); break; }
+      if(t==null) for(j=0;j<TYPED.length;j++){
+        var K=TYPED[j];
+        if(K.length>c.length && K.indexOf(c)===0 && TR.hasOwnProperty(K)){
+          var F=TR[K][i]; t=F.slice(0,Math.max(1,Math.round(c.length*F.length/K.length))); break;
+        }
+      }
+    }
+    return t==null ? s : m[1]+t+m[3];
+  }
+  function tr(s,i,back){
+    if(i<0 || !s) return s;
+    if(s.indexOf('\n')<0) return line(s,i,back);
+    var ls=s.split('\n'); for(var k=0;k<ls.length;k++) ls[k]=line(ls[k],i,back);
+    return ls.join('\n');
+  }
+  function skip(n){ return !n || n.nodeName==='SCRIPT' || n.nodeName==='STYLE'; }
+  function doText(n){
+    if(skip(n.parentNode)) return;
+    var v=n.nodeValue;
+    if(n.__hcO!==v) n.__hcR=tr(v,ridx,true);
+    var o=tr(n.__hcR,idx,false);
+    n.__hcO=o; if(o!==v) n.nodeValue=o;
+  }
+  function doAttrs(el){
+    for(var a=0;a<ATTRS.length;a++){
+      var k=ATTRS[a]; if(!el.hasAttribute || !el.hasAttribute(k)) continue;
+      var v=el.getAttribute(k), O=el.__hcOA||(el.__hcOA={}), R=el.__hcRA||(el.__hcRA={});
+      if(O[k]!==v) R[k]=tr(v,ridx,true);
+      var o=tr(R[k],idx,false); O[k]=o; if(o!==v) el.setAttribute(k,o);
+    }
+  }
+  function walk(n){
+    if(n.nodeType===3){ doText(n); return; }
+    if(n.nodeType!==1 || skip(n)) return;
+    doAttrs(n);
+    for(var c=n.firstChild;c;c=c.nextSibling) walk(c);
+  }
+  function take(rs){
+    for(var i=0;i<rs.length;i++){
+      var r=rs[i];
+      if(r.type==='characterData'){ if(r.target.nodeType===3) doText(r.target); }
+      else if(r.type==='attributes') doAttrs(r.target);
+      else for(var j=0;j<r.addedNodes.length;j++) walk(r.addedNodes[j]);
+    }
+  }
+  function kids(){
+    var fs=document.getElementsByTagName('iframe');
+    for(var i=0;i<fs.length;i++){ try{ fs[i].contentWindow.postMessage({hcLang:cur},'*'); }catch(e){} }
+  }
+  function setLang(l){
+    if(l!=='ru' && !LANGS.hasOwnProperty(l)) return;
+    if(l===cur) return;
+    if(mo) take(mo.takeRecords());
+    ridx=idx; cur=l; idx=(l==='ru')?-1:LANGS[l];
+    walk(document.documentElement);
+    ridx=idx;
+    document.documentElement.setAttribute('lang',l);
+    var bd=document.getElementById('hc-i18n-bidi');
+    if(l==='ar' && !bd){ bd=document.createElement('style'); bd.id='hc-i18n-bidi';
+      bd.textContent='body,body *{unicode-bidi:plaintext}'; (document.head||document.documentElement).appendChild(bd); }
+    else if(l!=='ar' && bd) bd.parentNode.removeChild(bd);
+    if(!mo && window.MutationObserver){
+      mo=new MutationObserver(take);
+      mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+    }
+    kids();
+  }
+  window.__hcLangQ=function(){ return cur==='ru' ? '' : '&lang='+cur; };
+  window.addEventListener('message',function(e){
+    var d=e.data; if(!d || typeof d!=='object') return;
+    if(d.hcLangReq===1 && e.source && e.source!==window.parent){ try{ e.source.postMessage({hcLang:cur},'*'); }catch(x){} return; }
+    if(typeof d.hcLang==='string' && e.source===window.parent) setLang(d.hcLang);
+  });
+  var q=/[?&#]lang=([a-z]{2})\b/.exec(location.search+location.hash);
+  if(q) setLang(q[1]);
+  if(window.parent!==window){ try{ window.parent.postMessage({hcLangReq:1},'*'); }catch(e){} }
+})();
+</script>
+
+<style>[class*='__splash']{display:none!important;opacity:0!important;pointer-events:none!important}</style>
+</head>
+<body style="margin:0;background:#F4F4F5;padding:22px;">
+<div class="nob" id="nob" aria-label="Nomad — первый запуск">
+
+  <!-- top bar -->
+  <div class="nob__bar">
+    <div class="grp">
+      <svg class="nob__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg>
+      <svg class="nob__ic" viewBox="0 0 24 24"><path d="M7 7h11l-3-3M17 17H6l3 3"/></svg>
+    </div>
+    <div class="grp r"><span style="display:inline-flex;align-items:center;gap:6px;padding:3px 10px;border-radius:999px;border:1px solid var(--line);background:#FAFAFA;font-size:12px;color:var(--ink)"><i style="width:6px;height:6px;border-radius:50%;background:var(--green);display:inline-block"></i> Советник</span>
+      <svg class="nob__ic" viewBox="0 0 24 24"><path d="M11 5 6 9H3v6h3l5 4z"/><path d="M15 9a4 4 0 0 1 0 6"/></svg>
+      <svg class="nob__ic" viewBox="0 0 24 24"><rect x="3" y="6" width="18" height="12" rx="2"/><path d="M7 10h.01M11 10h.01M15 10h.01M8 14h8"/></svg>
+      <svg class="nob__ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      <svg class="nob__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+      <div class="nob__win"><i><svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/></svg></i><i><svg viewBox="0 0 24 24"><rect x="5" y="5" width="14" height="14"/></svg></i><i><svg viewBox="0 0 24 24"><line x1="6" y1="6" x2="18" y2="18"/><line x1="18" y1="6" x2="6" y2="18"/></svg></i></div>
+    </div>
+  </div>
+
+  <!-- stage: ghost app + veil + onboarding card -->
+  <div class="nob__stage">
+
+    <div class="nob__ghost" aria-hidden="true">
+      <div class="nob__gside">
+        <div class="nob__gbtn"></div>
+        <div class="nob__gline w1"></div>
+        <div class="nob__gline w2"></div>
+        <div class="nob__gline w3"></div>
+        <div class="nob__glabel"></div>
+        <div class="nob__gline w2"></div>
+        <div class="nob__gline w4"></div>
+        <div class="nob__gline w3"></div>
+      </div>
+      <div class="nob__gmain"><div class="nob__gcomposer"></div></div>
+    </div>
+    <div class="nob__veil" aria-hidden="true"></div>
+
+    <div class="nob__overlay">
+      <div class="nob__panel">
+        <div class="nob__wordmark">Nomad</div>
+        <h2 class="nob__title">Знакомьтесь — Nomad</h2>
+        <p class="nob__tagline">Ваш ИИ-помощник, который сам делает дела на этом компьютере — пишет, ищет, программирует и выполняет задачи, показывая каждый свой шаг.</p>
+
+        <div class="nob__label">Как это работает</div>
+        <div class="nob__steps" id="nob-steps">
+          <div class="nob__step">
+            <div class="hd"><span class="num">01</span>
+              <svg class="nob__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="12" rx="2"/><path d="M8 20h8M12 16v4"/><path d="M12 6.5v4M9.5 8.5 12 11l2.5-2.5"/></svg>
+            </div>
+            <div class="t">Поставьте Nomad</div>
+            <div class="d">Один клик — и агент живёт на вашем компьютере.</div>
+          </div>
+          <div class="nob__arrow">→</div>
+          <div class="nob__step">
+            <div class="hd"><span class="num">02</span>
+              <svg class="nob__ic" viewBox="0 0 24 24"><rect x="7" y="2.5" width="10" height="19" rx="2.5"/><path d="M9.5 8h5M9.5 11.5h3M11 18.5h2"/></svg>
+            </div>
+            <div class="t">Дайте задачу с телефона</div>
+            <div class="d">Напишите агенту в чат или Telegram — откуда угодно.</div>
+          </div>
+          <div class="nob__arrow">→</div>
+          <div class="nob__step">
+            <div class="hd"><span class="num">03</span>
+              <svg class="nob__ic" viewBox="0 0 24 24"><path d="M7 6 3 12l4 6M17 6l4 6-4 6"/><path d="M9.5 12.5l2 2 3.5-4.5"/></svg>
+            </div>
+            <div class="t">Агент вернёт результат</div>
+            <div class="d">Прочитает код, поправит, прогонит тесты, закоммитит.</div>
+          </div>
+        </div>
+
+        <div class="nob__dots" id="nob-dots" aria-hidden="true"><i></i><i></i><i></i></div>
+        <p class="nob__reassure">Настройка займёт около минуты. Всё можно поменять потом.</p>
+
+        <div class="nob__ctarow">
+          <button class="nob__cta" id="nob-cta" type="button">
+            Начать
+            <svg class="nob__ic" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+          </button>
+          <span class="nob__skip">Пока пропустить</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- splash -->
+    <div class="nob__splash" id="nob-splash"><div class="nob__conn">CONNECTING<span class="nob__hatch"></span></div></div>
+  </div>
+
+  <!-- status bar -->
+  <div class="nob__status"><span class="s">Локальный сервер... ⌄</span><span class="s"><b style="color:var(--green);font-weight:500">+</b> Бэкенд готов</span><span class="s"><b style="color:var(--ink)">NomadNet</b> Подключить тариф</span><span class="s"><span class="dot"></span> Аккаунты: 8 · активен #1</span><span class="s"><span class="dot" style="background:var(--faint);animation:none"></span> Рой: 0</span><span class="r"><span class="nob__ver">клиент v0.21.7</span><span class="nob__ver">бэкенд v0.21.7</span></span></div>
+</div>
+
+<script>
+(function(){
+  var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var splash = document.getElementById('nob-splash');
+  var steps = [].slice.call(document.querySelectorAll('.nob__step'));
+  var arrows = [].slice.call(document.querySelectorAll('.nob__arrow'));
+  var dots = [].slice.call(document.querySelectorAll('#nob-dots i'));
+  var cta = document.getElementById('nob-cta');
+
+  if(reduce){
+    splash.classList.add('gone');
+    steps.forEach(function(s){ s.classList.add('in'); });
+    return;
+  }
+
+  // splash -> reveal steps one by one -> walking highlight 1→2→3 -> CTA pulse -> loop
+  setTimeout(function(){ splash.classList.add('gone'); reveal(); }, 80);
+
+  function reveal(){
+    steps.forEach(function(s,i){ setTimeout(function(){ s.classList.add('in'); }, 220 + i*280); });
+    setTimeout(walk, 220 + steps.length*280 + 500);
+  }
+
+  function clearAll(){
+    steps.forEach(function(s){ s.classList.remove('on'); });
+    arrows.forEach(function(a){ a.classList.remove('on'); });
+    dots.forEach(function(d){ d.classList.remove('on'); });
+  }
+
+  function walk(){
+    var i = 0;
+    (function next(){
+      clearAll();
+      if(i < steps.length){
+        steps[i].classList.add('on');
+        dots[i].classList.add('on');
+        if(i > 0){ arrows[i-1].classList.add('on'); }
+        i++;
+        setTimeout(next, 1500);
+      } else {
+        cta.classList.add('pulse');
+        setTimeout(function(){
+          cta.classList.remove('pulse');
+          setTimeout(walk, 700);
+        }, 2100);
+      }
+    })();
+  }
+})();
+</script>
+</body>
+</html>

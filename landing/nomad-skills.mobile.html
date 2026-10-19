@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad — навыки и инструменты (mockup)</title>
+<style>
+@font-face{font-family:'Collapse';font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2');}
+.nskm,.nskm *,.nskm *::before,.nskm *::after{box-sizing:border-box;}
+.nskm{
+  --cream:#FFFFFF; --cream-2:#F4F4F5; --card:#FFFFFF; --line:#E4E4E7; --line-2:#D4D4D8;
+  --ink:#111111; --muted:#52525B; --faint:#71717A; --terra:#111111;
+  --blue-1:#111111; --blue-2:#111111; --green:#059669;
+  --mono:ui-monospace,"JetBrains Mono","SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  font-family:var(--sans); color:var(--ink); display:inline-block;
+}
+.nskm__device{ width:300px; border-radius:44px; padding:12px; background:linear-gradient(160deg,#2b2620,#0e0c09);
+  box-shadow:0 40px 90px -30px rgba(50,35,15,.6), 0 8px 30px -12px rgba(0,0,0,.4); }
+.nskm__screen{ position:relative; border-radius:33px; overflow:hidden; background:var(--cream); height:632px; display:flex; flex-direction:column; }
+.nskm__island{ position:absolute; top:10px; left:50%; transform:translateX(-50%); width:88px; height:22px; background:#000; border-radius:13px; z-index:6; }
+.nskm__ic{ display:block; stroke:currentColor; fill:none; stroke-width:1.7; }
+
+.nskm__status{ display:flex; justify-content:space-between; align-items:center; padding:9px 20px 3px; font:11px var(--mono); color:var(--muted); }
+.nskm__head{ display:flex; align-items:center; gap:10px; padding:8px 16px 10px; border-bottom:1px solid var(--line); }
+.nskm__head .mk{ width:24px; height:24px; }
+.nskm__head .nm{ font-family:'Collapse',Georgia,serif; font-size:19px; background:linear-gradient(96deg,var(--blue-1),var(--blue-2)); -webkit-background-clip:text; background-clip:text; color:transparent; letter-spacing:.02em; }
+.nskm__head .r{ margin-left:auto; display:flex; gap:14px; color:var(--muted); }
+.nskm__head .r .nskm__ic{ width:19px; height:19px; }
+
+.nskm__title{ padding:11px 16px 2px; }
+.nskm__title .h{ font-size:15px; font-weight:600; }
+.nskm__title .s{ font-size:11.5px; color:var(--muted); margin-top:1px; }
+
+.nskm__tabs{ display:flex; gap:18px; padding:9px 16px 0; border-bottom:1px solid var(--line); }
+.nskm__tab{ position:relative; padding:5px 0 9px; font-size:13px; color:var(--muted); }
+.nskm__tab.on{ color:var(--ink); font-weight:500; }
+.nskm__tab.on::after{ content:""; position:absolute; left:0; right:0; bottom:-1px; height:2px; background:var(--terra); border-radius:2px; }
+
+.nskm__search{ display:flex; align-items:center; gap:8px; margin:11px 16px 2px; height:34px; padding:0 11px; background:var(--card); border:1px solid var(--line-2); border-radius:10px; }
+.nskm__search .nskm__ic{ width:14px; height:14px; color:var(--faint); }
+.nskm__search .ph{ font-size:12.5px; color:var(--faint); }
+
+.nskm__cats{ display:flex; gap:13px; padding:9px 16px 2px; overflow:hidden; }
+.nskm__cat{ font-size:12px; color:var(--muted); white-space:nowrap; }
+.nskm__cat.on{ color:var(--ink); font-weight:500; }
+.nskm__cat .c{ color:var(--faint); margin-left:3px; }
+
+.nskm__body{ flex:1; overflow:hidden; padding:6px 16px 8px; }
+.nskm__pane{ display:none; }
+.nskm__pane.show{ display:block; }
+.nskm__ghead{ font-size:10px; font-weight:600; text-transform:uppercase; letter-spacing:.11em; color:var(--muted); padding:8px 0 2px; }
+.nskm__row{ display:flex; align-items:center; gap:10px; padding:9px 0; border-bottom:1px solid var(--line); }
+.nskm__row:last-child{ border-bottom:0; }
+.nskm__rt{ flex:1; min-width:0; }
+.nskm__nm{ font-size:13px; font-weight:500; }
+.nskm__ds{ font-size:11px; color:var(--muted); margin-top:2px; line-height:1.35; }
+.nskm__sw{ width:34px;height:20px;border-radius:999px;background:var(--line-2);position:relative;transition:background .25s; flex:0 0 auto; }
+.nskm__sw::after{ content:"";position:absolute;top:2px;left:2px;width:16px;height:16px;border-radius:50%;background:#fff;transition:transform .25s; box-shadow:0 1px 2px rgba(0,0,0,.22);}
+.nskm__sw.on{ background:var(--terra); }
+.nskm__sw.on::after{ transform:translateX(14px); }
+
+.nskm__count{ font-size:11px; color:var(--muted); padding:6px 0 2px; }
+.nskm__thd{ display:flex; align-items:center; gap:8px; }
+.nskm__tlabel{ font-size:13px; font-weight:500; flex:1; min-width:0; }
+.nskm__pill{ font:9.5px var(--mono); padding:2px 7px; border-radius:999px; white-space:nowrap; }
+.nskm__pill.ok{ background:var(--cream-2); color:#52525B; border:1px solid var(--line-2); }
+.nskm__pill.no{ background:#F4F4F5; color:var(--terra); border:1px solid #D4D4D8; }
+.nskm__tds{ font-size:11px; color:var(--muted); margin-top:5px; line-height:1.4; }
+.nskm__chips{ display:flex; flex-wrap:wrap; gap:5px; margin-top:6px; }
+.nskm__chip{ font:10px var(--mono); color:#52525B; background:var(--cream-2); border-radius:5px; padding:2px 6px; }
+
+.nskm__foot{ display:flex; align-items:center; justify-content:center; gap:7px; padding:7px 0 9px; font:10.5px var(--mono); color:var(--muted); border-top:1px solid var(--line); }
+.nskm__foot .dot{ width:6px;height:6px;border-radius:50%;background:var(--green); animation:nskm-pulse 2.4s infinite; box-shadow:0 0 0 0 rgba(57,176,106,.5); }
+@keyframes nskm-pulse{70%{box-shadow:0 0 0 6px rgba(57,176,106,0)}100%{box-shadow:0 0 0 0 rgba(57,176,106,0)}}
+
+.nskm__toast{ position:absolute; left:14px; right:14px; bottom:44px; z-index:8; background:var(--card); border:1px solid var(--line-2); border-left:3px solid var(--green); border-radius:10px; padding:9px 12px; box-shadow:0 16px 40px -16px rgba(60,40,20,.45); opacity:0; transform:translateY(8px); transition:opacity .35s, transform .35s; pointer-events:none; }
+.nskm__toast.show{ opacity:1; transform:none; }
+.nskm__toast .tt{ font-size:12px; font-weight:600; display:flex; align-items:center; gap:6px; }
+.nskm__toast .tt svg{ width:13px;height:13px; color:var(--green); }
+.nskm__toast .tm{ font-size:11px; color:var(--muted); margin-top:2px; }
+
+.nskm__splash{ position:absolute; inset:0; z-index:10; background:var(--cream); display:grid; place-items:center; transition:opacity .6s; }
+.nskm__splash.gone{ opacity:0; pointer-events:none; }
+.nskm__conn{ font:12px var(--mono); letter-spacing:.3em; color:var(--terra); display:flex; align-items:center; gap:10px; }
+.nskm__hatch{ width:12px;height:12px; background:repeating-linear-gradient(45deg,var(--terra) 0 2px,transparent 2px 4px); animation:nskm-blink 1s steps(1) infinite; }
+@keyframes nskm-blink{50%{opacity:0}}
+@media (prefers-reduced-motion:reduce){ .nskm__hatch,.nskm__foot .dot{ animation:none; } }
+</style>
+<style>html,body{background:transparent!important;margin:0!important;padding:0!important}body{display:flex;justify-content:center;align-items:flex-start}</style>
+<style>.nob__device{box-shadow:none!important}</style><script id="hc-i18n">
+/* Языки демо (v0.21.7). Русский — исходный текст страницы; en/es/pt/fr/ar — словарь
+   ниже (русская фраза -> перевод). */
+(function(){
+  var LANGS={en:0,es:1,pt:2,fr:3,ar:4};
+  var TR={"Сред":["Med", "Med", "Méd", "Moy", "متوسط"],"⚖ Совет моделей":["⚖ Model Council", "⚖ Consejo de modelos", "⚖ Conselho de modelos", "⚖ Conseil des modèles", "⚖ مجلس النماذج"],"• Готов":["• Ready", "• Listo", "• Pronto", "• Prêt", "• جاهز"],"Готов":["Ready", "Listo", "Pronto", "Prêt", "جاهز"],"Запланированные задачи":["Scheduled tasks", "Tareas programadas", "Tarefas agendadas", "Tâches planifiées", "المهام المجدولة"],"Навыки Nomad":["Nomad Skills", "Skills de Nomad", "Skills do Nomad", "Skills Nomad", "مهارات Nomad"],"Установлена актуальная версия v0.21.7 ✓":["Up to date v0.21.7 ✓", "Versión actual v0.21.7 ✓", "Versão atual v0.21.7 ✓", "Version à jour v0.21.7 ✓", "الإصدار المحدّث v0.21.7 ✓"],"Каталог актуальных моделей (39 моделей · 10 провайдеров)":["Active Model Catalog (39 models · 10 providers)", "Catálogo de modelos (39 modelos · 10 proveedores)", "Catálogo de modelos (39 modelos · 10 provedores)", "Catalogue de modèles (39 modèles · 10 fournisseurs)", "كتالوج النماذج الحديثة (39 نموذجاً · 10 مزودين)"],"Краткое описание специализации и стоимость ($вх / $вых за 1М токенов) прямо в селекторе.":["Brief specialization summary and token pricing ($in / $out per 1M tokens) right inside the selector.", "Descripción breve y precio por 1M de tokens ($ent / $sal) directamente en el selector.", "Resumo da especialização e preço ($ent / $saí por 1M tokens) direto no seletor.", "Résumé de spécialisation et tarif ($ent / $sor par 1M tokens) directement dans le sélecteur.", "وصف مختصر للتخصص والتكلفة لكل مليون رمز مباشرة داخل القائمة."],"Безопасность, Харнес и Автообновление":["Security, Harness & Auto-Update", "Seguridad, Harness y Auto-actualización", "Segurança, Harness e Atualização automática", "Sécurité, Harness et Mise à jour auto", "الأمان والحماية والتحديث التلقائي"],"Советник":["Advisor", "Asesor", "Consultor", "Conseiller", "المستشار"],"• Советник":["• Advisor", "• Asesor", "• Consultor", "• Conseiller", "• المستشار"],"⚖ Совет моделей":["# Model Council", "# Consejo de modelos", "# Conselho de modelos", "# Conseil des modèles", "# مجلس النماذج"],"Совет моделей":["Model Council", "Consejo de modelos", "Conselho de modelos", "Conseil des modèles", "مجلس النماذج"],"Локальный сервер...":["Local server...", "Servidor local...", "Servidor local...", "Serveur local...", "خادم محلي..."],"Локальный сервер... ⌄":["Local server... ⌄", "Servidor local... ⌄", "Servidor local... ⌄", "Serveur local... ⌄", "خادم محلي... ⌄"],"+ Бэкенд готов":["+ Backend ready", "+ Backend listo", "+ Backend pronto", "+ Backend prêt", "+ الواجهة الخلفية جاهزة"],"Бэкенд готов":["Backend ready", "Backend listo", "Backend pronto", "Backend prêt", "الواجهة الخلفية جاهزة"],"Подключить тариф":["Connect plan", "Conectar plan", "Conectar plano", "Connecter un forfait", "ربط باقة"],"NomadNet Подключить тариф":["NomadNet Connect plan", "NomadNet Conectar plan", "NomadNet Conectar plano", "NomadNet Connecter un forfait", "NomadNet ربط باقة"],"Аккаунты: 8 · активен #1":["Accounts: 8 · active #1", "Cuentas: 8 · activa #1", "Contas: 8 · ativa #1", "Comptes : 8 · actif #1", "الحسابات: 8 · النشط #1"],"• Аккаунты: 8 · активен #1":["• Accounts: 8 · active #1", "• Cuentas: 8 · activa #1", "• Contas: 8 · ativa #1", "• Comptes : 8 · actif #1", "• الحسابات: 8 · النشط #1"],"Рой: 0":["Swarm: 0", "Enjambre: 0", "Enxame: 0", "Essaim : 0", "السرب: 0"],"• Рой: 0":["• Swarm: 0", "• Enjambre: 0", "• Enxame: 0", "• Essaim : 0", "• السرب: 0"],"⚡ Умный":["⚡ Smart", "⚡ Inteligente", "⚡ Inteligente", "⚡ Intelligent", "⚡ ذكي"],"Умный":["Smart", "Inteligente", "Inteligente", "Intelligent", "ذكي"],"клиент v0.21.7":["client v0.21.7", "cliente v0.21.7", "cliente v0.21.7", "client v0.21.7", "العميل v0.21.7"],"бэкенд v0.21.7":["backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "الخلفية v0.21.7"],"клиент v0.21.7 · бэкенд v0.21.7":["client v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "client v0.21.7 · backend v0.21.7", "العميل v0.21.7 · الخلفية v0.21.7"],
+    "Nomad — навыки и инструменты":["Nomad — skills and tools","Nomad — skills y herramientas","Nomad — skills e ferramentas","Nomad — skills et outils","Nomad — المهارات والأدوات"],
+    "Nomad — навыки и инструменты (mockup)":["Nomad — skills and tools (mockup)","Nomad — skills y herramientas (maqueta)","Nomad — skills e ferramentas (mockup)","Nomad — skills et outils (maquette)","Nomad — المهارات والأدوات (نموذج)"],
+    "Навыки и 11 RU MCP":["Skills & 11 RU MCP","Skills y 11 MCP RU","Skills e 11 MCP RU","Skills et 11 MCP RU","المهارات و11 MCP"],
+    "152-ФЗ · Anti-SSRF":["152-FZ · Anti-SSRF","152-FZ · Anti-SSRF","152-FZ · Anti-SSRF","152-FZ · Anti-SSRF","152-FZ · Anti-SSRF"],
+    "Коннекторы и навыки":["Connectors & Skills","Conectores y Skills","Conectores e Skills","Connecteurs et Skills","الموصّلات والمهارات"],
+    "Наборы (8)":["Toolkits (8)","Kits (8)","Kits (8)","Kits (8)","المجموعات (8)"],
+    "Поиск: 1С, Битрикс24, Диадок, СБИС...":["Search: 1C, Bitrix24, Diadoc, SBIS...","Buscar: 1C, Bitrix24, Diadoc, SBIS...","Buscar: 1C, Bitrix24, Diadoc, SBIS...","Rechercher : 1C, Bitrix24, Diadoc, SBIS...","بحث: 1C، Bitrix24، Diadoc، SBIS..."],
+    "Поиск наборов...":["Search kits...","Buscar kits...","Buscar kits...","Rechercher des kits...","البحث في المجموعات..."],
+    "11 КОРПОРАТИВНЫХ RU MCP-КОННЕКТОРОВ":["11 ENTERPRISE RU MCP CONNECTORS","11 CONECTORES MCP CORPORATIVOS","11 CONECTORES MCP CORPORATIVOS","11 CONNECTEURS MCP D'ENTREPRISE","11 موصّل MCP مؤسسي"],
+    "1С:Предприятие (OData)":["1C:Enterprise (OData)","1C:Enterprise (OData)","1C:Enterprise (OData)","1C:Enterprise (OData)","1C:Enterprise (OData)"],
+    "Проводки, остатки и счета 1С 8.3":["Postings, stock & invoices 1C 8.3","Asientos, saldos y facturas 1C 8.3","Lançamentos, estoque e faturas 1C 8.3","Écritures, stocks et factures 1C 8.3","القيود والمخزون والفواتير 1C 8.3"],
+    "Битрикс24 CRM":["Bitrix24 CRM","Bitrix24 CRM","Bitrix24 CRM","Bitrix24 CRM","Bitrix24 CRM"],
+    "Лиды, сделки, воронки и задачи":["Leads, deals, funnels & tasks","Leads, tratos, embudos y tareas","Leads, negócios, funis e tarefas","Prospects, affaires, tunnels et tâches","العملاء والصفقات والمهام"],
+    "Контур.Диадок (ЭДО)":["Kontur.Diadoc (EDO)","Kontur.Diadoc (EDO)","Kontur.Diadoc (EDO)","Kontur.Diadoc (EDO)","Kontur.Diadoc (EDO)"],
+    "УПД, акты и статусы ЭДО":["UPD, acts & EDO statuses","Actas, facturas y estados EDO","Atas, faturas e status EDO","Actes, factures et statuts EDO","العقود والفواتير وحالات EDO"],
+    "СБИС":["SBIS (Saby)","SBIS (Saby)","SBIS (Saby)","SBIS (Saby)","SBIS (Saby)"],
+    "Отчётность и проверка по ИНН":["Reporting & TIN verification","Informes y verificación por NIF","Relatórios e verificação de CNPJ","Rapports et vérification d'ID","التقارير والتحقق الضريبي"],
+    "Яндекс 360 (Диск/Почта/Трекер)":["Yandex 360 (Disk/Mail/Tracker)","Yandex 360 (Disco/Correo/Tracker)","Yandex 360 (Disco/Email/Tracker)","Yandex 360 (Disque/Mail/Tracker)","Yandex 360 (قرص/بريد/متتبع)"],
+    "Почта, таблицы Диска и Трекер":["Mail, Disk sheets & Tracker","Correo, hojas de Disco y Tracker","E-mail, planilhas e Tracker","Mail, feuilles Disque et Tracker","البريد والجداول والمتتبع"],
+    "НАВЫКИ АВТОМАТИЗАЦИИ (386)":["AUTOMATION SKILLS (386)","SKILLS DE AUTOMATIZACIÓN (386)","SKILLS DE AUTOMAÇÃO (386)","SKILLS D'AUTOMATISATION (386)","مهارات الأتمتة (386)"],
+    "Telegram-дайджест":["Telegram Digest","Resumen de Telegram","Resumo do Telegram","Résumé Telegram","ملخص Telegram"],
+    "Сводка каналов и авто-постинг":["Channel summary & auto-posting","Resumen de canales y autopublicación","Resumo de canais e autopostagem","Résumé de canaux et auto-publication","ملخص القنوات والنشر التلقائي"],
+    "Генерация презентаций и инфографики":["Presentations & Infographics","Presentaciones e infografías","Apresentações e infográficos","Présentations et infographies","العروض التقديمية والإنفوجرافيك"],
+    "Слайды PPTX/PDF и графики":["PPTX/PDF slides & charts","Diapositivas PPTX/PDF y gráficos","Slides PPTX/PDF e gráficos","Slides PPTX/PDF et graphiques","شرائح PPTX/PDF ورسوم بيانية"],
+    "Браузер-агент (Playwright)":["Browser Agent (Playwright)","Agente navegador (Playwright)","Agente navegador (Playwright)","Agent navigateur (Playwright)","وكيل المتصفح (Playwright)"],
+    "Навигация, парсинг и формы":["Navigation, scraping & forms","Navegación, scraping y formularios","Navegação, scraping e formulários","Navigation, scraping et formulaires","التصفح واستخراج البيانات والنماذج"],
+    "Активно коннекторов РФ: 11/11":["Active RU connectors: 11/11","Conectores RU activos: 11/11","Conectores RU ativos: 11/11","Connecteurs RU actifs : 11/11","الموصّلات النشطة: 11/11"],
+    "Шлюз 1С, Диадок и СБИС":["1C, Diadoc & SBIS Gateway","Pasarela 1C, Diadoc y SBIS","Gateway 1C, Diadoc e SBIS","Passerelle 1C, Diadoc et SBIS","بوابة 1C وDiadoc وSBIS"],
+    "Настроен":["Configured","Configurado","Configurado","Configuré","مُعَدّ"],
+    "Прямой OData/ЭДО коннектор с защитой 152-ФЗ.":["Direct OData/EDO connector with 152-FZ protection.","Conector directo OData/EDO con protección 152-FZ.","Conector direto OData/EDO com proteção 152-FZ.","Connecteur direct OData/EDO avec protection 152-FZ.","موصّل OData/EDO مباشر مع حماية 152-FZ."],
+    "Битрикс24 & Яндекс 360":["Bitrix24 & Yandex 360","Bitrix24 y Yandex 360","Bitrix24 e Yandex 360","Bitrix24 et Yandex 360","Bitrix24 وYandex 360"],
+    "Сделки CRM, Почта, Диск и задачи Трекера.":["CRM deals, Mail, Disk & Tracker tasks.","Tratos CRM, Correo, Disco y tareas de Tracker.","Negócios CRM, E-mail, Disco e tarefas.","Affaires CRM, Mail, Disque et tâches Tracker.","صفقات CRM والبريد والقرص والمهام."],
+    "Браузер и Презентации":["Browser & Presentations","Navegador y Presentaciones","Navegador e Apresentações","Navigateur et Présentations","المتصفح والعروض التقديمية"],
+    "Playwright-агент, PPTX/PDF и инфографика.":["Playwright agent, PPTX/PDF & infographics.","Agente Playwright, PPTX/PDF e infografías.","Agente Playwright, PPTX/PDF e infográficos.","Agent Playwright, PPTX/PDF et infographies.","وكيل Playwright وPPTX/PDF والإنفوجرافيك."],
+    "Коннектор включён":["Connector enabled","Conector activado","Conector ativado","Connecteur activé","تم تفعيل الموصّل"],
+    "Контур.Диадок (ЭДО) подключён к сессиям.":["Kontur.Diadoc (EDO) connected to sessions.","Kontur.Diadoc (EDO) conectado a las sesiones.","Kontur.Diadoc (EDO) conectado às sessões.","Kontur.Diadoc (EDO) connecté aux sessions.","تم ربط Kontur.Diadoc بالجلسات."],
+    "Набор включён":["Kit enabled","Kit activado","Kit ativado","Kit activé","تم تفعيل المجموعة"],
+    "Все 11 RU MCP-коннекторов активны.":["All 11 RU MCP connectors are active.","Los 11 conectores MCP RU están activos.","Todos os 11 conectores MCP RU estão ativos.","Les 11 connecteurs MCP RU sont actifs.","جميع موصّلات MCP الـ 11 نشطة."],
+    "Движок Nomad активен · v0.21.7":["Nomad engine active · v0.21.7","Motor Nomad activo · v0.21.7","Motor Nomad ativo · v0.21.7","Moteur Nomad actif · v0.21.7","محرّك Nomad نشط · v0.21.7"]
+  };
+  var RX=[];
+  var TYPED=[];
+  var ATTRS=['alt','title','aria-label','placeholder'];
+  var cur='ru', idx=-1, ridx=-1, REV={}, mo=null;
+  for(var r=0;r<RX.length;r++) RX[r][0]=new RegExp(RX[r][0]);
+
+  function rev(i){
+    if(REV[i]) return REV[i];
+    var m={}; for(var k in TR) if(TR.hasOwnProperty(k) && !m.hasOwnProperty(TR[k][i])) m[TR[k][i]]=k;
+    return (REV[i]=m);
+  }
+  function line(s,i,back){
+    var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(s), c=m[2], t=null, j;
+    if(!c || i<0) return s;
+    if(back){ var R=rev(i); if(R.hasOwnProperty(c)) t=R[c]; }
+    else if(TR.hasOwnProperty(c)) t=TR[c][i];
+    else {
+      for(j=0;j<RX.length;j++) if(RX[j][0].test(c)){ t=c.replace(RX[j][0],RX[j][1][i]); break; }
+      if(t==null) for(j=0;j<TYPED.length;j++){
+        var K=TYPED[j];
+        if(K.length>c.length && K.indexOf(c)===0 && TR.hasOwnProperty(K)){
+          var F=TR[K][i]; t=F.slice(0,Math.max(1,Math.round(c.length*F.length/K.length))); break;
+        }
+      }
+    }
+    return t==null ? s : m[1]+t+m[3];
+  }
+  function tr(s,i,back){
+    if(i<0 || !s) return s;
+    if(s.indexOf('\n')<0) return line(s,i,back);
+    var ls=s.split('\n'); for(var k=0;k<ls.length;k++) ls[k]=line(ls[k],i,back);
+    return ls.join('\n');
+  }
+  function skip(n){ return !n || n.nodeName==='SCRIPT' || n.nodeName==='STYLE'; }
+  function doText(n){
+    if(skip(n.parentNode)) return;
+    var v=n.nodeValue;
+    if(n.__hcO!==v) n.__hcR=tr(v,ridx,true);
+    var o=tr(n.__hcR,idx,false);
+    n.__hcO=o; if(o!==v) n.nodeValue=o;
+  }
+  function doAttrs(el){
+    for(var a=0;a<ATTRS.length;a++){
+      var k=ATTRS[a]; if(!el.hasAttribute || !el.hasAttribute(k)) continue;
+      var v=el.getAttribute(k), O=el.__hcOA||(el.__hcOA={}), R=el.__hcRA||(el.__hcRA={});
+      if(O[k]!==v) R[k]=tr(v,ridx,true);
+      var o=tr(R[k],idx,false); O[k]=o; if(o!==v) el.setAttribute(k,o);
+    }
+  }
+  function walk(n){
+    if(n.nodeType===3){ doText(n); return; }
+    if(n.nodeType!==1 || skip(n)) return;
+    doAttrs(n);
+    for(var c=n.firstChild;c;c=c.nextSibling) walk(c);
+  }
+  function take(rs){
+    for(var i=0;i<rs.length;i++){
+      var r=rs[i];
+      if(r.type==='characterData'){ if(r.target.nodeType===3) doText(r.target); }
+      else if(r.type==='attributes') doAttrs(r.target);
+      else for(var j=0;j<r.addedNodes.length;j++) walk(r.addedNodes[j]);
+    }
+  }
+  function kids(){
+    var fs=document.getElementsByTagName('iframe');
+    for(var i=0;i<fs.length;i++){ try{ fs[i].contentWindow.postMessage({hcLang:cur},'*'); }catch(e){} }
+  }
+  function setLang(l){
+    if(l!=='ru' && !LANGS.hasOwnProperty(l)) return;
+    if(l===cur) return;
+    if(mo) take(mo.takeRecords());
+    ridx=idx; cur=l; idx=(l==='ru')?-1:LANGS[l];
+    walk(document.documentElement);
+    ridx=idx;
+    document.documentElement.setAttribute('lang',l);
+    var bd=document.getElementById('hc-i18n-bidi');
+    if(l==='ar' && !bd){ bd=document.createElement('style'); bd.id='hc-i18n-bidi';
+      bd.textContent='body,body *{unicode-bidi:plaintext}'; (document.head||document.documentElement).appendChild(bd); }
+    else if(l!=='ar' && bd) bd.parentNode.removeChild(bd);
+    if(!mo && window.MutationObserver){
+      mo=new MutationObserver(take);
+      mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+    }
+    kids();
+  }
+  window.__hcLangQ=function(){ return cur==='ru' ? '' : '&lang='+cur; };
+  window.addEventListener('message',function(e){
+    var d=e.data; if(!d || typeof d!=='object') return;
+    if(d.hcLangReq===1 && e.source && e.source!==window.parent){ try{ e.source.postMessage({hcLang:cur},'*'); }catch(x){} return; }
+    if(typeof d.hcLang==='string' && e.source===window.parent) setLang(d.hcLang);
+  });
+  var q=/[?&#]lang=([a-z]{2})\b/.exec(location.search+location.hash);
+  if(q) setLang(q[1]);
+  if(window.parent!==window){ try{ window.parent.postMessage({hcLangReq:1},'*'); }catch(e){} }
+})();
+</script>
+
+<style>[class*='__splash']{display:none!important;opacity:0!important;pointer-events:none!important}</style>
+</head>
+<body style="margin:0;background:#F4F4F5;padding:22px;display:flex;justify-content:center;">
+<div class="nskm" id="nskm" aria-label="Nomad — навыки и инструменты">
+  <div class="nskm__device"><div class="nskm__screen">
+    <div class="nskm__island"></div>
+    <div class="nskm__status"><span>9:41</span><span>Nomad ● 5G</span></div>
+    <div class="nskm__head">
+      <svg class="nskm__ic mk" viewBox="0 0 24 24" style="stroke:none"><rect x="2" y="2" width="20" height="20" rx="5" fill="#111111"/><path d="M7 17V7l6.5 8V7M13.5 17h4" stroke="#ffffff" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M17.5 6l.6 1.5L19.6 8l-1.5.6-.6 1.5-.6-1.5L15.4 8l1.5-.5z" fill="#ffffff"/></svg>
+      <span class="nm">Nomad</span>
+      <span class="r">
+        <svg class="nskm__ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/></svg>
+        <svg class="nskm__ic" viewBox="0 0 24 24"><path d="M12 3l1.4 3.6L17 8l-3.6 1.4L12 13l-1.4-3.6L7 8l3.6-1.4z"/></svg>
+      </span>
+    </div>
+
+    <div class="nskm__title"><div class="h">Навыки и инструменты</div><div class="s">Включить навыки, наборы и провайдеров</div></div>
+
+    <div class="nskm__tabs">
+      <div class="nskm__tab on" id="nskm-tab-s">Навыки</div>
+      <div class="nskm__tab" id="nskm-tab-t">Наборы инструментов</div>
+    </div>
+
+    <div class="nskm__search"><svg class="nskm__ic" viewBox="0 0 24 24"><circle cx="11" cy="11" r="7"/><line x1="16" y1="16" x2="21" y2="21"/></svg><span class="ph" id="nskm-ph">Поиск навыков...</span></div>
+
+    <div class="nskm__cats nskm__pane show" id="nskm-cats">
+      <div class="nskm__cat on">Все <span class="c">9</span></div>
+      <div class="nskm__cat">Разработка <span class="c">3</span></div>
+      <div class="nskm__cat">Медиа <span class="c">2</span></div>
+      <div class="nskm__cat">Данные <span class="c">2</span></div>
+    </div>
+
+    <div class="nskm__body">
+      <!-- SKILLS PANE -->
+      <div class="nskm__pane show" id="nskm-pane-s">
+        <div class="nskm__ghead">Разработка</div>
+        <div class="nskm__row">
+          <div class="nskm__rt"><div class="nskm__nm">code-review</div><div class="nskm__ds">Ревью изменений: баги, стиль, безопасность.</div></div>
+          <span class="nskm__sw" id="nskm-sw-cr"></span>
+        </div>
+        <div class="nskm__row">
+          <div class="nskm__rt"><div class="nskm__nm">git-workflow</div><div class="nskm__ds">Ветки, merge-конфликты и коммиты.</div></div>
+          <span class="nskm__sw on"></span>
+        </div>
+        <div class="nskm__row">
+          <div class="nskm__rt"><div class="nskm__nm">systematic-debugging</div><div class="nskm__ds">Корневая причина бага в четыре фазы.</div></div>
+          <span class="nskm__sw"></span>
+        </div>
+        <div class="nskm__ghead">Медиа</div>
+        <div class="nskm__row">
+          <div class="nskm__rt"><div class="nskm__nm">image-generation</div><div class="nskm__ds">Промпты для генерации изображений.</div></div>
+          <span class="nskm__sw on"></span>
+        </div>
+        <div class="nskm__row">
+          <div class="nskm__rt"><div class="nskm__nm">video-editor</div><div class="nskm__ds">Локальный монтаж видео через FFmpeg.</div></div>
+          <span class="nskm__sw"></span>
+        </div>
+        <div class="nskm__ghead">Данные</div>
+        <div class="nskm__row">
+          <div class="nskm__rt"><div class="nskm__nm">csv-analysis</div><div class="nskm__ds">Анализ таблиц и статистика по данным.</div></div>
+          <span class="nskm__sw on"></span>
+        </div>
+      </div>
+
+      <!-- TOOLSETS PANE -->
+      <div class="nskm__pane" id="nskm-pane-t">
+        <div class="nskm__count">Включено наборов: 5/9</div>
+        <div class="nskm__row" style="display:block">
+          <div class="nskm__thd"><div class="nskm__tlabel">Веб-поиск</div><span class="nskm__pill ok">Настроен</span><span class="nskm__sw on"></span></div>
+          <div class="nskm__tds">Веб-поиск и извлечение контента.</div>
+          <div class="nskm__chips"><span class="nskm__chip">web_search</span><span class="nskm__chip">web_extract</span></div>
+        </div>
+        <div class="nskm__row" style="display:block">
+          <div class="nskm__thd"><div class="nskm__tlabel">Файлы</div><span class="nskm__pill ok">Настроен</span><span class="nskm__sw on"></span></div>
+          <div class="nskm__tds">Чтение, запись, патч и поиск файлов.</div>
+          <div class="nskm__chips"><span class="nskm__chip">read_file</span><span class="nskm__chip">write_file</span><span class="nskm__chip">patch</span></div>
+        </div>
+        <div class="nskm__row" style="display:block">
+          <div class="nskm__thd"><div class="nskm__tlabel">Браузер</div><span class="nskm__pill ok">Настроен</span><span class="nskm__sw on"></span></div>
+          <div class="nskm__tds">Переход, клик, ввод и прокрутка страниц.</div>
+          <div class="nskm__chips"><span class="nskm__chip">browser_navigate</span><span class="nskm__chip">browser_click</span></div>
+        </div>
+        <div class="nskm__row" style="display:block">
+          <div class="nskm__thd"><div class="nskm__tlabel">Генерация изображений</div><span class="nskm__pill no">Нужны ключи</span><span class="nskm__sw" id="nskm-sw-img"></span></div>
+          <div class="nskm__tds">Генерация изображений по промпту.</div>
+          <div class="nskm__chips"><span class="nskm__chip">image_generate</span></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="nskm__foot"><span class="dot"></span> Движок Nomad готов · v0.21.7</div>
+
+    <div class="nskm__toast" id="nskm-toast">
+      <div class="tt"><svg viewBox="0 0 24 24"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg> <span id="nskm-toast-t">Навык включён</span></div>
+      <div class="tm" id="nskm-toast-m">code-review применяется к новым сессиям.</div>
+    </div>
+
+    <div class="nskm__splash" id="nskm-splash"><div class="nskm__conn">CONNECTING<span class="nskm__hatch"></span></div></div>
+  </div></div>
+</div>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(id){return document.getElementById(id)};
+  var splash=$('nskm-splash');
+  var tabS=$('nskm-tab-s'), tabT=$('nskm-tab-t');
+  var paneS=$('nskm-pane-s'), paneT=$('nskm-pane-t'), cats=$('nskm-cats'), ph=$('nskm-ph');
+  var toast=$('nskm-toast'), toastT=$('nskm-toast-t'), toastM=$('nskm-toast-m');
+
+  function showToast(title,msg){ toastT.textContent=title; toastM.textContent=msg; toast.classList.add('show');
+    setTimeout(function(){ toast.classList.remove('show'); }, reduce?0:2400); }
+  function setTab(t){
+    var s=(t==='s');
+    tabS.classList.toggle('on',s); tabT.classList.toggle('on',!s);
+    paneS.classList.toggle('show',s); paneT.classList.toggle('show',!s);
+    cats.classList.toggle('show',s);
+    ph.textContent = s ? 'Поиск навыков...' : 'Поиск наборов...';
+  }
+
+  if(reduce){ splash.classList.add('gone'); $('nskm-sw-cr').classList.add('on'); return; }
+
+  var loop=function(){
+    var T=0, A=function(t,f){T+=t;setTimeout(f,T);};
+    A(700,function(){ $('nskm-sw-cr').classList.add('on'); showToast('Навык включён','code-review применяется к новым сессиям.'); });
+    A(2800,function(){ setTab('t'); });
+    A(750,function(){ $('nskm-sw-img').classList.add('on'); showToast('Набор включён','Генерация изображений применяется к новым сессиям.'); });
+    A(3000,function(){ setTab('s'); $('nskm-sw-cr').classList.remove('on'); $('nskm-sw-img').classList.remove('on'); });
+    A(1300,function(){ loop(); });
+  };
+  setTimeout(function(){ splash.classList.add('gone'); loop(); }, 80);
+})();
+</script>
+</body>
+</html>

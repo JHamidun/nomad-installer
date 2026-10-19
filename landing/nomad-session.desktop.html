@@ -1,0 +1,305 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Nomad — сессия (mockup)</title>
+<style>
+@font-face{font-family:'Collapse';font-weight:400;font-display:swap;src:url(data:font/woff2;base64,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) format('woff2');}
+.nma,.nma *,.nma *::before,.nma *::after{box-sizing:border-box;}
+.nma{
+  --cream:#FFFFFF; --cream-2:#F4F4F5; --card:#FFFFFF; --line:#E4E4E7; --line-2:#D4D4D8;
+  --ink:#111111; --muted:#52525B; --faint:#71717A; --terra:#111111;
+  --blue-1:#111111; --blue-2:#111111; --green:#059669; --rose:#DC2626;
+  --mono:ui-monospace,"JetBrains Mono","SF Mono","Cascadia Mono",Menlo,Consolas,monospace;
+  --sans:system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  position:relative; margin:0; font-family:var(--sans); color:var(--ink); background:var(--cream);
+  border-radius:12px; overflow:hidden; box-shadow:0 30px 80px -30px rgba(60,40,20,.35); width:1196px;height:862px;display:flex;flex-direction:column;
+}
+.nma__bar{ display:flex; align-items:center; gap:14px; height:44px; padding:0 14px; background:var(--cream); border-bottom:1px solid var(--line); }
+.nma__ic{ width:18px; height:18px; display:block; stroke:currentColor; fill:none; stroke-width:1.7; }
+.nma__bar .t{ font-family:'Collapse',Georgia,serif; font-size:16px; background:linear-gradient(96deg,var(--blue-1),var(--blue-2)); -webkit-background-clip:text; background-clip:text; color:transparent; }
+.nma__bar .crumb{ color:var(--muted); font-size:13px; }
+.nma__bar .r{ margin-left:auto; display:flex; gap:14px; color:var(--faint); }
+
+.nma__body{ display:grid; grid-template-columns:250px 1fr; flex:1;min-height:0; }
+/* left sessions */
+.nma__side{ background:#F8F8F7; border-right:1px solid var(--line); display:flex; flex-direction:column; padding:12px 10px; }
+.nma__new{ display:flex; align-items:center; gap:9px; padding:9px 11px; border:1px solid var(--line-2); border-radius:10px; background:var(--card); font-size:13.5px; font-weight:500; }
+.nma__new .kbd{ margin-left:auto; font:11px var(--mono); color:var(--muted); border:1px solid var(--line-2); border-radius:5px; padding:1px 6px; }
+.nma__label{ font:11px var(--mono); letter-spacing:.13em; color:var(--terra); padding:14px 6px 6px; }
+.nma__sess a{ display:flex; align-items:center; gap:9px; padding:6px 9px; border-radius:8px; font-size:13px; color:#3F3F46; text-decoration:none; white-space:nowrap; overflow:hidden; text-overflow:ellipsis; }
+.nma__sess a::before{ content:""; width:5px;height:5px;border-radius:50%;background:var(--faint); flex:0 0 auto; }
+.nma__sess a.on{ background:var(--cream-2); color:var(--ink); font-weight:500; }
+.nma__sess a.on::before{ background:var(--terra); }
+
+/* chat column */
+.nma__chatwrap{ display:grid; grid-template-rows:1fr auto; min-width:0; background:var(--cream); }
+.nma__chat{ overflow:hidden; padding:26px 30px 8px; display:flex; flex-direction:column; gap:16px; }
+.nma__u{ align-self:flex-end; max-width:70%; background:#F4F4F5; border:1px solid #E4E4E7; color:#111111; padding:10px 14px; border-radius:14px 14px 4px 14px; font-size:14px; line-height:1.45; }
+.nma__a{ display:flex; gap:12px; max-width:88%; }
+.nma__av{ width:28px;height:28px;border-radius:8px;flex:0 0 auto; display:grid; place-items:center; background:#111111; border:1px solid #111111; color:#FFFFFF; }
+.nma__av svg{ width:18px; height:18px; }
+.nma__aname{ font:11px var(--mono); letter-spacing:.06em; color:var(--terra); margin:0 0 6px; }
+.nma__abody{ min-width:0; font-size:14px; line-height:1.55; }
+.nma__think{ color:var(--muted); }
+.nma__cursor{ display:inline-block; width:7px;height:15px; background:var(--terra); vertical-align:-2px; margin-left:2px; animation:nma-blink 1s steps(1) infinite; }
+@keyframes nma-blink{50%{opacity:0}}
+
+.nma__tools{ display:flex; flex-direction:column; gap:7px; margin:12px 0 4px; }
+.nma__tool{ display:flex; align-items:center; gap:10px; padding:8px 12px; border-radius:9px; background:var(--card); border:1px solid var(--line);
+  font:12px var(--mono); opacity:0; transform:translateY(6px); transition:.4s; }
+.nma__tool.show{ opacity:1; transform:none; }
+.nma__tool .k{ color:var(--terra); } .nma__tool .p{ color:var(--ink); } .nma__tool .st{ margin-left:auto; color:var(--faint); }
+.nma__tool .plus{ color:var(--green); } .nma__tool .minus{ color:var(--rose); }
+.nma__spin{ width:13px;height:13px;border-radius:50%;border:2px solid var(--line-2); border-top-color:var(--terra); animation:nma-spin .7s linear infinite; flex:0 0 auto; }
+.nma__ok{ width:15px;height:15px;color:var(--green); flex:0 0 auto; }
+@keyframes nma-spin{to{transform:rotate(360deg)}}
+
+.nma__term{ margin:8px 0 2px; border-radius:10px; overflow:hidden; border:1px solid var(--line); background:#1e1b16; }
+.nma__term-hd{ font:10.5px var(--mono); letter-spacing:.1em; text-transform:uppercase; color:#b7ad9a; padding:7px 12px; border-bottom:1px solid #34302820; background:#26221c; display:flex; gap:8px; align-items:center; }
+.nma__term-hd .d{ width:6px;height:6px;border-radius:50%;background:#e0a94a; }
+.nma__term-b{ font:12px var(--mono); line-height:1.5; white-space:pre; color:#e7e2d6; padding:10px 12px; min-height:70px; }
+.nma__term-b .ok{ color:#7fd6a0; } .nma__term-b .dim{ color:#8a8272; } .nma__term-b .warn{ color:#e0a94a; }
+.nma__final{ opacity:0; transition:.4s; margin-top:6px; }
+.nma__final.show{ opacity:1; }
+.nma__final .btns{ display:flex; gap:8px; margin-top:10px; }
+.nma__final .btn{ font-size:12.5px; padding:6px 12px; border-radius:8px; border:1px solid var(--line-2); background:var(--card); }
+.nma__final .btn.p{ background:var(--ink); color:var(--cream); border-color:var(--ink); }
+
+.nma__composer{ margin:8px 30px 20px; border:1.5px solid var(--line-2); border-radius:16px; background:var(--card); padding:12px 16px 9px; }
+.nma__ci{ font-size:14px; color:var(--faint); }
+.nma__crow{ display:flex; align-items:center; gap:12px; margin-top:10px; color:var(--muted); }
+.nma__chip{ font:12px var(--mono); color:#52525B; display:flex; align-items:center; gap:6px; }
+.nma__chip .nma__ic{ width:14px;height:14px; color:var(--terra); }
+.nma__send{ margin-left:auto; width:32px;height:32px;border-radius:50%;background:var(--ink);color:var(--cream); display:grid;place-items:center; }
+.nma__send svg{ width:15px;height:15px; stroke:currentColor; fill:none; stroke-width:2; }
+
+.nma__status{ display:flex; align-items:center; gap:18px; height:30px; padding:0 16px; background:var(--cream); border-top:1px solid var(--line); font-size:12px; color:var(--muted); }
+.nma__status .dot{ width:6px;height:6px;border-radius:50%;background:var(--green); }
+.nma__status .r{ margin-left:auto; font:11px var(--mono); color:var(--faint); }
+@media (prefers-reduced-motion:reduce){ .nma__cursor,.nma__spin{animation:none} }
+</style>
+<style>html,body{background:transparent!important;margin:0!important;padding:0!important}</style>
+<script id="hc-i18n">
+(function(){
+  var LANGS={en:0,es:1,pt:2,fr:3,ar:4};
+  var TR={"Сред":["Med", "Med", "Méd", "Moy", "متوسط"],"⚖ Совет моделей":["⚖ Model Council", "⚖ Consejo de modelos", "⚖ Conselho de modelos", "⚖ Conseil des modèles", "⚖ مجلس النماذج"],"• Готов":["• Ready", "• Listo", "• Pronto", "• Prêt", "• جاهز"],"Готов":["Ready", "Listo", "Pronto", "Prêt", "جاهز"],"Запланированные задачи":["Scheduled tasks", "Tareas programadas", "Tarefas agendadas", "Tâches planifiées", "المهام المجدولة"],"Навыки Nomad":["Nomad Skills", "Skills de Nomad", "Skills do Nomad", "Skills Nomad", "مهارات Nomad"],"Установлена актуальная версия v0.21.7 ✓":["Up to date v0.21.7 ✓", "Versión actual v0.21.7 ✓", "Versão atual v0.21.7 ✓", "Version à jour v0.21.7 ✓", "الإصدار المحدّث v0.21.7 ✓"],"Каталог актуальных моделей (39 моделей · 10 провайдеров)":["Active Model Catalog (39 models · 10 providers)", "Catálogo de modelos (39 modelos · 10 proveedores)", "Catálogo de modelos (39 modelos · 10 provedores)", "Catalogue de modèles (39 modèles · 10 fournisseurs)", "كتالوج النماذج الحديثة (39 نموذجاً · 10 مزودين)"],"Краткое описание специализации и стоимость ($вх / $вых за 1М токенов) прямо в селекторе.":["Brief specialization summary and token pricing ($in / $out per 1M tokens) right inside the selector.", "Descripción breve y precio por 1M de tokens ($ent / $sal) directamente en el selector.", "Resumo da especialização e preço ($ent / $saí por 1M tokens) direto no seletor.", "Résumé de spécialisation et tarif ($ent / $sor par 1M tokens) directement dans le sélecteur.", "وصف مختصر للتخصص والتكلفة لكل مليون رمز مباشرة داخل القائمة."],"Безопасность, Харнес и Автообновление":["Security, Harness & Auto-Update", "Seguridad, Harness y Auto-actualización", "Segurança, Harness e Atualização automática", "Sécurité, Harness et Mise à jour auto", "الأمان والحماية والتحديث التلقائي"],"Советник":["Advisor", "Asesor", "Consultor", "Conseiller", "المستشار"],"• Советник":["• Advisor", "• Asesor", "• Consultor", "• Conseiller", "• المستشار"],"⚖ Совет моделей":["# Model Council", "# Consejo de modelos", "# Conselho de modelos", "# Conseil des modèles", "# مجلس النماذج"],"Совет моделей":["Model Council", "Consejo de modelos", "Conselho de modelos", "Conseil des modèles", "مجلس النماذج"],"Локальный сервер...":["Local server...", "Servidor local...", "Servidor local...", "Serveur local...", "خادم محلي..."],"Локальный сервер... ⌄":["Local server... ⌄", "Servidor local... ⌄", "Servidor local... ⌄", "Serveur local... ⌄", "خادم محلي... ⌄"],"+ Бэкенд готов":["+ Backend ready", "+ Backend listo", "+ Backend pronto", "+ Backend prêt", "+ الواجهة الخلفية جاهزة"],"Бэкенд готов":["Backend ready", "Backend listo", "Backend pronto", "Backend prêt", "الواجهة الخلفية جاهزة"],"Подключить тариф":["Connect plan", "Conectar plan", "Conectar plano", "Connecter un forfait", "ربط باقة"],"NomadNet Подключить тариф":["NomadNet Connect plan", "NomadNet Conectar plan", "NomadNet Conectar plano", "NomadNet Connecter un forfait", "NomadNet ربط باقة"],"Аккаунты: 8 · активен #1":["Accounts: 8 · active #1", "Cuentas: 8 · activa #1", "Contas: 8 · ativa #1", "Comptes : 8 · actif #1", "الحسابات: 8 · النشط #1"],"• Аккаунты: 8 · активен #1":["• Accounts: 8 · active #1", "• Cuentas: 8 · activa #1", "• Contas: 8 · ativa #1", "• Comptes : 8 · actif #1", "• الحسابات: 8 · النشط #1"],"Рой: 0":["Swarm: 0", "Enjambre: 0", "Enxame: 0", "Essaim : 0", "السرب: 0"],"• Рой: 0":["• Swarm: 0", "• Enjambre: 0", "• Enxame: 0", "• Essaim : 0", "• السرب: 0"],"⚡ Умный":["⚡ Smart", "⚡ Inteligente", "⚡ Inteligente", "⚡ Intelligent", "⚡ ذكي"],"Умный":["Smart", "Inteligente", "Inteligente", "Intelligent", "ذكي"],"клиент v0.21.7":["client v0.21.7", "cliente v0.21.7", "cliente v0.21.7", "client v0.21.7", "العميل v0.21.7"],"бэкенд v0.21.7":["backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "backend v0.21.7", "الخلفية v0.21.7"],"клиент v0.21.7 · бэкенд v0.21.7":["client v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "cliente v0.21.7 · backend v0.21.7", "client v0.21.7 · backend v0.21.7", "العميل v0.21.7 · الخلفية v0.21.7"],
+    "Nomad — сессия (mockup)":["Nomad — session (mockup)","Nomad — sesión (maqueta)","Nomad — sessão (mockup)","Nomad — session (maquette)","Nomad — جلسة (نموذج)"],
+    "/ Починить /checkout и проверить ПДн":["/ Fix /checkout & verify PII","/ Arreglar /checkout y verificar PII","/ Corrigir /checkout e validar PII","/ Réparer /checkout et vérifier PII","/ إصلاح /checkout وفحص البيانات"],
+    "🛡️ 152-ФЗ: скрыто 2 ПДн (ИНН, телефон)":["🛡️ 152-FZ: 2 PII masked (Tax ID, phone)","🛡️ 152-FZ: 2 datos ocultos (NIF, teléfono)","🛡️ 152-FZ: 2 dados ocultos (CPF/CNPJ, telefone)","🛡️ 152-FZ : 2 données masquées (NIF, téléphone)","🛡️ 152-ФЗ: تم إخفاء بيانين (الرقم الضريبي، الهاتف)"],
+    "Новая сессия":["New session","Nueva sesión","Nova sessão","Nouvelle session","جلسة جديدة"],
+    "СЕССИИ":["SESSIONS","SESIONES","SESSÕES","SESSIONS","الجلسات"],
+    "Починить /checkout":["Fix /checkout","Arreglar /checkout","Corrigir /checkout","Réparer /checkout","إصلاح /checkout"],
+    "Сверка 1С и финдашборд":["1C reconciliation & dashboard","Conciliación 1C y panel","Conciliação 1C e painel","Rapprochement 1C et tableau","مطابقة 1C واللوحة"],
+    "Отрефакторить оплату":["Refactor payments","Refactorizar los pagos","Refatorar os pagamentos","Refactoriser le paiement","إعادة هيكلة المدفوعات"],
+    "Ревью PR #204":["Review PR #204","Revisión del PR #204","Revisão do PR #204","Revue de la PR #204","مراجعة PR #204"],
+    "Настроить вебхуки Битрикс24":["Set up Bitrix24 webhooks","Configurar webhooks Bitrix24","Configurar webhooks Bitrix24","Configurer webhooks Bitrix24","إعداد webhooks لـ Bitrix24"],
+    "Ника · Бадди":["Nika · Buddy","Nika · Buddy","Nika · Buddy","Nika · Buddy","نيكا · المرافقة"],
+    "онлайн":["online","en línea","online","en ligne","متصلة"],
+    "«Совет из 3 моделей сошёлся во мнении, а фильтр 152-ФЗ замаскировал ИНН и телефон до отправки в облако. Все 14 тестов pytest зелёные!»":["“All 3 Council models agreed, and the 152-FZ filter masked the Tax ID and phone before cloud dispatch. All 14 pytest tests are green!”","«Las 3 modelos del Consejo coincidieron y el filtro 152-FZ ocultó el NIF y teléfono. ¡Los 14 tests de pytest están en verde!»","«Os 3 modelos do Conselho concordaram e o filtro 152-FZ mascarou os dados. Todos os 14 testes pytest passaram!»","« Les 3 modèles du Conseil sont d'accord et le filtre 152-FZ a masqué les données. Les 14 tests pytest sont au vert ! »","«اتفق مجلس النماذج الثلاثة وأخفى مرشح 152-ФЗ الرقم الضريبي والهاتف. جميع اختبارات pytest ה-14 ناجحة!»"],
+    "Проверь падение оплаты в /checkout с Советом моделей, почини баг и прогони pytest.":["Check the /checkout payment crash with Model Council, fix the bug, and run pytest.","Revisa el fallo de pago en /checkout con el Consejo de Modelos, corrígelo y ejecuta pytest.","Verifique a falha em /checkout com o Conselho de Modelos, corrija o bug e rode o pytest.","Vérifie le plantage de /checkout avec le Conseil des modèles, corrige le bug et lance pytest.","افحص تعطّل الدفع في /checkout مع مجلس النماذج، وأصلح الخطأ وشغّل pytest."],
+    "🏛️ Совет моделей (Council of Models)":["🏛️ Council of Models","🏛️ Consejo de Modelos","🏛️ Conselho de Modelos","🏛️ Conseil des modèles","🏛️ مجلس النماذج"],
+    "3 модели · консенсус за 1.8 с":["3 models · consensus in 1.8s","3 modelos · consenso en 1.8s","3 modelos · consenso em 1.8s","3 modèles · consensus en 1.8s","3 نماذج · توافق خلال 1.8 ثانية"],
+    "Пустой cart.total вызывает TypeError: нужен guard и дефолт 0.00.":["Empty cart.total causes TypeError: add guard and 0.00 default.","cart.total vacío causa TypeError: añadir guard y valor 0.00.","cart.total vazio gera TypeError: adicionar guard e padrão 0.00.","cart.total vide cause TypeError : ajouter guard et défaut 0.00.","قيمة cart.total الفارغة تسبب خطأ: يلزم إضافة حماية وقيمة افتراضية 0.00."],
+    "Подтверждаю баг в checkout.py:42 + убрать телефон клиента из лога ошибки.":["Confirmed bug at checkout.py:42 + strip customer phone from error log.","Confirmado bug en checkout.py:42 + quitar teléfono del log.","Bug confirmado em checkout.py:42 + remover telefone do log.","Bug confirmé dans checkout.py:42 + retirer le téléphone du log.","تأكيد الخطأ في checkout.py:42 مع إزالة رقم الهاتف من السجل."],
+    "Проверка 152-ФЗ: маскировать ИНН и телефон в ответе шлюза.":["152-FZ check: mask Tax ID and phone in gateway payload.","Control 152-FZ: ocultar NIF y teléfono en la pasarela.","Verificação 152-FZ: mascarar documento e telefone no gateway.","Contrôle 152-FZ : masquer NIF et téléphone dans la passerelle.","فحص 152-ФЗ: إخفاء الرقم الضريبي والهاتف في استجابة البوابة."],
+    "Вердикт арбитра:":["Arbiter verdict:","Veredicto del árbitro:","Veredito do árbitro:","Verdict de l'arbitre :","حكم المنسّق:"],
+    "добавляем guard пустой корзины, очищаем ПДн в логе и запускаем pytest.":["adding empty-cart guard, scrubbing PII in logs, and running pytest.","añadimos guard de carrito vacío, limpiamos PII en logs y ejecutamos pytest.","adicionamos guard de carrinho vazio, limpamos PII nos logs e rodamos pytest.","ajout du guard panier vide, nettoyage PII des logs et lancement de pytest.","إضافة حماية للسلة الفارغة، وتنظيف البيانات الشخصية في السجل، وتشغيل pytest."],
+    "Применяю патч по вердикту Совета и запускаю тесты":["Applying Council patch and running tests","Aplicando parche del Consejo y ejecutando tests","Aplicando patch do Conselho e rodando testes","Application du patch du Conseil et lancement des tests","أطبّق التعديل وفق حكم المجلس وأشغّل الاختبارات"],
+    "96 строк":["96 lines","96 líneas","96 linhas","96 lignes","96 سطراً"],
+    "выполняю…":["running…","ejecutando…","executando…","en cours…","جارٍ التنفيذ…"],
+    "Готово:":["Done:","Listo:","Pronto:","Terminé :","تم:"],
+    "баг пустой корзины исправлен, ПДн защищены, pytest — 14 passed.":["empty cart bug fixed, PII protected, pytest — 14 passed.","bug de carrito corregido, PII protegidos, pytest — 14 passed.","bug corrigido, PII protegidos, pytest — 14 passed.","bug du panier corrigé, PII protégées, pytest — 14 passed.","تم إصلاح خطأ السلة وحماية البيانات، ونجاح 14 اختباراً في pytest."],
+    "Запушить checkout-fix":["Push checkout-fix","Hacer push de checkout-fix","Fazer push de checkout-fix","Pousser checkout-fix","رفع checkout-fix"],
+    "Откат /rollback":["Rollback /rollback","Revertir /rollback","Reverter /rollback","Annuler /rollback","تراجع /rollback"],
+    "Сообщение агенту или Совету моделей…":["Message the agent or Model Council…","Mensaje al agente o al Consejo…","Mensagem para o agente ou Conselho…","Message à l'agent ou au Conseil…","رسالة إلى الوكيل أو مجلس النماذج…"],
+    "⚡ Умный (NomadNet Auto)":["⚡ Smart (NomadNet Auto)","⚡ Inteligente (NomadNet Auto)","⚡ Inteligente (NomadNet Auto)","⚡ Intelligent (NomadNet Auto)","⚡ ذكي (NomadNet Auto)"],
+    "🏛️ Совет моделей · 3 LLM":["🏛️ Model Council · 3 LLMs","🏛️ Consejo · 3 LLM","🏛️ Conselho · 3 LLMs","🏛️ Conseil · 3 LLM","🏛️ مجلس النماذج · 3 نماذج"],
+    "Движок Nomad активен":["Nomad engine active","Motor de Nomad activo","Motor do Nomad ativo","Moteur Nomad actif","محرّك Nomad نشط"],
+    "Аккаунты: 8 · активен #1":["Accounts: 8 · active #1","Cuentas: 8 · activa #1","Contas: 8 · ativa #1","Comptes : 8 · actif #1","الحسابات: 8 · النشط #1"],
+    "Рой: 0":["Swarm: 0","Enjambre: 0","Enxame: 0","Essaim : 0","السرب: 0"],
+    "# клиент v0.21.7":["# client v0.21.7","# cliente v0.21.7","# cliente v0.21.7","# client v0.21.7","# العميل v0.21.7"]
+  };
+  var RX=[];
+  var TYPED=["Проверь падение оплаты в /checkout с Советом моделей, почини баг и прогони pytest."];
+  var ATTRS=['alt','title','aria-label','placeholder'];
+  var cur='ru', idx=-1, ridx=-1, REV={}, mo=null;
+  for(var r=0;r<RX.length;r++) RX[r][0]=new RegExp(RX[r][0]);
+
+  function rev(i){
+    if(REV[i]) return REV[i];
+    var m={}; for(var k in TR) if(TR.hasOwnProperty(k) && !m.hasOwnProperty(TR[k][i])) m[TR[k][i]]=k;
+    return (REV[i]=m);
+  }
+  function line(s,i,back){
+    var m=/^(\s*)([\s\S]*?)(\s*)$/.exec(s), c=m[2], t=null, j;
+    if(!c || i<0) return s;
+    if(back){ var R=rev(i); if(R.hasOwnProperty(c)) t=R[c]; }
+    else if(TR.hasOwnProperty(c)) t=TR[c][i];
+    else {
+      for(j=0;j<RX.length;j++) if(RX[j][0].test(c)){ t=c.replace(RX[j][0],RX[j][1][i]); break; }
+      if(t==null) for(j=0;j<TYPED.length;j++){
+        var K=TYPED[j];
+        if(K.length>c.length && K.indexOf(c)===0 && TR.hasOwnProperty(K)){
+          var F=TR[K][i]; t=F.slice(0,Math.max(1,Math.round(c.length*F.length/K.length))); break;
+        }
+      }
+    }
+    return t==null ? s : m[1]+t+m[3];
+  }
+  function tr(s,i,back){
+    if(i<0 || !s) return s;
+    if(s.indexOf('\n')<0) return line(s,i,back);
+    var ls=s.split('\n'); for(var k=0;k<ls.length;k++) ls[k]=line(ls[k],i,back);
+    return ls.join('\n');
+  }
+  function skip(n){ return !n || n.nodeName==='SCRIPT' || n.nodeName==='STYLE'; }
+  function doText(n){
+    if(skip(n.parentNode)) return;
+    var v=n.nodeValue;
+    if(n.__hcO!==v) n.__hcR=tr(v,ridx,true);
+    var o=tr(n.__hcR,idx,false);
+    n.__hcO=o; if(o!==v) n.nodeValue=o;
+  }
+  function doAttrs(el){
+    for(var a=0;a<ATTRS.length;a++){
+      var k=ATTRS[a]; if(!el.hasAttribute || !el.hasAttribute(k)) continue;
+      var v=el.getAttribute(k), O=el.__hcOA||(el.__hcOA={}), R=el.__hcRA||(el.__hcRA={});
+      if(O[k]!==v) R[k]=tr(v,ridx,true);
+      var o=tr(R[k],idx,false); O[k]=o; if(o!==v) el.setAttribute(k,o);
+    }
+  }
+  function walk(n){
+    if(n.nodeType===3){ doText(n); return; }
+    if(n.nodeType!==1 || skip(n)) return;
+    doAttrs(n);
+    for(var c=n.firstChild;c;c=c.nextSibling) walk(c);
+  }
+  function take(rs){
+    for(var i=0;i<rs.length;i++){
+      var r=rs[i];
+      if(r.type==='characterData'){ if(r.target.nodeType===3) doText(r.target); }
+      else if(r.type==='attributes') doAttrs(r.target);
+      else for(var j=0;j<r.addedNodes.length;j++) walk(r.addedNodes[j]);
+    }
+  }
+  function kids(){
+    var fs=document.getElementsByTagName('iframe');
+    for(var i=0;i<fs.length;i++){ try{ fs[i].contentWindow.postMessage({hcLang:cur},'*'); }catch(e){} }
+  }
+  function setLang(l){
+    if(l!=='ru' && !LANGS.hasOwnProperty(l)) return;
+    if(l===cur) return;
+    if(mo) take(mo.takeRecords());
+    ridx=idx; cur=l; idx=(l==='ru')?-1:LANGS[l];
+    walk(document.documentElement);
+    ridx=idx;
+    document.documentElement.setAttribute('lang',l);
+    var bd=document.getElementById('hc-i18n-bidi');
+    if(l==='ar' && !bd){ bd=document.createElement('style'); bd.id='hc-i18n-bidi';
+      bd.textContent='body,body *{unicode-bidi:plaintext}'; (document.head||document.documentElement).appendChild(bd); }
+    else if(l!=='ar' && bd) bd.parentNode.removeChild(bd);
+    if(!mo && window.MutationObserver){
+      mo=new MutationObserver(take);
+      mo.observe(document.documentElement,{subtree:true,childList:true,characterData:true,attributes:true,attributeFilter:ATTRS});
+    }
+    kids();
+  }
+  window.__hcLangQ=function(){ return cur==='ru' ? '' : '&lang='+cur; };
+  window.addEventListener('message',function(e){
+    var d=e.data; if(!d || typeof d!=='object') return;
+    if(d.hcLangReq===1 && e.source && e.source!==window.parent){ try{ e.source.postMessage({hcLang:cur},'*'); }catch(x){} return; }
+    if(typeof d.hcLang==='string' && e.source===window.parent) setLang(d.hcLang);
+  });
+  var q=/[?&#]lang=([a-z]{2})\b/.exec(location.search+location.hash);
+  if(q) setLang(q[1]);
+  if(window.parent!==window){ try{ window.parent.postMessage({hcLangReq:1},'*'); }catch(e){} }
+})();
+</script>
+
+<style>[class*='__splash']{display:none!important;opacity:0!important;pointer-events:none!important}</style>
+</head>
+<body style="margin:0;background:#F4F4F5;padding:22px;">
+<div class="nma" id="nma">
+  <div class="nma__bar">
+    <svg class="nma__ic" viewBox="0 0 24 24" style="color:var(--muted)"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="9" y1="4" x2="9" y2="20"/></svg>
+    <span class="t">Nomad</span><span class="crumb">/ Починить /checkout</span>
+    <span class="r">
+      <svg class="nma__ic" viewBox="0 0 24 24"><circle cx="12" cy="12" r="3"/><path d="M12 2v3M12 19v3M2 12h3M19 12h3"/></svg>
+      <svg class="nma__ic" viewBox="0 0 24 24"><rect x="3" y="4" width="18" height="16" rx="2"/><line x1="15" y1="4" x2="15" y2="20"/></svg>
+    </span>
+  </div>
+  <div class="nma__body">
+    <aside class="nma__side">
+      <div class="nma__new">Новая сессия <span class="kbd">Ctrl N</span></div>
+      <div class="nma__label">СЕССИИ</div>
+      <div class="nma__sess">
+        <a class="on">Починить /checkout</a>
+        <a>Отрефакторить оплату</a><a>Добавить тёмную тему</a><a>Оптимизировать бандл</a>
+        <a>Написать документацию API</a><a>Ревью PR #204</a><a>Настроить Stripe webhooks</a>
+      </div>
+    </aside>
+
+    <div class="nma__chatwrap">
+      <div class="nma__chat" id="nma-chat">
+        <div class="nma__u">Найди причину падения /checkout, почини и прогони тесты перед пушем.</div>
+        <div class="nma__a">
+          <div class="nma__av"><svg viewBox="0 0 24 24" style="stroke:none"><path d="M6.5 17.5V6.5l7 8.5V6.5M13.5 17.5h4.2" stroke="#ffffff" stroke-width="2.1" stroke-linecap="round" stroke-linejoin="round" fill="none"/><path d="M18 5.5l.65 1.6L20.3 7.7l-1.65.65-.65 1.65-.65-1.65-1.65-.65 1.65-.6z" fill="#ffffff"/></svg></div>
+          <div class="nma__abody">
+            <p class="nma__aname">NOMAD</p>
+            <div class="nma__think" id="nma-think">Смотрю обработчик <code>/checkout</code> и трейс последнего падения<span class="nma__cursor" id="nma-cur"></span></div>
+            <div class="nma__tools" id="nma-tools">
+              <div class="nma__tool" data-t="1"><span class="nma__spin t-sp"></span><svg class="nma__ok t-ok" viewBox="0 0 24 24" style="display:none"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span class="k">Read</span> <span class="p">src/api/checkout.ts</span><span class="st">128 строк</span></div>
+              <div class="nma__tool" data-t="2"><span class="nma__spin t-sp"></span><svg class="nma__ok t-ok" viewBox="0 0 24 24" style="display:none"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span class="k">Grep</span> <span class="p">total.toFixed(</span><span class="st">3 совпадения</span></div>
+              <div class="nma__tool" data-t="3"><span class="nma__spin t-sp"></span><svg class="nma__ok t-ok" viewBox="0 0 24 24" style="display:none"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span class="k">Edit</span> <span class="p">src/api/checkout.ts</span><span class="st"><span class="plus">+4</span> <span class="minus">−2</span></span></div>
+              <div class="nma__tool" data-t="4"><span class="nma__spin t-sp"></span><svg class="nma__ok t-ok" viewBox="0 0 24 24" style="display:none"><path fill="currentColor" d="M9 16.2 4.8 12l-1.4 1.4L9 19 21 7l-1.4-1.4z"/></svg><span class="k">Run</span> <span class="p">pnpm test checkout</span><span class="st" id="nma-t4">выполняю…</span></div>
+            </div>
+            <div class="nma__term">
+              <div class="nma__term-hd"><span class="d"></span> terminal · pnpm test</div>
+              <div class="nma__term-b" id="nma-term"></div>
+            </div>
+            <div class="nma__final" id="nma-final">
+              <b>Причина:</b> <code>cart.total</code> приходил <code>undefined</code> для пустой корзины — <code>.toFixed()</code> падал. Добавил guard и дефолт <code>0</code>. <b>Все тесты зелёные.</b>
+              <div class="btns"><span class="btn p">Запушить login-fix</span><span class="btn">Показать диф</span></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="nma__composer">
+        <div class="nma__ci">Сообщение агенту…</div>
+        <div class="nma__crow">
+          <span class="nma__chip"><svg class="nma__ic" viewBox="0 0 24 24"><path d="M12 3l1.8 5.2L19 10l-5.2 1.8L12 17l-1.8-5.2L5 10l5.2-1.8z"/></svg> Агент</span>
+          <span class="nma__chip">Nomad Max ⌄</span><span class="nma__chip">GPT-6.1-sol ⌄</span><span class="nma__chip">⚖ Совет моделей</span>
+          <span class="nma__send"><svg viewBox="0 0 24 24"><line x1="12" y1="19" x2="12" y2="5"/><path d="M6 11l6-6 6 6"/></svg></span>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="nma__status"><span class="dot"></span> Движок Nomad готов · агент выполняет задачу<span class="r">клиент v0.21.7 &nbsp; бэкенд v0.21.7</span></div>
+</div>
+<script>
+(function(){
+  var reduce=matchMedia('(prefers-reduced-motion: reduce)').matches;
+  var $=function(s){return document.querySelector(s)};
+  var term=[["dim","$ pnpm test checkout"],["dim","running 12 tests…"],["","✓ empty cart → total = 0.00"],["","✓ applies discount code"],["ok","12 passed"],["warn"," (1.4s)"]];
+  function tool(n,cls){var t=document.querySelector('.nma__tool[data-t="'+n+'"]');t.classList.add('show');if(cls){t.querySelector('.t-sp').style.display='none';t.querySelector('.t-ok').style.display='';}}
+  function run(){
+    // reset
+    document.querySelectorAll('.nma__tool').forEach(function(t){t.classList.remove('show');t.querySelector('.t-sp').style.display='';t.querySelector('.t-ok').style.display='none';});
+    $('#nma-term').innerHTML=''; $('#nma-final').classList.remove('show'); $('#nma-t4').textContent='выполняю…';
+    $('#nma-think').style.display=''; if($('#nma-cur'))$('#nma-cur').style.display='';
+    var T=0, A=function(t,f){setTimeout(f, reduce?0:t)};
+    A(T+=500,function(){tool(1)});
+    A(T+=700,function(){tool(1,1);tool(2)});
+    A(T+=650,function(){tool(2,1);tool(3)});
+    A(T+=700,function(){tool(3,1);tool(4); $('#nma-think').style.display='none';});
+    A(T+=400,function(){ var el=$('#nma-term'),i=0;(function ln(){ if(i<term.length){var s=document.createElement('span');if(term[i][0])s.className=term[i][0];s.textContent=term[i][1]+'\n';el.appendChild(s);i++;setTimeout(ln,reduce?0:240);} })(); });
+    A(T+= reduce?100: term.length*240+300, function(){ tool(4,1); $('#nma-t4').textContent='12 passed'; $('#nma-final').classList.add('show'); });
+    A(T+= reduce?4000: 3200, function(){ if(!reduce) run(); });
+  }
+  run();
+})();
+</script>
+</body>
+</html>
